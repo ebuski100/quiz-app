@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: cursive;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  padding: 1rem;
+}
+.storeBtn:active {
+  background-color: rgb(97, 8, 97);
+}
+
+.heart-text:hover,
+.coin-num:hover {
+  text-decoration: underline;
+}
+
+.game-container {
+  position: relative;
+  border: 6px solid blue;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  box-shadow: 0 4px 0 rgb(13, 13, 151);
+  /* padding: 1rem; */
+  height: 100%;
+  border-radius: 1rem;
+}
+.game-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+}
+
+.quiz-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.quit-btn {
+  background-color: blue;
+  border-top: 5px ridge blue;
+  border-bottom: 5px groove blue;
+  border-right: 5px groove blue;
+  border-left: 5px ridge blue;
+  margin-right: 1rem;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 70px;
+  cursor: pointer;
+}
+
+.header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  height: 30%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+
+  width: 100%;
+}
+
+.coins,
+.heart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #1b082e;
+  color: #fff;
+  border-radius: 1rem;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 1.5rem;
+  padding-right: 10px;
+  width: 200px;
+
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.coin-icon img {
+  height: 20px;
+  width: 20px;
+}
+.heartnum {
+  position: absolute;
+  left: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.star-icon,
+.coin-icon,
+.heart-icon {
+  position: absolute;
+  border: none;
+  background-color: blue;
+  padding: 2px;
+  border-radius: 50%;
+  left: -5px;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coins,
+.heart {
+  padding-right: 1.3rem;
+}
+
+.coins-btn,
+.heart-btn {
+  position: absolute;
+  right: -5px;
+}
+.game-logo {
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.game-logo-img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  animation: bounce 1s linear infinite alternate;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05);
+  }
+  100% {
+    transform: translateY(-4px) scale(1.1);
+  }
+}
+.timer-box {
+  width: 100%;
+
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timer-bar {
+  height: 7px;
+  width: 90%;
+  background: rgb(204, 201, 201);
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+}
+.timer-show {
+  height: 100%;
+  width: 3px;
+  border-radius: 5px;
+  background: blue;
+  animation: slide-through 10s linear;
+}
+@keyframes slide-through {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+.question-box {
+  border: 10px ridge blue;
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  font-size: 20px;
+  border-radius: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  height: 200px;
+  width: 100%;
+  margin-top: 5px;
+  padding: 0.5rem;
+}
+
+.price-tag {
+  font-size: 2rem;
+
+  background-color: orange;
+  border: 3px solid yellow;
+
+  margin-top: 1rem;
+  width: 300px;
+  text-align: center;
+  color: #fff;
+  border-radius: 1rem;
+}
+.options-cont {
+  /* border: 1px solid red; */
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+.option {
+  /* border-top: 5px ridge blue;
+  border-bottom: 5px groove blue;
+  border-right: 5px groove blue;
+  border-left: 5px ridge blue; */
+  box-shadow: 0 3px 0 rgb(4, 4, 82);
+
+  padding: 0.5rem;
+  background-color: blue;
+  color: yellow;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.option:hover {
+  background-color: rgb(51, 51, 252);
+  box-shadow: 0 3px 0 rgb(24, 24, 189);
+}
+.option:active {
+  background: rgb(7, 7, 100);
+  transform: scale(1.05) translateX(2px) translateY(2px);
+}
+.option-text {
+  color: #fff;
+  margin-left: 0.5rem;
+}
+.option-text:hover {
+  text-decoration: underline;
+}
+.hints-cont {
+  width: 100%;
+  padding: 1rem;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hint {
+  background-color: blue;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  border: 5px solid rgb(250, 192, 0);
+  position: relative;
+}
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(20, 3, 248);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  /* border: none; */
+  position: absolute;
+  z-index: 200;
+  opacity: 0;
+  text-align: center;
+  bottom: -2rem;
+  transition: opacity 0.5s;
+}
+.hint:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.quit-btn:hover {
+  background-color: rgba(94, 94, 235, 0.829);
+  transform: scale(1.05);
+}
+
+.quit-btn:active {
+  transform: scale(1.2) translateX(2px) translateY(2px);
+}

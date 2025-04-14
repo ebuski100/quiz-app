@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  height: 100vh;
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.profile-container {
+  position: relative;
+  border: 6px solid blue;
+  background: #ffffff;
+
+  width: 60%;
+  box-shadow: 0 4px 0 rgb(13, 13, 151);
+
+  height: 100%;
+  border-radius: 1rem;
+}
+.profile-content {
+  display: flex;
+  flex-direction: column;
+}
+.home-header {
+  width: 100%;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.game-logo {
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.game-logo-img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  animation: bounce 1s linear infinite alternate;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05);
+  }
+  100% {
+    transform: translateY(-4px) scale(1.1);
+  }
+}
+.header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  height: 30%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+
+  width: 100%;
+}
+
+.coins,
+.heart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #1b082e;
+  color: #fff;
+  border-radius: 1rem;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 1.5rem;
+  padding-right: 10px;
+  width: 200px;
+  /* border: 1px solid rgb(255, 0, 21); */
+  margin-right: 2rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.coins:hover,
+.heart:hover {
+  text-decoration: underline;
+}
+.coins:active,
+.heart:active {
+  background: #3c1366;
+}
+.coins:visited,
+.heart:visited {
+  text-decoration: dotted;
+}
+.coin-icon img {
+  height: 20px;
+  width: 20px;
+}
+.heartnum {
+  position: absolute;
+  left: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.star-icon,
+.coin-icon,
+.heart-icon {
+  position: absolute;
+  border: none;
+  background-color: blue;
+  padding: 2px;
+  border-radius: 50%;
+  left: -5px;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coins,
+.heart {
+  padding-right: 1.3rem;
+}
+
+.coins-btn,
+.heart-btn {
+  position: absolute;
+  right: -5px;
+}
+
+.footer {
+  padding: 1rem 3rem;
+
+  width: 100%;
+  background: rgb(18, 18, 177);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.profile-avatar {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  height: 150px;
+  width: 150px;
+  border: 5px solid #0948f5;
+  border-radius: 75px;
+  margin-bottom: 0.5rem;
+
+  overflow: hidden;
+}
+
+.profile-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.profile-username {
+  color: #10069c;
+  font-weight: bold;
+}
+
+.editIcon {
+  margin-left: 0.5rem;
+}
+.edit-btn-link {
+  color: #ffffff;
+  padding: 8px;
+  background-color: rgb(10, 7, 192);
+  width: 70%;
+  margin-top: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgb(19, 5, 73);
+}
+.edit-btn-link {
+  text-decoration: none;
+  /* border: 1px solid red; */
+}
+.edit-btn-link:visited {
+  color: #fff;
+  text-decoration: none;
+}
+.edit-btn-link:hover {
+  background-color: rgb(1, 8, 97);
+}
+.edit-btn-link:active {
+  transform: translateX(3px) translateY(3px) scale(1.05);
+}
+.profile {
+  background: rgb(156, 156, 156);
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer div {
+  cursor: pointer;
+}
+
+.tooltip-box {
+  position: relative;
+}
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(9, 4, 85);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  /* border: none; */
+  position: absolute;
+
+  opacity: 0;
+  text-align: center;
+  bottom: -2rem;
+  left: -3rem;
+  transition: opacity 0.5s;
+}
+.tooltip-box:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.footer-btn:active {
+  transform: scale(1.2) translateX(3px) translateY(3px);
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quiz page</title>
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="game-content">
+        <div class="quiz-header">
+          <div class="quit-btn">
+            <img src="../images/left.png" alt="" />
+          </div>
+
+          <div class="header">
+            <div class="coins storeBtn">
+              <div class="coin-icon">
+                <img src="../images/coin.png" alt="" />
+              </div>
+              <div class="coin-num">100</div>
+              <div class="coins-btn">
+                <img src="../images/add.png" alt="" height="40" />
+              </div>
+            </div>
+            <div class="heart storeBtn">
+              <div class="heart-icon">
+                <img src="../images/heart.png" alt="" height="20" width="20" />
+
+                <div class="heartnum">5</div>
+              </div>
+              <div class="heart-text">max</div>
+              <div class="heart-btn">
+                <img src="../images/add.png" alt="" height="40" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-logo">
+          <img
+            src="../images/idea.png"
+            alt=""
+            height="40px"
+            width="40px "
+            class="game-logo-img"
+          />
+        </div>
+        <div class="timer-box">
+          <img
+            src="../images/clock.png"
+            height="32"
+            class="timer-label"
+            alt=""
+          />
+          <div class="timer-bar">
+            <div class="timer-show"></div>
+          </div>
+        </div>
+
+        <div class="question-box"></div>
+
+        <div class="options-cont">
+          <div class="option opt1">
+            A:
+            <span class="option-text"></span>
+          </div>
+          <div class="option opt1">
+            B:
+            <span class="option-text"></span>
+          </div>
+          <div class="option opt1">
+            C:
+            <span class="option-text"></span>
+          </div>
+          <div class="option opt1">
+            D:
+            <span class="option-text"></span>
+          </div>
+        </div>
+
+        <div class="hints-cont">
+          <div class="hint fifty-fifty">
+            <img src="../images/50-percent.png" alt="" height="40" width="40" />
+            <div class="tooltip">50/50</div>
+          </div>
+          <div class="hint poll-ans">
+            <img src="../images/signal-status.png" alt="" />
+            <div class="tooltip">poll-ans</div>
+          </div>
+          <div class="hint call-an-expert">
+            <img src="../images/user.png" alt="" />
+            <div class="tooltip">expert-ans</div>
+          </div>
+          <div class="hint another-question">
+            <img src="../images/undo.png" alt="" />
+            <div class="tooltip">another question</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="quiz.js"></script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  padding: 1rem;
+  /* height: 250vh; */
+  height: 250vh;
+}
+
+.container {
+  position: relative;
+  border: 6px solid blue;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  width: 60%;
+  box-shadow: 0 4px 0 rgb(13, 13, 151);
+  height: 88%;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.store-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.quit-btn {
+  background-color: blue;
+  border-top: 5px ridge blue;
+  border-bottom: 5px groove blue;
+  border-right: 5px groove blue;
+  border-left: 5px ridge blue;
+  margin-right: 1rem;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 15%;
+  cursor: pointer;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  /* padding: ; */
+  display: flex;
+  height: 30%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+
+  width: 80%;
+}
+
+.coins,
+.heart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #1b082e;
+  color: #fff;
+  border-radius: 1rem;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 1.5rem;
+  padding-right: 10px;
+  width: 200px;
+
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.coin-icon img {
+  height: 20px;
+  width: 20px;
+}
+.heartnum {
+  position: absolute;
+  left: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.star-icon,
+.coin-icon,
+.heart-icon {
+  position: absolute;
+  border: none;
+  background-color: blue;
+  padding: 2px;
+  border-radius: 50%;
+  left: -5px;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coins,
+.heart {
+  padding-right: 1.3rem;
+}
+
+.coins-btn,
+.heart-btn {
+  position: absolute;
+  right: -5px;
+}
+
+.store-main {
+  /* border: 1px solid blue; */
+  width: 100%;
+}
+
+.coins-showcase,
+.lives-showcase,
+.hints-showcase {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+.coin-header,
+.lives-header,
+.hints-header {
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.lives-header-heartNum {
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  right: 1.5rem;
+}
+.heartNum-opt {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  left: 1.5rem;
+}
+.lives-option,
+.lives-option5 {
+  position: relative;
+}
+.coin-header {
+  background-color: rgb(53, 53, 255);
+}
+.lives-header {
+  background-color: rgb(161, 32, 161);
+}
+.hints-header {
+  background: tomato;
+  width: 100%;
+}
+
+.showcase {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  align-items: center;
+  height: 2.8rem;
+  width: 95%;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.watchAd {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  align-items: center;
+  height: 2.8rem;
+  width: 95%;
+  justify-content: space-between;
+  /* overflow: hidden; */
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.coins-option {
+  background: rgb(122, 245, 122);
+  border: 2px solid rgb(2, 240, 2);
+}
+.lives-option {
+  border: 2px solid purple;
+  background-color: rgb(216, 178, 216);
+}
+.hint-option {
+  border: 2px solid blue;
+  background: rgb(151, 191, 245);
+}
+
+.invite {
+  background-image: linear-gradient(120deg, rgb(145, 145, 255) 0%, blue 100%);
+  color: #fff;
+  height: 20%;
+}
+
+.coins-img,
+.lives-img,
+.hints-img {
+  padding: 0 1rem;
+}
+.coin-desc,
+.lives-desc,
+.hints-desc {
+  width: 50%;
+  /* border: 1px solid yellow; */
+}
+.all-hints-desc {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.hints-desc {
+  height: 100%;
+}
+.lives-desc-txt,
+.hints-desc-txt {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.coin-num {
+  /* border: 1px solid blue; */
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.coin-num img {
+  margin-right: 0.5rem;
+}
+.price {
+  color: #fff;
+  box-shadow: 0 2px 2px inset, 2px 0 2px inset;
+  height: 100%;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.invite-btn {
+  border: none;
+  box-shadow: none;
+}
+.coins-price {
+  background-color: rgb(12, 206, 12);
+  border: 1px solid rgb(12, 182, 6);
+}
+.lives-price {
+  background: rgb(226, 81, 245);
+
+  flex-direction: column;
+
+  font-size: 10px;
+  font-weight: bold;
+}
+.watch-ad-price {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  animation: blink 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+@keyframes blink {
+  100% {
+    transform: scale(1.15);
+  }
+}
+.hints-price {
+  background: rgb(15, 142, 228);
+}
+
+.store {
+  padding: 1rem;
+  background: rgb(167, 167, 167);
+  border-radius: 50%;
+}
+.footer img {
+  cursor: pointer;
+}
+
+.footer {
+  padding: 1rem 3rem;
+
+  width: 100%;
+  background: rgb(18, 18, 177);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.tooltip-box {
+  position: relative;
+}
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(9, 4, 85);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  /* border: none; */
+  position: absolute;
+
+  opacity: 0;
+  text-align: center;
+  bottom: -2rem;
+  left: -3rem;
+  transition: opacity 0.5s;
+}
+.tooltip-box:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.footer-btn:active {
+  transform: scale(1.2) translateX(3px) translateY(3px);
+}
