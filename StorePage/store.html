@@ -42,7 +42,7 @@
             Coins
             <img src="../images/coins.png" alt="" />
           </div>
-          <div class="invite showcase">
+          <div class="div-item invite showcase">
             <img
               src="../images/share.png"
               alt=""
@@ -59,7 +59,10 @@
             </div>
           </div>
 
-          <div class="watch-ad watchAd lives-option">
+          <div
+            id="few-coinsAdBtn"
+            class="div-item watch-ad watchAd lives-option"
+          >
             <img
               src="../images/watch-movie (1).png"
               class="lives-img ad-img"
@@ -78,7 +81,7 @@
             </div>
           </div>
 
-          <div class="handful showcase coins-option">
+          <div class="div-item handful showcase coins-option">
             <img
               src="../images/coins.png"
               class="coins-img handful-img"
@@ -94,7 +97,7 @@
             <div class="price coins-price">#500</div>
           </div>
 
-          <div class="heap showcase coins-option">
+          <div class="div-item heap showcase coins-option">
             <img
               src="../images/coins (1).png"
               class="coins-img heap-img"
@@ -110,7 +113,7 @@
             <div class="price coins-price">#1500</div>
           </div>
 
-          <div class="sack showcase coins-option">
+          <div class="div-item sack showcase coins-option">
             <img src="../images/gold.png" class="coins-img sack-img" alt="" />
             <div class="coin-desc">
               <div class="coin-desc-header">sack of coins</div>
@@ -121,7 +124,7 @@
             </div>
             <div class="price coins-price">#4000</div>
           </div>
-          <div class="vault showcase coins-option">
+          <div class="div-item vault showcase coins-option">
             <img
               src="../images/treasure-chest (1).png"
               class="coins-img vault-img"
@@ -144,7 +147,7 @@
             <img src="../images/heart.png" alt="" />
             <span class="lives-header-heartNum">+1</span>
           </div>
-          <div class="watch-ad watchAd lives-option">
+          <div id="oneLifeAdBtn" class="div-item watch-ad watchAd lives-option">
             <img
               src="../images/watch-movie (1).png"
               class="lives-img ad-img"
@@ -160,7 +163,7 @@
             </div>
           </div>
 
-          <div class="one-life showcase lives-option">
+          <div class="div-item one-life showcase lives-option">
             <img
               src="../images/heart.png"
               class="lives-img oneLife-img"
@@ -175,7 +178,7 @@
             </div>
           </div>
 
-          <div class="full-lives showcase lives-option">
+          <div class="div-item full-lives showcase lives-option">
             <img
               src="../images/heart.png"
               class="lives-img fullives-img"
@@ -191,7 +194,7 @@
               500
             </div>
           </div>
-          <div class="infinite showcase lives-option">
+          <div class="div-item infinite showcase lives-option">
             <img
               src="../images/heart.png"
               class="lives-img infiniteLives-img"
@@ -211,7 +214,7 @@
             </div>
           </div>
 
-          <div class="infinite showcase lives-option5 coins-option">
+          <div class="div-item infinite showcase lives-option5 coins-option">
             <img
               src="../images/heart.png"
               class="lives-img infiniteLives-img"
@@ -231,11 +234,29 @@
 
         <div class="hints-showcase">
           <div class="hints-header">
-            Hints
+            Hints & Time
             <img src="../images/hint.png" alt="" />
           </div>
 
-          <div class="all-hints showcase hint-option">
+          <div
+            id="allHintsAdBtn"
+            class="div-item watch-ad watchAd lives-option"
+          >
+            <img
+              src="../images/watch-movie (1).png"
+              class="lives-img ad-img"
+              alt=""
+            />
+            <div class="lives-desc">
+              <div class="lives-desc-header">All hints</div>
+            </div>
+            <div class="price watch-ad-price lives-price">
+              <img src="../images/watch-movie (1).png" height="16px" alt="" />
+              <div class="ad-txt">WATCH ADS</div>
+            </div>
+          </div>
+
+          <div class="div-item all-hints showcase hint-option">
             <img
               src="../images/all.png"
               class="hints-img all-hints-img"
@@ -248,7 +269,7 @@
             </div>
           </div>
 
-          <div class="ans-time showcase hint-option">
+          <div class="div-item ans-time showcase hint-option">
             <img
               src="../images/clock.png"
               class="hints-img ans-time-img"
@@ -263,7 +284,7 @@
               2000
             </div>
           </div>
-          <div class="ans-time showcase coins-option">
+          <div class="div-item ans-time showcase coins-option">
             <img
               src="../images/clock.png"
               class="hints-img ans-time-img"
@@ -274,6 +295,40 @@
               <div class="hints-desc-txt">1 day</div>
             </div>
             <div class="price coins-price">#2000</div>
+          </div>
+        </div>
+        <div class="adModal">
+          <div class="ad-contents">
+            <button
+              class="close-modal"
+              id="cancel-ad-btn"
+              style="display: none"
+            >
+              &times;
+            </button>
+            <video id="ad-video" autoplay></video>
+
+            <div id="play-pause-overlay">
+              <img
+                class="playPauseIcon"
+                src="../images/video-pause-button.png"
+                alt=""
+              />
+            </div>
+            <div class="video-timer">
+              <span id="currentTime">0:00</span>
+              <input
+                type="range"
+                name=""
+                id="progressBar"
+                value="0"
+                min="0"
+                max="100"
+                step="0.1"
+              />
+              <span id="totalDuration">0:00</span>
+            </div>
+            <div class="modal-footer">Tap to Continue</div>
           </div>
         </div>
 

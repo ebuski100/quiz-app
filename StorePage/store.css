@@ -13,7 +13,7 @@ body {
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding: 1rem;
   /* height: 250vh; */
-  height: 250vh;
+  height: 240vh;
 }
 
 .container {
@@ -28,6 +28,14 @@ body {
   height: 88%;
   border-radius: 1rem;
   padding: 0.5rem;
+}
+.div-item:hover,
+.quit-btn:hover {
+  transform: scale(1.05);
+}
+.div-item:active,
+.quit-btn:active {
+  transform: scale(1.1) translateX(2px) translateY(2px);
 }
 
 .store-header {
@@ -348,4 +356,116 @@ body {
 }
 .footer-btn:active {
   transform: scale(1.2) translateX(3px) translateY(3px);
+}
+
+.adModal {
+  display: none;
+  position: fixed;
+
+  z-index: 100;
+  left: 0;
+  top: 0;
+
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.959);
+}
+.ad-contents {
+  /* background-color: rgb(73, 69, 75); */
+  margin: 5% auto;
+
+  width: 80%;
+  height: 80%;
+
+  text-align: center;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+}
+#ad-video {
+  height: 100%;
+  width: 100%;
+  display: block;
+  margin: 0;
+
+  object-fit: contain;
+  position: relative;
+}
+
+#play-pause-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* border-radius: 50%; */
+  padding: 0 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  display: none;
+  backdrop-filter: opacity(50%);
+}
+#play-pause-overlay img:hover {
+  transform: scale(1.1);
+}
+#play-pause-overlay img:active {
+  transform: scale(1.3) translateX(3px) translateY(3px);
+}
+.video-timer {
+  /* padding: 1rem; */
+  /* border: 1px solid blue; */
+  display: none;
+  color: #fff;
+}
+#progressBar {
+  width: 70%;
+  margin: 0 0.5rem;
+}
+
+.modal-footer {
+  position: absolute;
+  /* border: 1px solid yellow; */
+  bottom: -4rem;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  font-family: cursive;
+  animation: fade-in-out 1s ease-in-out infinite alternate;
+  cursor: pointer;
+  display: none;
+}
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  color: #fff;
+  right: -3rem;
+  top: -2.5rem;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 1s linear;
+  border: none;
+}
+
+.close-modal:hover {
+  background: grey;
 }

@@ -175,10 +175,9 @@ body {
 }
 .timer-show {
   height: 100%;
-  width: 3px;
   border-radius: 5px;
   background: blue;
-  animation: slide-through 10s linear;
+  animation: slide-through 30s linear;
 }
 @keyframes slide-through {
   0% {
@@ -188,6 +187,7 @@ body {
     width: 0;
   }
 }
+
 .question-box {
   border: 10px ridge blue;
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
@@ -199,10 +199,49 @@ body {
   border-radius: 1.5rem;
   text-align: center;
   font-weight: bold;
-  height: 200px;
+  overflow: hidden;
+  height: 250px;
   width: 100%;
   margin-top: 5px;
   padding: 0.5rem;
+  flex-direction: column;
+}
+.resultMessage {
+  height: 10%;
+  color: purple;
+
+  width: 100%;
+  padding: 0.5rem;
+}
+.question-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+.questionNumBox {
+  padding: 0 3rem;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.questionNum {
+  background-color: #fff;
+  height: 12px;
+
+  width: 12px;
+  border-radius: 50%;
+  border: none;
+}
+.question {
+  color: purple;
+  opacity: 1;
+  height: 90%;
+  /* border: 1px solid yellow; */
+  display: flex;
+  align-items: center;
 }
 
 .price-tag {
@@ -210,13 +249,15 @@ body {
 
   background-color: orange;
   border: 3px solid yellow;
-
+  height: 50px;
   margin-top: 1rem;
   width: 300px;
   text-align: center;
   color: #fff;
   border-radius: 1rem;
+  cursor: pointer;
 }
+
 .options-cont {
   /* border: 1px solid red; */
   padding: 1rem;
@@ -224,20 +265,38 @@ body {
   width: 100%;
 }
 .option {
-  /* border-top: 5px ridge blue;
-  border-bottom: 5px groove blue;
-  border-right: 5px groove blue;
-  border-left: 5px ridge blue; */
   box-shadow: 0 3px 0 rgb(4, 4, 82);
-
+  color: yellow;
   padding: 0.5rem;
   background-color: blue;
-  color: yellow;
+  z-index: 0;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
+  height: 50px;
   cursor: pointer;
   font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
+.optionId {
+  color: yellow;
+  z-index: 1;
+}
+.backgroundChange {
+  position: absolute;
+  box-shadow: 0 3px 0 rgb(44, 121, 0);
+
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: red;
+  transition: width 0.3s ease;
+  display: inline;
+}
+
 .option:hover {
   background-color: rgb(51, 51, 252);
   box-shadow: 0 3px 0 rgb(24, 24, 189);
@@ -249,6 +308,8 @@ body {
 .option-text {
   color: #fff;
   margin-left: 0.5rem;
+  opacity: 1;
+  z-index: 1;
 }
 .option-text:hover {
   text-decoration: underline;
@@ -303,4 +364,318 @@ body {
 
 .quit-btn:active {
   transform: scale(1.2) translateX(2px) translateY(2px);
+}
+.time-upModal,
+.congratulationsModal {
+  display: none;
+  position: fixed;
+
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.959);
+}
+
+.time-upModalContainer,
+.congratulationsModalCont {
+  background-color: rgb(73, 69, 75);
+  margin: 5% auto;
+  padding: 1rem;
+  width: 60%;
+  border-radius: 1rem;
+  text-align: center;
+  position: relative;
+}
+.congratsBtn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  width: 40%;
+  margin: 0.5rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+}
+.playAgain {
+  background-color: blue;
+  box-shadow: 0 3px 3px rgb(0, 0, 121);
+}
+.playAgain:hover {
+  background-color: rgb(49, 49, 245);
+  box-shadow: 0 3px 3px rgb(19, 19, 124);
+}
+.playAgain:active {
+  transform: scale(1.05) translateX(2px) translateY(2px);
+}
+.LeaveBtn {
+  background-color: tomato;
+
+  box-shadow: 0 3px 3px rgb(206, 19, 19);
+}
+.LeaveBtn:hover {
+  background-color: rgba(243, 128, 108, 0.897);
+}
+.LeaveBtn:active {
+  transform: scale(1.05) translateX(2px) translateY(2px);
+}
+.modal-text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.price-won {
+  display: block;
+  background: linear-gradient(90deg, yellow, red);
+  background-clip: text;
+  color: transparent;
+}
+
+.modal-footer {
+  position: absolute;
+  /* border: 1px solid yellow; */
+  bottom: -3rem;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  font-family: cursive;
+  animation: fade-in-out 1s ease-in-out infinite alternate;
+  cursor: pointer;
+}
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.timeUpCloseBtn,
+.adClose-modal {
+  /* color: red; */
+  position: absolute;
+  color: #fff;
+  right: 1rem;
+  top: 0.5rem;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  /* text-align: center; */
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 1s linear;
+}
+
+.timeUpCloseBtn:hover,
+.adClose-modal:hover {
+  background: grey;
+}
+
+.header-txt {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.time-upModalItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid yellow;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  color: #fff;
+}
+.timeUpWatchAd {
+  background: rgb(7, 194, 7);
+  justify-content: center;
+  align-items: center;
+  border: 2px solid green;
+  box-shadow: 0 2px 5px inset, 2px 0 5px inset;
+}
+.timeUpWatchAd:hover {
+  background: rgb(2, 173, 2);
+  transform: scale(1.01);
+}
+.timeUpWatchAd:active {
+  transform: scale(1.05) translateX(2px) translateY(2px);
+}
+
+.modalItem-cont {
+  text-align: left;
+  margin-left: 1rem;
+}
+.buy-option-divider {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+.leftLine,
+.rightLine {
+  height: 2px;
+  width: 40%;
+  background-color: rgb(202, 202, 202);
+}
+.More-timeOption {
+  background-color: blue;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgb(56, 4, 139);
+  box-shadow: 0 2px 5px inset, 2px 0 5px inset;
+}
+.More-timeOption:hover {
+  background: rgb(4, 4, 202);
+  transform: scale(1.01);
+}
+.More-timeOption:active {
+  transform: scale(1.05) translateX(2px) translateY(2px);
+}
+.modalItemtitle {
+  font-weight: bold;
+}
+
+.modalItemBody {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.adModal {
+  display: none;
+  position: fixed;
+
+  z-index: 100;
+  left: 0;
+  top: 0;
+
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.959);
+}
+.ad-contents {
+  /* background-color: rgb(73, 69, 75); */
+  margin: 5% auto;
+
+  width: 80%;
+  height: 80%;
+
+  text-align: center;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+}
+#ad-video {
+  height: 100%;
+  width: 100%;
+  display: block;
+  margin: 0;
+
+  object-fit: contain;
+  position: relative;
+}
+
+#play-pause-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* border-radius: 50%; */
+  padding: 0 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  display: none;
+  backdrop-filter: opacity(50%);
+}
+#play-pause-overlay img:hover {
+  transform: scale(1.1);
+}
+#play-pause-overlay img:active {
+  transform: scale(1.3) translateX(3px) translateY(3px);
+}
+.video-timer {
+  /* padding: 1rem; */
+  /* border: 1px solid blue; */
+  display: none;
+  color: #fff;
+}
+#progressBar {
+  width: 70%;
+  margin: 0 0.5rem;
+}
+
+.adModal-footer {
+  display: none;
+}
+
+.blink-orange {
+  animation: blink-orange 0.5s linear 3; /* 3 blinks */
+}
+
+@keyframes blink-orange {
+  0%,
+  100% {
+    background-color: orange;
+  }
+  50% {
+    background-color: transparent;
+  }
+}
+
+/* Correct answer: Green background */
+.correct-answer {
+  background-color: green !important;
+  color: white;
+}
+
+/* Incorrect answer: Red background */
+.incorrect-answer {
+  background-color: red !important;
+  color: white;
+}
+
+/* Blinking red effect */
+.blink-red {
+  animation: blink-red 0.5s linear 3; /* 3 blinks */
+}
+.blink-green {
+  animation: blink-green 0.5s linear 3;
+}
+@keyframes blink-green {
+  0%,
+  100% {
+    background-color: green;
+    border: none;
+  }
+  50% {
+    background-color: transparent;
+  }
+}
+
+@keyframes blink-red {
+  0%,
+  100% {
+    background-color: red;
+    border: none;
+  }
+  50% {
+    background-color: transparent;
+  }
 }

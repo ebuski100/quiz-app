@@ -58,25 +58,143 @@
             <div class="timer-show"></div>
           </div>
         </div>
+        <div class="price-tag"></div>
+        <div class="question-box">
+          <div class="resultMessage"></div>
+          <div class="question"></div>
+          <div class="questionNumBox">
+            <div id="que1" class="questionNum"></div>
+            <div id="que2" class="questionNum"></div>
+            <div id="que3" class="questionNum"></div>
+            <div id="que4" class="questionNum"></div>
+            <div id="que5" class="questionNum"></div>
+            <div id="que6" class="questionNum"></div>
+            <div id="que7" class="questionNum"></div>
+            <div id="que8" class="questionNum"></div>
+            <div id="que9" class="questionNum"></div>
+            <div id="que10" class="questionNum"></div>
+            <div id="que11" class="questionNum"></div>
+            <div id="que12" class="questionNum"></div>
+            <div id="que13" class="questionNum"></div>
+            <div id="que14" class="questionNum"></div>
+            <div id="que15" class="questionNum"></div>
+          </div>
+        </div>
 
-        <div class="question-box"></div>
+        <div class="congratulationsModal">
+          <div class="congratulationsModalCont">
+            <div class="modal-content">
+              <img src="../images/congratulation (1).png" alt="" height="100" />
+              <div class="modal-text">
+                you've won the sum of <span class="price-won"></span>
+              </div>
+              <img
+                src="../resultMessage/audiences (1).gif"
+                height="200"
+                alt=""
+              />
+            </div>
+            <button class="playAgain congratsBtn">Play Again</button>
+            <button class="LeaveBtn congratsBtn">Leave</button>
+          </div>
+        </div>
 
         <div class="options-cont">
           <div class="option opt1">
-            A:
-            <span class="option-text"></span>
+            <div class="optionId">A:</div>
+            <div class="backgroundChange"></div>
+            <div class="option-text"></div>
+            <span class="result"></span>
           </div>
           <div class="option opt1">
-            B:
-            <span class="option-text"></span>
+            <div class="optionId">B:</div>
+            <div class="backgroundChange"></div>
+            <div class="option-text"></div>
           </div>
           <div class="option opt1">
-            C:
-            <span class="option-text"></span>
+            <div class="optionId">C:</div>
+            <div class="backgroundChange"></div>
+            <div class="option-text"></div>
           </div>
           <div class="option opt1">
-            D:
-            <span class="option-text"></span>
+            <div class="optionId">D:</div>
+            <div class="backgroundChange"></div>
+            <div class="option-text"></div>
+          </div>
+        </div>
+        <div class="time-upModal">
+          <button class="timeUpCloseBtn">&times;</button>
+          <div class="time-upModalContainer">
+            <div class="time-upModalheader">
+              <img
+                src="images/idea.png"
+                height="120"
+                alt=""
+                class="modal-logo"
+              />
+              <p class="header-txt">Time is Up!</p>
+            </div>
+            <div class="watch-ad timeUpWatchAd time-upModalItem">
+              <img
+                height="50"
+                src="../images/watch-movie (3).png"
+                alt=""
+                class="watchAd-icon"
+              />
+              <div class="modalItem-cont">
+                <div class="modalItemtitle">Continue for free</div>
+                <div class="modalItemBody">Watch ad</div>
+              </div>
+            </div>
+            <div class="buy-option-divider">
+              <div class="leftLine"></div>
+              <div class="buyText">or buy</div>
+              <div class="rightLine"></div>
+            </div>
+            <div class="More-timeOption time-upModalItem">
+              <img src="../images/alarm-clock.png" alt="" />
+              <div class="modalItem-cont">
+                <div class="modalItemtitle">Unlimited ans Time</div>
+                <div class="modalItemBody">7 days</div>
+              </div>
+              <div class="modalItemPrice">#2000</div>
+            </div>
+            <div class="modal-footer timeUpModalFooter">Tap to Continue</div>
+          </div>
+        </div>
+
+        <div class="adModal">
+          <button
+            class="close-modal adClose-modal"
+            id="cancel-ad-btn"
+            style="display: none"
+          >
+            &times;
+          </button>
+          <div class="ad-contents">
+            <video id="ad-video" autoplay></video>
+
+            <div id="play-pause-overlay">
+              <img
+                class="playPauseIcon"
+                src="../images/video-pause-button.png"
+                alt=""
+              />
+            </div>
+            <div class="video-timer">
+              <span id="currentTime">0:00</span>
+              <input
+                type="range"
+                name=""
+                id="progressBar"
+                value="0"
+                min="0"
+                max="100"
+                step="0.1"
+              />
+              <span id="totalDuration">0:00</span>
+            </div>
+            <div class="modal-footer adModal-footer">Tap to Continue</div>
           </div>
         </div>
 
@@ -100,6 +218,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="quiz.js"></script>
   </body>
 </html>

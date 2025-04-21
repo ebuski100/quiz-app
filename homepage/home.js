@@ -69,9 +69,11 @@ exitBtn.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
   exitModal.style.display = "none";
 });
+
 modalFooter.addEventListener("click", () => {
   exitModal.style.display = "none";
 });
+
 No.addEventListener("click", () => {
   exitModal.style.display = "none";
 });

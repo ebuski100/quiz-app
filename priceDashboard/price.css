@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: cursive;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  padding: 1rem;
+  height: 100vh;
+}
+
+.price_container {
+  border: 12px solid blue;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  box-shadow: 0 4px 0 rgb(13, 13, 151);
+  padding: 1rem;
+  height: 100%;
+  border-radius: 1rem;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.level1-item,
+.level2-item,
+.level3-item,
+.one-million {
+  background-color: grey;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 1rem;
+  border: 3px solid rgb(187, 187, 187);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  box-shadow: 0 3px 3px inset, 3px 0 3px inset;
+  height: 20%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.one-million {
+  width: 60%;
+}
+.level3-item {
+  width: 50%;
+}
+
+.level2-item {
+  width: 40%;
+}
+.level1-items {
+  width: 30%;
+}
+
+.blinking-orange {
+  animation: blink-orange 1s linear infinite;
+}
+
+@keyframes blink-orange {
+  0%,
+  100% {
+    background-color: orange;
+    transform: scale(1);
+    border: 3px solid rgb(190, 125, 3);
+  }
+  50% {
+    background-color: rgb(255, 224, 166);
+    color: rgb(255, 123, 0);
+    transform: scale(1.2);
+    border: 3px solid rgb(190, 125, 3);
+  }
+}
