@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: cursive;
 }
 body {
   height: 100vh;
@@ -21,12 +21,32 @@ body {
   width: 60%;
   box-shadow: 0 4px 0 rgb(13, 13, 151);
 
-  height: 100%;
+  height: 90%;
   border-radius: 1rem;
 }
 .profile-content {
   display: flex;
   flex-direction: column;
+}
+.quit-btn {
+  background-color: blue;
+  border-top: 5px ridge blue;
+  border-bottom: 5px groove blue;
+  border-right: 5px groove blue;
+  border-left: 5px ridge blue;
+  margin-right: 1rem;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 70px;
+  cursor: pointer;
+}
+
+.quit-btn:hover {
+  transform: scale(1.05);
+}
+.quit-btn:active {
+  transform: scale(1.2) translateX(2px) translateY(2px);
 }
 .home-header {
   width: 100%;
@@ -37,7 +57,7 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.game-logo {
+/* .game-logo {
   height: 100%;
   display: flex;
   justify-content: left;
@@ -59,7 +79,7 @@ body {
   100% {
     transform: translateY(-4px) scale(1.1);
   }
-}
+} */
 .header {
   padding: 1rem 1.5rem;
   display: flex;
@@ -109,7 +129,7 @@ body {
   width: 20px;
 }
 .heartnum {
-  position: absolute;
+  /* position: absolute; */
   left: 12px;
   font-size: 12px;
   font-weight: bold;
@@ -192,6 +212,7 @@ body {
   padding: 8px;
   background-color: rgb(10, 7, 192);
   width: 70%;
+
   margin-top: 1rem;
   text-align: center;
   border-radius: 8px;
@@ -249,4 +270,37 @@ body {
 }
 .footer-btn:active {
   transform: scale(1.2) translateX(3px) translateY(3px);
+}
+
+.dark {
+  background-color: rgb(2, 2, 39);
+}
+.headItems {
+  color: #fff;
+}
+
+.storeBtnBackground {
+  background-color: white;
+  color: rgb(2, 2, 39);
+  font-weight: bold;
+}
+
+.heartMax-cont,
+.coinMax-cont {
+  position: absolute;
+  right: -5px;
+  background: orange;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.displayMax {
+  visibility: visible;
+  z-index: 99;
 }

@@ -25,13 +25,13 @@ body {
 
 .game-container {
   position: relative;
-  border: 6px solid blue;
+  /* border: 6px solid blue; */
   background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 70%;
-  box-shadow: 0 4px 0 rgb(13, 13, 151);
+  box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
   /* padding: 1rem; */
   height: 100%;
   border-radius: 1rem;
@@ -66,15 +66,15 @@ body {
 }
 
 .header {
-  padding: 1rem 1.5rem;
+  padding: 1rem 0;
   display: flex;
   height: 30%;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   /* border: 1px solid blue; */
 
-  width: 100%;
+  width: 80%;
 }
 
 .coins,
@@ -89,36 +89,36 @@ body {
   border-radius: 1rem;
   padding-top: 3px;
   padding-bottom: 3px;
-  padding-left: 1.5rem;
-  padding-right: 10px;
-  width: 200px;
-
-  margin-right: 2rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 100px;
   cursor: pointer;
+  height: 20px;
 }
+
 .coin-icon img {
   height: 20px;
   width: 20px;
 }
 .heartnum {
-  position: absolute;
   left: 12px;
   font-size: 12px;
   font-weight: bold;
   font-family: cursive;
+  /* color: red; */
 }
 
-.star-icon,
 .coin-icon,
 .heart-icon {
   position: absolute;
   border: none;
   background-color: blue;
-  padding: 2px;
+  padding: 5px;
   border-radius: 50%;
   left: -5px;
-  height: 32px;
-  width: 32px;
+  height: 22px;
+  width: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,17 +133,46 @@ body {
   position: absolute;
   right: -5px;
 }
+.profile-img {
+  /* border: 1px solid rgb(0, 26, 255); */
+  background-color: hsla(300, 12%, 94%, 0.856);
+  padding: 3px 5px 3px 7px;
+  height: 40px;
+  max-width: 40px;
+  /* width: 40px; */
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 3px 3px 3px rgba(68, 67, 67, 0.801);
+}
+.profile-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
 .game-logo {
   height: 100%;
   display: flex;
   justify-content: left;
   align-items: center;
+  /* border: 1px solid yellow; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 3rem;
 }
+
 .game-logo-img {
   border-radius: 50%;
   height: 60px;
   width: 60px;
   animation: bounce 1s linear infinite alternate;
+  margin-right: 2rem;
 }
 @keyframes bounce {
   0% {
@@ -156,6 +185,33 @@ body {
     transform: translateY(-4px) scale(1.1);
   }
 }
+.difficulty {
+  background-color: blue;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
+
+  /* border: 1px solid yellow; */
+}
+.difficulty:hover {
+  transform: scale(1.05);
+  background-color: rgb(63, 63, 245);
+}
+.difficulty:active,
+.profile-img:active {
+  transform: scale(1.1) translateX(3px) translateY(3px);
+}
+
+.difficulty:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 .timer-box {
   width: 100%;
 
@@ -164,14 +220,77 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid yellow; */
 }
 
 .timer-bar {
   height: 7px;
-  width: 90%;
+  width: 85%;
   background: rgb(204, 201, 201);
   margin-top: 0.5rem;
   border-radius: 0.5rem;
+  margin-right: 0.5rem;
+}
+.pauseTimer {
+  /* border: 1px solid yellow; */
+  border-radius: 0.5rem;
+  position: relative;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: rgb(18, 16, 128);
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+  box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
+
+  cursor: pointer;
+}
+.difficultyLabel {
+  color: #fff;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+.pauseTimer:hover {
+  transform: scale(1.05);
+}
+.pauseTimer:active {
+  transform: scale(1.1) translateX(3px) translateY(3px);
+}
+.pauseLabel {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+.timePaused {
+  animation: blink-orange 1s linear 2 alternate-reverse;
+}
+@keyframes blink-orange {
+  0%,
+  100% {
+    color: orange;
+    opacity: 1;
+  }
+  50% {
+    color: red;
+    font-size: 1.4rem;
+    opacity: 0.5;
+  }
+}
+
+.pauseTimeNum {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: green;
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  text-align: center;
+  visibility: hidden;
+  font-size: 12px;
+  font-weight: bold;
 }
 .timer-show {
   height: 100%;
@@ -186,6 +305,13 @@ body {
   100% {
     width: 0;
   }
+}
+.modalItemPrice {
+  display: flex;
+  align-items: center;
+}
+.modalItemPrice img {
+  margin-right: 0.2rem;
 }
 
 .question-box {
@@ -218,6 +344,10 @@ body {
   max-height: 100%;
   object-fit: contain;
   border-radius: 1rem;
+}
+
+.failureMessage {
+  color: rgb(230, 1, 1);
 }
 .questionNumBox {
   padding: 0 3rem;
@@ -255,7 +385,6 @@ body {
   text-align: center;
   color: #fff;
   border-radius: 1rem;
-  cursor: pointer;
 }
 
 .options-cont {
@@ -337,6 +466,29 @@ body {
   border: 5px solid rgb(250, 192, 0);
   position: relative;
 }
+.anotherQuestionNum,
+.expertNum,
+.fiftyNum {
+  color: #4b0742;
+  background-color: rgb(67, 233, 25);
+  padding: 0.5rem;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.hintNumDisplay {
+  visibility: visible;
+}
+
 .tooltip {
   visibility: hidden;
   width: 120px;
@@ -344,7 +496,7 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  /* border: none; */
+
   position: absolute;
   z-index: 200;
   opacity: 0;
@@ -352,7 +504,9 @@ body {
   bottom: -2rem;
   transition: opacity 0.5s;
 }
-.hint:hover .tooltip {
+
+.hint:hover .tooltip,
+.pauseTimer:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
@@ -366,7 +520,10 @@ body {
   transform: scale(1.2) translateX(2px) translateY(2px);
 }
 .time-upModal,
-.congratulationsModal {
+.congratulationsModal,
+.failedModal,
+.secondChanceModal,
+.quitEarlyModal {
   display: none;
   position: fixed;
 
@@ -380,7 +537,10 @@ body {
 }
 
 .time-upModalContainer,
-.congratulationsModalCont {
+.congratulationsModalCont,
+.failedModalCont,
+.secondChanceModalContainer,
+.quitEarlyModalContainer {
   background-color: rgb(73, 69, 75);
   margin: 5% auto;
   padding: 1rem;
@@ -388,6 +548,34 @@ body {
   border-radius: 1rem;
   text-align: center;
   position: relative;
+}
+.closeSecondChanceModal,
+.closeQuitEarlyModal {
+  position: absolute;
+  color: #fff;
+  right: -1rem;
+  top: -1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: rgb(255, 40, 40);
+}
+.closeSecondChanceModal:hover,
+.closeQuitEarlyModal:hover {
+  background-color: rgb(247, 78, 78);
+  transform: scale(1.05);
+}
+.closeSecondChanceModal:active,
+.closeQuitEarlyModal:active {
+  transform: scale(1.2) translateX(3px) translateY(3px);
 }
 .congratsBtn {
   padding: 0.5rem 1rem;
@@ -398,6 +586,10 @@ body {
   color: #fff;
   border-radius: 0.5rem;
   border: none;
+}
+
+.quitEarlyModalLogo {
+  margin-bottom: 1rem;
 }
 .playAgain {
   background-color: blue;
@@ -427,13 +619,33 @@ body {
   font-size: 1.5rem;
   margin: 1rem 0;
 }
-.price-won {
+.person {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.price-won,
+.playerName {
   display: block;
   background: linear-gradient(90deg, yellow, red);
   background-clip: text;
   color: transparent;
 }
 
+.millionaire {
+  color: white;
+  font-weight: bold;
+  margin: 1rem 0;
+  display: none;
+}
+.millText {
+  color: yellow;
+  font-size: 1.5rem;
+}
+.modal-body {
+  color: #ffffff;
+  margin: 1rem 0;
+}
 .modal-footer {
   position: absolute;
   /* border: 1px solid yellow; */
@@ -454,7 +666,6 @@ body {
   }
 }
 
-.timeUpCloseBtn,
 .adClose-modal {
   /* color: red; */
   position: absolute;
@@ -475,7 +686,6 @@ body {
   transition: background 1s linear;
 }
 
-.timeUpCloseBtn:hover,
 .adClose-modal:hover {
   background: grey;
 }
@@ -486,29 +696,46 @@ body {
   color: #fff;
   margin-bottom: 1rem;
 }
-.time-upModalItem {
+.time-upModalItem,
+.secondChanceModalItem,
+.continueOption,
+.quitOption {
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   margin: 0.5rem 0;
   cursor: pointer;
   color: #fff;
 }
-.timeUpWatchAd {
+.timeUpWatchAd,
+.secondChanceWatchAd,
+.quitOption {
   background: rgb(7, 194, 7);
   justify-content: center;
   align-items: center;
   border: 2px solid green;
   box-shadow: 0 2px 5px inset, 2px 0 5px inset;
 }
-.timeUpWatchAd:hover {
+.secondChanceAdIcon {
+  animation: jumping 1s linear infinite alternate-reverse;
+}
+@keyframes jumping {
+  100% {
+    transform: scale(1.1);
+  }
+}
+.timeUpWatchAd:hover,
+.secondChanceWatchAd:hover,
+.quitOption:hover {
   background: rgb(2, 173, 2);
   transform: scale(1.01);
 }
-.timeUpWatchAd:active {
+.timeUpWatchAd:active,
+.secondChanceWatchAd:active,
+.quitOption:active {
   transform: scale(1.05) translateX(2px) translateY(2px);
 }
 
@@ -529,19 +756,58 @@ body {
   width: 40%;
   background-color: rgb(202, 202, 202);
 }
-.More-timeOption {
+.More-timeOption,
+.continueOption {
   background-color: blue;
   align-items: center;
   justify-content: space-between;
   border: 2px solid rgb(56, 4, 139);
   box-shadow: 0 2px 5px inset, 2px 0 5px inset;
 }
-.More-timeOption:hover {
+.continueOption {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.quitOption {
+  padding: 1rem;
+}
+.secondChanceAltOpt {
+  background-color: blue;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(56, 4, 139);
+  box-shadow: 0 2px 5px inset, 2px 0 5px inset;
+}
+
+.More-timeOption:hover,
+.secondChanceAltOpt:hover,
+.continueOption:hover {
   background: rgb(4, 4, 202);
   transform: scale(1.01);
 }
-.More-timeOption:active {
+.More-timeOption:active,
+.secondChanceAltOpt:active,
+.continueOption:active {
   transform: scale(1.05) translateX(2px) translateY(2px);
+}
+.secondChanceLogo {
+  animation: dance 1s linear infinite alternate-reverse;
+}
+@keyframes dance {
+  100% {
+    transform: translateY(5px);
+  }
+}
+.secondChanceAltOpt img {
+  margin-right: 0.5rem;
+  animation: blink 1s linear infinite alternate-reverse;
+}
+
+@keyframes blink {
+  100% {
+    transform: scale(1.2);
+  }
 }
 .modalItemtitle {
   font-weight: bold;
@@ -559,16 +825,16 @@ body {
   z-index: 100;
   left: 0;
   top: 0;
-
   padding: 1rem;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.959);
 }
 .ad-contents {
-  /* background-color: rgb(73, 69, 75); */
+  background-color: rgba(73, 69, 75, 0.411);
+  padding: 0.5rem 0;
   margin: 5% auto;
-
+  border-radius: 1rem;
   width: 80%;
   height: 80%;
 
@@ -618,17 +884,41 @@ body {
 }
 #progressBar {
   width: 70%;
-  margin: 0 0.5rem;
+  margin: 1rem;
 }
 
 .adModal-footer {
   display: none;
 }
+.heartMax-cont,
+.coinMax-cont {
+  position: absolute;
+  right: -5px;
+  background: orange;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
 
 .blink-orange {
   animation: blink-orange 0.5s linear 3; /* 3 blinks */
 }
-
+.quitEarlyHeadTxt1 {
+  color: rgb(255, 57, 57);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.header-txt2 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
 @keyframes blink-orange {
   0%,
   100% {
@@ -679,3 +969,74 @@ body {
     background-color: transparent;
   }
 }
+
+/* theme */
+.dark {
+  background-color: rgb(2, 2, 39);
+}
+.storeBtnBackground {
+  background-color: white;
+  color: rgb(2, 2, 39);
+  font-weight: bold;
+}
+
+.disable {
+  pointer-events: none;
+  background-color: grey;
+  opacity: 0.5;
+}
+
+.displayMax {
+  visibility: visible;
+  z-index: 99;
+}
+@media (min-width: 600px) {
+  .coins,
+  .heart {
+    width: 120px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 900px) {
+  .coins,
+  .heart {
+    width: 180px;
+  }
+
+  .heartnum,
+  .coin-num {
+    font-size: 8px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+  .coins,
+  .heart {
+    width: 200px;
+  }
+}
+
+.blinked-red {
+  animation: blinkRed 1s linear 3;
+}
+@keyframes blinkRed {
+  0%,
+  100% {
+    color: inherit;
+  }
+  50% {
+    color: red;
+  }
+}
+/* @media (min-width: 450px) {
+  .coin-icon,
+  .heart-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .header {
+    flex-direction: row;
+  }
+} */

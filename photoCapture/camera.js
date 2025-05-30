@@ -17,7 +17,10 @@ navigator.mediaDevices
 // Capture the image when the button is clicked
 
 cancelButton.addEventListener("click", () => {
-  window.location.href = "../EditPage/edit.html"; // Redirect to edit page
+  setTimeout(() => {
+    window.location.href = "../EditPage/edit.html";
+  }, 200);
+  // Redirect to edit page
 });
 captureButton.addEventListener("click", () => {
   const context = canvas.getContext("2d");
@@ -49,5 +52,34 @@ captureButton.addEventListener("click", () => {
   }
 
   // Redirect back to edit.html
-  window.location.href = "../EditPage/edit.html";
+  setTimeout(() => {
+    window.location.href = "../EditPage/edit.html";
+  }, 200);
+});
+const savedMusicState = localStorage.getItem("musicState") || "paused";
+
+if (savedMusicState === "playing") {
+  backgroundMusic.play();
+} else {
+  backgroundMusic.pause();
+}
+
+const savedMusicTime = parseFloat(localStorage.getItem("musicTime")) || 0;
+backgroundMusic.currentTime = savedMusicTime;
+backgroundMusic.addEventListener("timeupdate", () => {
+  localStorage.setItem("musicTime", backgroundMusic.currentTime);
+});
+
+const buttons = document.querySelectorAll(".btn");
+let soundState = localStorage.getItem("soundState") || "on";
+
+const soundEffect = document.getElementById("soundEffect");
+buttons.forEach((button) => {
+  console.log(soundState);
+  button.addEventListener("click", () => {
+    if (soundState === "on") {
+      soundEffect.currentTime = 0; // Reset sound to the beginning
+      soundEffect.play(); // Play the sound effect
+    }
+  });
 });

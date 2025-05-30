@@ -13,27 +13,31 @@
           <img src="../images/left.png" alt="" />
         </div>
         <div class="header">
-          <div class="coins">
+          <div class="coins storeBtn">
             <div class="coin-icon">
               <img src="../images/coin.png" alt="" />
             </div>
-            <div class="coin-num">100</div>
+            <div class="coin-num coin-num1">100</div>
+            <div class="coinMax-cont">max</div>
             <div class="coins-btn">
               <img src="../images/add.png" alt="" height="40" />
             </div>
           </div>
-          <div class="heart">
+          <div class="heart storeBtn">
             <div class="heart-icon">
               <img src="../images/heart.png" alt="" height="20" width="20" />
-
-              <div class="heartnum">5</div>
             </div>
-            <div class="heart-text">max</div>
+            <div class="heartnum coin-num1">1</div>
+            <div class="heart-text heartMax-cont">max</div>
             <div class="heart-btn">
               <img src="../images/add.png" alt="" height="40" />
             </div>
           </div>
         </div>
+      </div>
+      <div class="storeDescription">
+        <div class="item">Items</div>
+        <div class="Price">Price</div>
       </div>
 
       <div class="store-main">
@@ -42,7 +46,7 @@
             Coins
             <img src="../images/coins.png" alt="" />
           </div>
-          <div class="div-item invite showcase">
+          <div class="div-item getCoins btn invite showcase">
             <img
               src="../images/share.png"
               alt=""
@@ -61,7 +65,7 @@
 
           <div
             id="few-coinsAdBtn"
-            class="div-item watch-ad watchAd lives-option"
+            class="div-item getCoins btn watch-ad watchAd lives-option"
           >
             <img
               src="../images/watch-movie (1).png"
@@ -72,7 +76,7 @@
               <div class="lives-desc-header">Fair few coins</div>
               <div class="lives-desc-txt coin-num">
                 <img src="../images/coin.png" height="20" alt="" />
-                100 per view
+                200 per view
               </div>
             </div>
             <div class="price watch-ad-price lives-price">
@@ -81,7 +85,9 @@
             </div>
           </div>
 
-          <div class="div-item handful showcase coins-option">
+          <div
+            class="div-item heartBtn getCoins btn handful showcase coins-option"
+          >
             <img
               src="../images/coins.png"
               class="coins-img handful-img"
@@ -91,13 +97,22 @@
               <div class="coin-desc-header">Handful of coins</div>
               <div class="coin-num">
                 <img src="../images/coin.png" height="20" alt="" />
-                500
+                1000
               </div>
             </div>
-            <div class="price coins-price">#500</div>
+            <div class="price coins-price">
+              <img
+                src="../images/heart.png"
+                class="lives-img oneLife-img"
+                alt=""
+              />
+              <span class="coin-heartNum-opt">+1</span>
+            </div>
           </div>
 
-          <div class="div-item heap showcase coins-option">
+          <div
+            class="div-item heartBtn getCoins btn heap showcase coins-option"
+          >
             <img
               src="../images/coins (1).png"
               class="coins-img heap-img"
@@ -107,47 +122,54 @@
               <div class="coin-desc-header">Heap of coins</div>
               <div class="coin-num">
                 <img src="../images/coin.png" height="20" alt="" />
-                1500
+                5000
               </div>
             </div>
-            <div class="price coins-price">#1500</div>
+            <div class="price coins-price">
+              <img
+                src="../images/heart.png"
+                class="lives-img fullives-img"
+                alt=""
+              />
+              <span class="coin-heartNum-opt">
+                <img src="../images/arrow-up.png" height="16" alt="" />
+              </span>
+            </div>
           </div>
 
-          <div class="div-item sack showcase coins-option">
+          <!-- <div class="div-item getCoins btn sack showcase coins-option">
             <img src="../images/gold.png" class="coins-img sack-img" alt="" />
             <div class="coin-desc">
               <div class="coin-desc-header">sack of coins</div>
               <div class="coin-num">
                 <img src="../images/coin.png" height="20" alt="" />
-                4000
+                5000
               </div>
             </div>
-            <div class="price coins-price">#4000</div>
-          </div>
-          <div class="div-item vault showcase coins-option">
-            <img
-              src="../images/treasure-chest (1).png"
-              class="coins-img vault-img"
-              alt=""
-            />
-            <div class="coin-desc">
-              <div class="coin-desc-header">vault of coins</div>
-              <div class="coin-num">
-                <img src="../images/coin.png" height="20" alt="" />
-                10000
-              </div>
+            <div class="price coins-price">
+              <img
+                src="../images/heart.png"
+                class="lives-img infiniteLives-img"
+                alt=""
+              />
+
+              <span class="coin-heartNum-opt">
+                <img src="../images/infinity.png" height="16" alt="" />
+              </span>
             </div>
-            <div class="price coins-price">#10000</div>
-          </div>
+          </div> -->
         </div>
 
-        <div class="lives-showcase">
+        <!-- <div class="lives-showcase">
           <div class="lives-header">
             Lives
             <img src="../images/heart.png" alt="" />
             <span class="lives-header-heartNum">+1</span>
           </div>
-          <div id="oneLifeAdBtn" class="div-item watch-ad watchAd lives-option">
+          <div
+            id="oneLifeAdBtn"
+            class="div-item btn watch-ad getLife watchAd lives-option"
+          >
             <img
               src="../images/watch-movie (1).png"
               class="lives-img ad-img"
@@ -163,7 +185,9 @@
             </div>
           </div>
 
-          <div class="div-item one-life showcase lives-option">
+          <div
+            class="div-item getLife life-item btn one-life showcase lives-option"
+          >
             <img
               src="../images/heart.png"
               class="lives-img oneLife-img"
@@ -174,11 +198,13 @@
             <div class="lives-desc">One life</div>
             <div class="price lives-price">
               <img src="../images/coin.png" height="20" alt="" />
-              100
+              200
             </div>
           </div>
 
-          <div class="div-item full-lives showcase lives-option">
+          <div
+            class="div-item getLife life-item btn full-lives showcase lives-option"
+          >
             <img
               src="../images/heart.png"
               class="lives-img fullives-img"
@@ -191,10 +217,12 @@
             <div class="lives-desc">Full life</div>
             <div class="price lives-price">
               <img src="../images/coin.png" height="20" alt="" />
-              500
+              1000
             </div>
           </div>
-          <div class="div-item infinite showcase lives-option">
+          <div
+            class="div-item getLife heartBtn life-item btn infinite showcase lives-option"
+          >
             <img
               src="../images/heart.png"
               class="lives-img infiniteLives-img"
@@ -213,24 +241,7 @@
               5000
             </div>
           </div>
-
-          <div class="div-item infinite showcase lives-option5 coins-option">
-            <img
-              src="../images/heart.png"
-              class="lives-img infiniteLives-img"
-              alt=""
-            />
-
-            <span class="heartNum-opt">
-              <img src="../images/infinity.png" height="16" alt="" />
-            </span>
-            <div class="lives-desc">
-              <div class="lives-desc-header">Infinite-lives</div>
-              <div class="lives-desc-txt">24 hours</div>
-            </div>
-            <div class="price coins-price">#2000</div>
-          </div>
-        </div>
+        </div> -->
 
         <div class="hints-showcase">
           <div class="hints-header">
@@ -240,7 +251,7 @@
 
           <div
             id="allHintsAdBtn"
-            class="div-item watch-ad watchAd lives-option"
+            class="div-item btn watch-ad getAHintBtn watchAd lives-option"
           >
             <img
               src="../images/watch-movie (1).png"
@@ -248,7 +259,7 @@
               alt=""
             />
             <div class="lives-desc">
-              <div class="lives-desc-header">All hints</div>
+              <div class="lives-desc-header">Get a hint</div>
             </div>
             <div class="price watch-ad-price lives-price">
               <img src="../images/watch-movie (1).png" height="16px" alt="" />
@@ -256,7 +267,26 @@
             </div>
           </div>
 
-          <div class="div-item all-hints showcase hint-option">
+          <div
+            id="getAHintCoin"
+            class="div-item btn getAHintBtn showcase hint-option"
+          >
+            <img
+              src="../images/number-1.png"
+              class="hints-img all-hints-img"
+              alt=""
+            />
+            <div class="hints-desc all-hints-desc">Get A hint</div>
+            <div class="price hints-price">
+              <img src="../images/coin.png" height="20" alt="" />
+              1000
+            </div>
+          </div>
+
+          <div
+            id="allHintsCoin"
+            class="div-item btn all-hints showcase hint-option"
+          >
             <img
               src="../images/all.png"
               class="hints-img all-hints-img"
@@ -265,42 +295,35 @@
             <div class="hints-desc all-hints-desc">All hints</div>
             <div class="price hints-price">
               <img src="../images/coin.png" height="20" alt="" />
-              1000
+              3000
             </div>
           </div>
 
-          <div class="div-item ans-time showcase hint-option">
+          <div
+            id="ansTimeCoin"
+            class="div-item btn ans-time showcase hint-option"
+          >
             <img
               src="../images/clock.png"
               class="hints-img ans-time-img"
               alt=""
             />
             <div class="hints-desc">
-              <div class="hints-desc-header">unlimited ans time</div>
-              <div class="hints-desc-txt">1 day</div>
+              <div class="hints-desc-header">Pause Answer time</div>
+              <div class="hints-desc-txt">5X per game</div>
             </div>
             <div class="price hints-price">
               <img src="../images/coin.png" height="20" alt="" />
-              2000
+              3000
             </div>
           </div>
-          <div class="div-item ans-time showcase coins-option">
-            <img
-              src="../images/clock.png"
-              class="hints-img ans-time-img"
-              alt=""
-            />
-            <div class="hints-desc">
-              <div class="hints-desc-header">unlimited ans time</div>
-              <div class="hints-desc-txt">1 day</div>
-            </div>
-            <div class="price coins-price">#2000</div>
-          </div>
-        </div>
+         
+
+        
         <div class="adModal">
           <div class="ad-contents">
             <button
-              class="close-modal"
+              class="close-modal btn"
               id="cancel-ad-btn"
               style="display: none"
             >
@@ -331,39 +354,67 @@
             <div class="modal-footer">Tap to Continue</div>
           </div>
         </div>
+        <audio id="backgroundMusic" loop>
+          <source
+            src="../sounds/ASIMI Duduke_(Official_Audio)(240p).mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
 
+        <audio id="soundEffect">
+          <source src="../sounds/buttonClick.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+
+        <div class="getAHintModal">
+          <div class="getAHintModalCont">
+            <div class="modalCloseBtn btn">&times;</div>
+            <div class="modal-content">
+              <img src="../images/idea.png" alt="" height="100" />
+              <div class="modal-text">Choose A Hint</div>
+
+              <div class="hintModalOption fifty-fifty btn">
+                <div class="hintOptionText fiftyPercentText">Fifty-Fifty</div>
+                <div class="hintImage fiftyHint">50%</div>
+              </div>
+              <div class="hintModalOption expertAns btn">
+                <div class="hintOptionText expertAnsText">Expert Answer</div>
+                <div class="hintImage">
+                  <img src="../images/user.png" alt="" />
+                </div>
+              </div>
+              <div class="hintModalOption anotherQuestion btn">
+                <div class="hintOptionText anotherQuestionText">
+                  Another Question
+                </div>
+                <div class="hintImage">
+                  <img src="../images/undo.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="footer">
-          <a href="../index.html">
-            <div class="home tooltip-box">
-              <img class="footer-btn" src="../images/home (1).png" alt="" />
-              <div class="tooltip">home</div>
-            </div>
-          </a>
+          <div class="home tooltip-box btn">
+            <img class="footer-btn" src="../images/home (1).png" alt="" />
+            <div class="tooltip">home</div>
+          </div>
 
-          <a href="../profilePage/user.html">
-            <div class="profile tooltip-box">
-              <img class="footer-btn" src="../images/user.png" alt="" />
-              <div class="tooltip">profile</div>
-            </div>
-          </a>
+          <div class="profile tooltip-box btn">
+            <img class="footer-btn" src="../images/user.png" alt="" />
+            <div class="tooltip">profile</div>
+          </div>
 
-          <a href="../SettingsPage/setting.html">
-            <div class="setting-icon tooltip-box">
-              <img class="footer-btn" src="../images/settings.png" alt="" />
-              <div class="tooltip">setting</div>
-            </div>
-          </a>
+          <div class="setting-icon tooltip-box btn">
+            <img class="footer-btn" src="../images/settings.png" alt="" />
+            <div class="tooltip">setting</div>
+          </div>
 
-          <a href="../StorePage/store.html">
-            <div class="store tooltip-box">
-              <img
-                class="footer-btn"
-                src="../images/grocery-store.png"
-                alt=""
-              />
-              <div class="tooltip">store</div>
-            </div>
-          </a>
+          <div class="store tooltip-box btn">
+            <img class="footer-btn" src="../images/grocery-store.png" alt="" />
+            <div class="tooltip">store</div>
+          </div>
         </div>
       </div>
     </div>

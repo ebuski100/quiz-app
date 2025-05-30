@@ -9,13 +9,12 @@
   <body>
     <div class="edit-container">
       <div class="edit-header">
-        <a href="../profilePage/user.html">
-          <div class="quit-btn">
-            <img src="../images/left.png" alt="" />
-          </div>
-        </a>
+        <div class="quit-btn editQuitBtn btn">
+          <img src="../images/left.png" alt="" />
+        </div>
+
         <!-- <img src="" alt="" class="profileBanner"> -->
-        <div class="banner-edit-btn">
+        <div class="btn banner-edit-btn">
           <img src="../images/camera.png" alt="" />
           <div class="edit-btn-txt">Edit</div>
         </div>
@@ -31,32 +30,33 @@
           />
         </div>
 
-        <div class="edit-img-btn">
+        <div class="btn edit-img-btn">
           <img src="../images/camera.png" alt="" />
         </div>
       </div>
 
       <div class="modal" id="myModal">
-        <div class="close" id="close-pics-modal">&times;</div>
+        <div class="btn close" id="close-pics-modal">&times;</div>
         <div class="modal-content">
           <div class="modal-header">
             <img src="../images/idea.png" alt="" height="70" />
             <div class="modal-header-title">Profile Picture</div>
           </div>
           <div class="modal-body">
-            <a href="../Avatar/avatar.html">
-              <div class="modal-body-item">
-                <img src="../images/user (2).png" alt="" />
-                <div class="body-item-desc">Choose avatar</div>
-              </div>
-            </a>
+            <div class="btn modal-body-item choose-avatar">
+              <img src="../images/user (2).png" alt="" />
+              <div class="body-item-desc">Choose avatar</div>
+            </div>
 
-            <div id="profile-camera-btn" class="modal-body-item">
+            <div id="profile-camera-btn" class="btn modal-body-item">
               <img src="../images/camera (1).png" alt="" />
               <div class="body-item-desc">Take Photo</div>
             </div>
 
-            <div id="profileGalleryBtn" class="modal-body-item profileGallery">
+            <div
+              id="profileGalleryBtn"
+              class="btn modal-body-item profileGallery"
+            >
               <img src="../images/image.png" alt="" />
               <div class="body-item-desc">Upload from Gallery</div>
               <input
@@ -67,7 +67,7 @@
                 multiple
               />
             </div>
-            <div class="modal-body-item remove-profile-btn">
+            <div class="btn modal-body-item remove-profile-btn">
               <img src="../images/delete.png" alt="" />
               <div class="body-item-desc delete-text">Remove Picture</div>
             </div>
@@ -77,19 +77,22 @@
         </div>
       </div>
       <div class="modal1" id="myModal1">
-        <div class="close" id="close-banner-modal">&times;</div>
+        <div class="btn close" id="close-banner-modal">&times;</div>
         <div class="modal-content">
           <div class="modal-header">
             <img src="../images/idea.png" alt="" height="70" />
             <div class="modal-header-title">Profile Picture</div>
           </div>
           <div class="modal-body">
-            <div id="banner-camera-btn" class="modal-body-item">
+            <div id="banner-camera-btn" class="btn modal-body-item">
               <img src="../images/camera (1).png" alt="" />
               <div class="body-item-desc">Take Photo</div>
             </div>
 
-            <div id="bannerGalleryBtn" class="modal-body-item bannerGallery">
+            <div
+              id="bannerGalleryBtn"
+              class="btn modal-body-item bannerGallery"
+            >
               <img src="../images/image.png" alt="" />
               <div class="body-item-desc">Upload from Gallery</div>
               <input
@@ -100,7 +103,7 @@
                 multiple
               />
             </div>
-            <div class="modal-body-item remove-banner-btn">
+            <div class="btn modal-body-item remove-banner-btn">
               <img src="../images/delete.png" alt="" />
               <div class="body-item-desc delete-text">Remove Picture</div>
             </div>
@@ -109,21 +112,27 @@
           <div class="modal-footer">Tap to Continue</div>
         </div>
       </div>
+      <audio id="backgroundMusic" loop>
+        <source
+          src="../sounds/ASIMI Duduke_(Official_Audio)(240p).mp3"
+          type="audio/mpeg"
+        />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="soundEffect">
+        <source src="../sounds/buttonClick.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
 
       <div class="user-description">
-        <label for="nickname" class="nickname">Your nickname</label>
-        <input type="text" class="nickName" />
+        <label for="nickname" class="nickname">Username:</label>
+        <input type="text" class="nickName usernameInput" />
       </div>
-      <div class="user-bio">
-        <label for="bio" class="bio">Bio</label><br />
 
-        <textarea name="bio-info" id="bio"> </textarea>
-        <div class="char-count">0/150</div>
-      </div>
       <div class="user-data">
         <div class="user-age">
           <label for="age" class="age">Age</label> <br />
-          <select class="select-age" name="age" id="Age">
+          <select class="btn select-age" name="age" id="Age">
             <option class="age-value" value="13">13</option>
             <option class="age-value" value="14">14</option>
             <option class="age-value" value="15">15</option>
@@ -174,8 +183,8 @@
             <option class="age-value" value="60">60</option>
           </select>
         </div>
-        <div class="vertical"></div>
-        <div class="user-gender">
+        <!-- <div class="vertical"></div> -->
+        <div class="btn user-gender">
           <label for="gender" class="gender">Gender</label><br />
           <select class="select-gender" name="gender" id="gender">
             <option value="male">male</option>
@@ -183,11 +192,10 @@
           </select>
         </div>
       </div>
-      <a href="../profilePage/user.html">
-        <div class="button-cont">
-          <button class="submit">submit</button>
-        </div>
-      </a>
+
+      <div class="btn button-cont">
+        <button class="submit">submit</button>
+      </div>
     </div>
     <script src="edit.js"></script>
     <!-- <script src="../Avatar/avatar.js"></script>

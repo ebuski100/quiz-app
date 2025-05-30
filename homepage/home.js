@@ -55,13 +55,49 @@ const No = document.querySelector(".No");
 const closeModal = document.querySelector(".close-modal");
 const modalFooter = document.querySelector(".modal-footer");
 const exitModal = document.querySelector(".exit-modal");
+const playBtn = document.querySelector(".play");
 const storeBtns = document.querySelectorAll(".storeBtns");
-console.log(exitBtn);
+const footerIcons = document.querySelectorAll(".tooltip-box");
+
+const coinsMaxDisplay = document.querySelector(".coinMax-cont");
+const heartMaxDisplay = document.querySelector(".heartMax-cont");
+const coinNum = document.querySelector(".coin-num");
+const heartText = document.querySelector(".heartnum");
+console.log(heartText);
+const currentCoins = parseInt(localStorage.getItem("coinCount")) || 0;
+let currentHeartNum = parseInt(localStorage.getItem("heartNum"));
+
+if (currentHeartNum === null || isNaN(currentHeartNum)) {
+  currentHeartNum = 5; // Set to 5 only if heartNum is not defined
+  localStorage.setItem("heartNum", currentHeartNum);
+}
+
+heartText.textContent = currentHeartNum;
+localStorage.setItem("coinCount", currentCoins);
+coinNum.textContent = currentCoins;
+
+if (currentCoins >= 5000) {
+  coinsMaxDisplay.classList.add("displayMax");
+} else {
+  coinsMaxDisplay.classList.remove("displayMax");
+}
+if (currentHeartNum >= 5) {
+  heartMaxDisplay.classList.add("displayMax");
+} else {
+  heartMaxDisplay.classList.remove("displayMax");
+}
 
 storeBtns.forEach((storeBtn) => {
   storeBtn.addEventListener("click", () => {
-    window.location.href = "../StorePage/store.html";
+    setTimeout(() => {
+      window.location.href = "../StorePage/store.html";
+    }, 200);
   });
+});
+playBtn.addEventListener("click", () => {
+  setTimeout(() => {
+    window.location.href = "Quizpage/quiz.html";
+  }, 200);
 });
 exitBtn.addEventListener("click", () => {
   exitModal.style.display = "block";
@@ -79,5 +115,60 @@ No.addEventListener("click", () => {
 });
 
 yes.addEventListener("click", () => {
-  window.location.href = "chrome://newtab";
+  setTimeout(() => {
+    window.location.href = "https://www.google.com";
+  }, 200);
+});
+
+footerIcons.forEach((footerIcon) => {
+  footerIcon.addEventListener("click", () => {
+    setTimeout(() => {
+      if (footerIcon.classList.contains("home")) {
+        window.location.href = "index.html";
+      } else if (footerIcon.classList.contains("profile")) {
+        window.location.href = "profilePage/user.html";
+      } else if (footerIcon.classList.contains("setting-icon")) {
+        window.location.href = "SettingsPage/setting.html";
+      } else {
+        window.location.href = "StorePage/store.html";
+      }
+    }, 200);
+  });
+});
+const savedTheme = localStorage.getItem("theme") || "light";
+const homeBody = document.querySelector(".container");
+
+if (savedTheme === "dark") {
+  homeBody.classList.add("dark");
+  storeBtns.forEach((storeBtn) => {
+    storeBtn.classList.add("storeBtnBackground");
+  });
+}
+
+const savedMusicState = localStorage.getItem("musicState") || "paused";
+
+if (savedMusicState === "playing") {
+  backgroundMusic.play();
+} else {
+  backgroundMusic.pause();
+}
+
+const savedMusicTime = parseFloat(localStorage.getItem("musicTime")) || 0;
+backgroundMusic.currentTime = savedMusicTime;
+backgroundMusic.addEventListener("timeupdate", () => {
+  localStorage.setItem("musicTime", backgroundMusic.currentTime);
+});
+
+const buttons = document.querySelectorAll(".btn");
+let soundState = localStorage.getItem("soundState") || "on";
+
+const soundEffect = document.getElementById("soundEffect");
+buttons.forEach((button) => {
+  console.log(soundState);
+  button.addEventListener("click", () => {
+    if (soundState === "on") {
+      soundEffect.currentTime = 0; // Reset sound to the beginning
+      soundEffect.play(); // Play the sound effect
+    }
+  });
 });

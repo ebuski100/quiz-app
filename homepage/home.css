@@ -24,7 +24,7 @@ body {
 
   background: #fff;
   border-radius: 2rem;
-
+  box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
   /* overflow: hidden; */
 }
 .settings {
@@ -37,7 +37,7 @@ body {
   align-items: center;
 }
 
-.btn {
+.btns {
   padding: 0.5rem;
   color: #fff;
   width: 50%;
@@ -153,7 +153,6 @@ button {
   width: 20px;
 }
 .heartnum {
-  position: absolute;
   left: 12px;
   font-size: 12px;
   font-weight: bold;
@@ -191,20 +190,6 @@ button {
   background-color: red;
 }
 
-/* .heart {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100px;
-  padding: 0 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: #fff;
-  border: 3px solid rgb(255, 187, 0);
-  border-radius: 1rem;
-  margin-right: 3rem;
-} */
 .setting-icon {
   cursor: pointer;
 }
@@ -413,4 +398,36 @@ button {
 
 .footer-btn:active {
   transform: scale(1.2) translateX(3px) translateY(3px);
+}
+
+.dark {
+  background-color: rgb(2, 2, 39);
+}
+.headItems {
+  color: #fff;
+}
+
+.storeBtnBackground {
+  background-color: white;
+  color: rgb(2, 2, 39);
+  font-weight: bold;
+}
+.heartMax-cont,
+.coinMax-cont {
+  position: absolute;
+  right: -5px;
+  background: orange;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.displayMax {
+  visibility: visible;
+  z-index: 99;
 }

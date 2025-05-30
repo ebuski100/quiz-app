@@ -13,7 +13,27 @@ body {
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding: 1rem;
   /* height: 250vh; */
-  height: 240vh;
+  height: 165vh;
+}
+.storeDescription {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  background-color: purple;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  animation: blinking 1s linear infinite alternate-reverse;
+}
+@keyframes blinking {
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 .container {
@@ -23,11 +43,11 @@ body {
   display: flex;
   flex-direction: column;
 
-  width: 60%;
+  width: 70%;
   box-shadow: 0 4px 0 rgb(13, 13, 151);
   height: 88%;
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 .div-item:hover,
 .quit-btn:hover {
@@ -94,18 +114,17 @@ body {
   width: 200px;
 
   margin-right: 2rem;
-  cursor: pointer;
 }
 .coin-icon img {
   height: 20px;
   width: 20px;
 }
 .heartnum {
-  position: absolute;
   left: 12px;
   font-size: 12px;
   font-weight: bold;
   font-family: cursive;
+  color: red;
 }
 
 .star-icon,
@@ -134,6 +153,21 @@ body {
   right: -5px;
 }
 
+.heartMax-cont,
+.coinMax-cont {
+  position: absolute;
+  right: -5px;
+  background: orange;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
 .store-main {
   /* border: 1px solid blue; */
   width: 100%;
@@ -146,6 +180,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1rem;
   /* border: 1px solid red; */
 }
 .coin-header,
@@ -160,7 +195,7 @@ body {
   justify-content: space-between;
   color: #fff;
   padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 .lives-header-heartNum {
@@ -176,8 +211,17 @@ body {
   position: absolute;
   left: 1.5rem;
 }
+.coin-heartNum-opt {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  right: 2rem;
+}
+
 .lives-option,
-.lives-option5 {
+.coins-option,
+.hint-option {
   position: relative;
 }
 .coin-header {
@@ -265,6 +309,21 @@ body {
   font-weight: bold;
   display: flex;
   align-items: center;
+}
+.coin-num1 {
+  animation: blink-orange 1s linear 2 alternate-reverse;
+}
+@keyframes blink-orange {
+  0%,
+  100% {
+    color: orange;
+    opacity: 1;
+  }
+  50% {
+    color: red;
+    font-size: 1.4rem;
+    opacity: 0.5;
+  }
 }
 .coin-num img {
   margin-right: 0.5rem;
@@ -374,12 +433,13 @@ body {
 .ad-contents {
   /* background-color: rgb(73, 69, 75); */
   margin: 5% auto;
-
+  background-color: rgba(100, 99, 100, 0.411);
+  padding: 0.5rem 0;
   width: 80%;
   height: 80%;
 
   text-align: center;
-
+  border-radius: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -388,6 +448,7 @@ body {
 #ad-video {
   height: 100%;
   width: 100%;
+
   display: block;
   margin: 0;
 
@@ -424,7 +485,7 @@ body {
 }
 #progressBar {
   width: 70%;
-  margin: 0 0.5rem;
+  margin: 1rem;
 }
 
 .modal-footer {
@@ -466,6 +527,157 @@ body {
   border: none;
 }
 
+/* #fiftyNum,
+#expertNum,
+#anotherQuestionNum {
+  height: 30px;
+  width: 30px;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+} */
+.fiftyHint {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
 .close-modal:hover {
   background: grey;
+}
+.dark {
+  background-color: rgb(2, 2, 39);
+}
+.storeBtnBackground {
+  background-color: white;
+  color: rgb(2, 2, 39);
+  font-weight: bold;
+}
+
+.displayMax {
+  visibility: visible;
+  z-index: 99;
+}
+
+.blink-coin {
+  animation: blink-coin 1s linear;
+}
+
+@keyframes blink-coin {
+  0%,
+  100% {
+    font-size: 12px;
+    opacity: 1;
+  }
+  50% {
+    color: rgb(206, 2, 2);
+    opacity: 0.5;
+  }
+}
+.getAHintModal {
+  display: none;
+  position: fixed;
+
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.959);
+}
+
+.getAHintModalCont {
+  background-color: rgb(73, 69, 75);
+  margin: 2% auto;
+  padding: 1rem;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  border-radius: 1rem;
+  text-align: center;
+  position: relative;
+}
+.modal-text {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.hintModalOption {
+  display: flex;
+  flex-direction: row;
+
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+
+  justify-content: space-between;
+  height: 100px;
+  padding: 1rem;
+  cursor: pointer;
+}
+.hintModalOption:hover {
+  transform: scale(1.05);
+}
+.hintModalOption:active {
+  transform: scale(1.1) translateX(3px) translateY(3px);
+}
+.hintImage {
+  display: flex;
+  align-items: start;
+}
+.hintOptionText {
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+
+  position: relative;
+  font-weight: bold;
+}
+.usedUpItems {
+  color: red;
+  /* display: none; */
+  position: absolute;
+  top: 20%;
+}
+.anotherQuestion {
+  background-color: orange;
+}
+.expertAns {
+  background-color: rgb(75, 75, 238);
+}
+.fifty-fifty {
+  background-color: rgb(51, 252, 51);
+}
+.modalCloseBtn {
+  /* color: red; */
+  position: absolute;
+  color: #fff;
+  right: 1rem;
+  top: 0.5rem;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  /* text-align: center; */
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 1s linear;
+}
+
+.modalCloseBtn:hover {
+  background: grey;
+}
+
+.disable {
+  pointer-events: none;
+  background-color: grey;
+  opacity: 0.5;
 }

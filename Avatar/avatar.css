@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 23, 43, 0.979);
+
   padding: 1rem;
   color: #fff;
   /* height: 100vh; */
@@ -31,6 +31,7 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 1.5rem;
+  color: rgba(43, 23, 43, 0.979);
 }
 .quit-btn {
   background: rgba(43, 23, 43, 0.979);
@@ -42,6 +43,13 @@ body {
   width: 70px;
   cursor: pointer;
 }
+.quit-btn:hover {
+  transform: scale(1.05);
+  background: rgba(78, 48, 78, 0.979);
+}
+.quit-btn:active {
+  transform: scale(1.1) translateX(3px) translateY(3px);
+}
 .avatars {
   display: grid;
   grid-template-columns: repeat(4, 100px);
@@ -50,9 +58,10 @@ body {
   height: auto;
 }
 .avatar-item {
-  /* background: transparent; */
+  background-color: rgba(43, 23, 43, 0.979);
   border: 3px solid #fff;
   border-radius: 50%;
+
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -65,4 +74,16 @@ body {
 .avatar-item:active {
   transform: scale(1.05);
   background: rgba(134, 94, 134, 0.616);
+}
+
+.dark {
+  background-color: rgb(2, 2, 39);
+}
+
+.avatar-title-color {
+  color: #fff;
+}
+
+.bodyBackground {
+  background-color: rgba(43, 23, 43, 0.979);
 }

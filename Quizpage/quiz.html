@@ -10,31 +10,41 @@
     <div class="game-container">
       <div class="game-content">
         <div class="quiz-header">
-          <div class="quit-btn">
+          <div class="quit-btn btn">
             <img src="../images/left.png" alt="" />
           </div>
 
           <div class="header">
-            <div class="coins storeBtn">
+            <div class="coins btn storeBtn">
               <div class="coin-icon">
                 <img src="../images/coin.png" alt="" />
               </div>
-              <div class="coin-num">100</div>
+              <div class="coin-num"></div>
+              <div class="heart-text coinMax-cont">max</div>
               <div class="coins-btn">
-                <img src="../images/add.png" alt="" height="40" />
+                <img src="../images/add.png" alt="" height="30" />
               </div>
             </div>
-            <div class="heart storeBtn">
+            <div class="heart btn storeBtn">
               <div class="heart-icon">
                 <img src="../images/heart.png" alt="" height="20" width="20" />
-
-                <div class="heartnum">5</div>
               </div>
-              <div class="heart-text">max</div>
+              <div class="heartnum">5</div>
+              <div class="heart-text heartMax-cont">max</div>
               <div class="heart-btn">
-                <img src="../images/add.png" alt="" height="40" />
+                <img src="../images/add.png" alt="" height="30" />
               </div>
             </div>
+          </div>
+
+          <div class="profile-img btn">
+            <img
+              id="profile_Image"
+              class="userProfile"
+              src="../images/user (5).png"
+              alt="Profile Image"
+              height="25"
+            />
           </div>
         </div>
 
@@ -46,8 +56,23 @@
             width="40px "
             class="game-logo-img"
           />
+
+          <span class="difficultyLabel">Difficulty:</span>
+
+          <div class="difficulty btn">Easy</div>
+
+          <!-- <div class="profile-img btn">
+            <img
+              id="profile_Image"
+              class="userProfile"
+              src="../images/user (5).png"
+              alt="Profile Image"
+              height="30"
+            />
+          </div> -->
         </div>
-        <div class="timer-box">
+
+        <div class="timer-box btn">
           <img
             src="../images/clock.png"
             height="32"
@@ -56,6 +81,12 @@
           />
           <div class="timer-bar">
             <div class="timer-show"></div>
+          </div>
+          <div class="pauseTimer">
+            <div class="pauseLabel">pause</div>
+            <img src="../images/play-button-arrowhead.png" height="20" alt="" />
+            <span class="pauseTimeNum">0</span>
+            <div class="tooltip">pauseTime</div>
           </div>
         </div>
         <div class="price-tag"></div>
@@ -86,7 +117,13 @@
             <div class="modal-content">
               <img src="../images/congratulation (1).png" alt="" height="100" />
               <div class="modal-text">
-                you've won the sum of <span class="price-won"></span>
+                <div class="person">
+                  <span class="title playerName"></span>
+                  <span class="congratsUsername playerName"></span>
+                </div>
+
+                you've won the sum of
+                <span class="price-won"></span>
               </div>
               <img
                 src="../resultMessage/audiences (1).gif"
@@ -94,47 +131,75 @@
                 alt=""
               />
             </div>
-            <button class="playAgain congratsBtn">Play Again</button>
-            <button class="LeaveBtn congratsBtn">Leave</button>
+            <div class="millionaire">
+              You're now a <span class="millText">MILLIONAIRE </span>💸🎉🤸🏼‍♀️
+            </div>
+            <button class="playAgain congratsBtn btn">Play Again</button>
+            <button class="LeaveBtn congratsBtn btn">Leave</button>
+          </div>
+        </div>
+
+        <div class="failedModal">
+          <div class="failedModalCont">
+            <div class="modal-content">
+              <img src="../images/game-over (1).png" alt="" height="100" />
+              <div class="modal-text">
+                Too Bad
+                <div class="person">
+                  <span class="failedTitle playerName"></span>
+                  <span class="failedUsername playerName"></span>
+                </div>
+              </div>
+              <div class="modal-body">
+                No money won today 💔
+                <p>come back Stronger Next time🙏🏽</p>
+              </div>
+            </div>
+            <button class="playAgain congratsBtn btn">Play Again</button>
+            <button class="LeaveBtn congratsBtn btn">Leave</button>
           </div>
         </div>
 
         <div class="options-cont">
-          <div class="option opt1">
+          <div class="option btn opt1">
             <div class="optionId">A:</div>
             <div class="backgroundChange"></div>
             <div class="option-text"></div>
             <span class="result"></span>
           </div>
-          <div class="option opt1">
+          <div class="option btn opt1">
             <div class="optionId">B:</div>
             <div class="backgroundChange"></div>
             <div class="option-text"></div>
           </div>
-          <div class="option opt1">
+          <div class="option btn opt1">
             <div class="optionId">C:</div>
             <div class="backgroundChange"></div>
             <div class="option-text"></div>
           </div>
-          <div class="option opt1">
+          <div class="option btn opt1">
             <div class="optionId">D:</div>
             <div class="backgroundChange"></div>
             <div class="option-text"></div>
           </div>
         </div>
+
         <div class="time-upModal">
-          <button class="timeUpCloseBtn">&times;</button>
           <div class="time-upModalContainer">
             <div class="time-upModalheader">
               <img
-                src="images/idea.png"
+                src="../images/idea.png"
                 height="120"
                 alt=""
                 class="modal-logo"
               />
               <p class="header-txt">Time is Up!</p>
             </div>
-            <div class="watch-ad timeUpWatchAd time-upModalItem">
+
+            <div
+              id="timeUpAdbtn"
+              class="watch-ad btn timeUpWatchAd time-upModalItem"
+            >
               <img
                 height="50"
                 src="../images/watch-movie (3).png"
@@ -151,21 +216,91 @@
               <div class="buyText">or buy</div>
               <div class="rightLine"></div>
             </div>
-            <div class="More-timeOption time-upModalItem">
+            <div class="More-timeOption btn time-upModalItem">
               <img src="../images/alarm-clock.png" alt="" />
               <div class="modalItem-cont">
-                <div class="modalItemtitle">Unlimited ans Time</div>
-                <div class="modalItemBody">7 days</div>
+                <div class="modalItemtitle">Get Answer time Pauses</div>
+                <div class="modalItemBody">X5 per game</div>
               </div>
-              <div class="modalItemPrice">#2000</div>
+              <div class="modalItemPrice">
+                <img src="../images/coin.png" height="20" alt="" />
+                5000
+              </div>
             </div>
-            <div class="modal-footer timeUpModalFooter">Tap to Continue</div>
+          </div>
+        </div>
+
+        <div class="secondChanceModal">
+          <div class="secondChanceModalContainer">
+            <div class="btn closeSecondChanceModal">&times;</div>
+            <div class="SecondChanceModalheader">
+              <img
+                src="../images/heartbroken (1).png"
+                height="120"
+                alt=""
+                class="modal-logo secondChanceLogo"
+              />
+              <p class="header-txt">Need a Second Chance ?</p>
+            </div>
+
+            <div
+              id="secondChanceAdBtn"
+              class="watch-ad btn timeUpWatchAd secondChanceWatchAd secondChanceModalItem"
+            >
+              <img
+                height="50"
+                src="../images/watch-movie (3).png"
+                alt=""
+                class="watchAd-icon secondChanceAdIcon"
+              />
+              <div class="modalItem-cont">
+                <div class="modalItemtitle">Watch Ad to retain Price</div>
+                <div class="modalItemBody">free</div>
+              </div>
+            </div>
+            <div class="buy-option-divider">
+              <div class="leftLine"></div>
+              <div class="buyText">or</div>
+              <div class="rightLine"></div>
+            </div>
+
+            <div class="secondChanceAltOpt btn secondChanceModalItem">
+              <img src="../images/heart.png" alt="" />
+              <div class="modalItem-cont">
+                <div class="modalItemtitle">Retain Price Level</div>
+                <div class="modalItemBody">use a heart</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quitEarlyModal">
+          <div class="quitEarlyModalContainer">
+            <div class="btn closeQuitEarlyModal">&times;</div>
+            <div class="SecondChanceModalheader">
+              <img
+                src="../images/banned.png"
+                height="120"
+                alt=""
+                class="modal-logo secondChanceLogo quitEarlyModalLogo"
+              />
+              <p class="header-txt quitEarlyHeadTxt1">Wait!</p>
+              <p class="header-txt2">You can Make A choice</p>
+            </div>
+            <div class="btn quitOption">Quit Now and take Home #500,000</div>
+
+            <div class="buy-option-divider">
+              <div class="leftLine"></div>
+              <div class="buyText">or</div>
+              <div class="rightLine"></div>
+            </div>
+            <div class="btn continueOption">Continue, To Win #1,000,000</div>
           </div>
         </div>
 
         <div class="adModal">
           <button
-            class="close-modal adClose-modal"
+            class="close-modal btn adClose-modal"
             id="cancel-ad-btn"
             style="display: none"
           >
@@ -197,28 +332,37 @@
             <div class="modal-footer adModal-footer">Tap to Continue</div>
           </div>
         </div>
+        <audio id="backgroundMusic" loop>
+          <source src="../sounds/quizPage-sound.wav" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="soundEffect">
+          <source src="../sounds/buttonClick.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
 
         <div class="hints-cont">
-          <div class="hint fifty-fifty">
+          <div class="hint btn fifty-fifty">
             <img src="../images/50-percent.png" alt="" height="40" width="40" />
+            <span class="fiftyNum">1</span>
             <div class="tooltip">50/50</div>
           </div>
-          <div class="hint poll-ans">
-            <img src="../images/signal-status.png" alt="" />
-            <div class="tooltip">poll-ans</div>
-          </div>
-          <div class="hint call-an-expert">
+
+          <div class="hint btn call-an-expert">
             <img src="../images/user.png" alt="" />
+            <span class="expertNum">1</span>
             <div class="tooltip">expert-ans</div>
           </div>
-          <div class="hint another-question">
+          <div class="hint btn another-question">
             <img src="../images/undo.png" alt="" />
+            <span class="anotherQuestionNum">1</span>
             <div class="tooltip">another question</div>
           </div>
         </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- <script src="../sounds.js"></script> -->
     <script src="quiz.js"></script>
   </body>
 </html>

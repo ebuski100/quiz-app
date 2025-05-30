@@ -2,7 +2,7 @@
   { "id": 1, "name": "Adidas.mp4", "path": "../Ads/Adidas.mp4" },
   { "id": 2, "name": "air_jordan.mp4", "path": "../Ads/air_jordan.mp4" },
   { "id": 3, "name": "airpodPro.mp4", "path": "../Ads/airpodPro.mp4" },
-  { "id": 4, "name": "apple_watch.mp4", "path": "../Ads/appleWatch.mp4" },
+  { "id": 4, "name": "apple_watch.mp4", "path": "../Ads/apple_watch.mp4" },
   {
     "id": 5,
     "name": "appleMacbookAir.mp4",
@@ -19,8 +19,8 @@
     "name": "bludotGiftShop.mp4",
     "path": "../Ads/bludotGiftShop.mp4"
   },
-  { "id": 9, "name": "branding.mp4", "path": "../Ads/branding.mp4" },
-  { "id": 10, "name": "burgerKing.mp4", "path": "../Ads/burgrerKing.mp4" },
+  { "id": 9, "name": "branding.mp4", "path": "../Ads/branding_Company.mp4" },
+  { "id": 10, "name": "burgerKing.mp4", "path": "../Ads/burgerKing.mp4" },
   { "id": 11, "name": "coca_cola.mp4", "path": "../Ads/coca_cola.mp4" },
   {
     "id": 12,
@@ -51,8 +51,8 @@
   },
   {
     "id": 23,
-    "name": "hubbleBranding.mp4",
-    "path": "../Ads/hubbleBranding.mp4"
+    "name": "hubblBranding.mp4",
+    "path": "../Ads/hubblBranding.mp4"
   },
   {
     "id": 24,
