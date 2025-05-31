@@ -12,6 +12,17 @@ body {
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding: 1rem;
 }
+#loader-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+}
 
 .container {
   display: flex;
@@ -286,12 +297,43 @@ button {
   color: #fff;
 }
 .homeHeader {
-  color: rgb(255, 208, 0);
+  color: rgb(255, 136, 0);
   font-family: cursive;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
   text-align: center;
+}
+.userWelcomeMsg {
+  background: linear-gradient(90deg, blue, red, purple, orange);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+@keyframes blinking {
+  to {
+    transform: scale(1.1);
+  }
+}
+.fly-in {
+  animation: flyInLeft 1s linear forwards,
+    blinking 1s linear infinite alternate-reverse;
+}
+
+@keyframes flyInLeft {
+  /* from {
+    opacity: 0;
+    transform: translateX(-200%);
+  } */
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .exit-modal {

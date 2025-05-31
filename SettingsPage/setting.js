@@ -4,8 +4,10 @@ const themeBtn = document.querySelector(".item2");
 const container = document.querySelector(".container");
 const settingTitle = document.querySelector(".setting-title");
 const themeIcon = document.querySelector(".themeIcon");
+
 const savedTheme = localStorage.getItem("theme") || "light";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
+
 const categoryLabels = document.querySelectorAll(".categoryLabel");
 
 difficultySelect.value = selectedDifficulty;
@@ -21,7 +23,7 @@ const savedCategory = localStorage.getItem("selectedCategory") || ""; // Default
 categorySelect.value = savedCategory;
 
 categorySelect.addEventListener("change", () => {
-  const selectedCategory = categorySelect.value;
+  const selectedCategory = categorySelect.textContent;
   localStorage.setItem("selectedCategory", selectedCategory);
   console.log("Category set to:", selectedCategory);
 });

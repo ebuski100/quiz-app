@@ -58,7 +58,7 @@ EditBtn.addEventListener("click", () => {
 
 quitBtn.addEventListener("click", () => {
   setTimeout(() => {
-    history.back();
+    location.href = "../homePage/home.html";
   }, 200);
 });
 storeBtns.forEach((storeBtn) => {
@@ -101,7 +101,7 @@ footerIcons.forEach((footerIcon) => {
   footerIcon.addEventListener("click", () => {
     setTimeout(() => {
       if (footerIcon.classList.contains("home")) {
-        window.location.href = "../index.html";
+        window.location.href = "../homePage/home.html";
       } else if (footerIcon.classList.contains("profile")) {
         window.location.href = "../profilePage/user.html";
       } else if (footerIcon.classList.contains("setting-icon")) {

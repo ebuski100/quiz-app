@@ -158,34 +158,27 @@ body {
 .game-logo {
   height: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
-  /* border: 1px solid yellow; */
+
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 3rem;
+  /* padding: 0 3rem; */
 }
 
-.game-logo-img {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  animation: bounce 1s linear infinite alternate;
-  margin-right: 2rem;
+.categoryCont,
+.difficultyCont {
+  /* border: 1px solid yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5rem;
 }
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px) scale(1.05);
-  }
-  100% {
-    transform: translateY(-4px) scale(1.1);
-  }
-}
-.difficulty {
+.difficulty,
+.category {
   background-color: blue;
   color: #fff;
   font-weight: bold;
@@ -195,21 +188,16 @@ body {
   cursor: pointer;
   position: relative;
   box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
-
-  /* border: 1px solid yellow; */
 }
-.difficulty:hover {
+.difficulty:hover,
+.category:hover {
   transform: scale(1.05);
   background-color: rgb(63, 63, 245);
 }
 .difficulty:active,
-.profile-img:active {
+.profile-img:active,
+.category:active {
   transform: scale(1.1) translateX(3px) translateY(3px);
-}
-
-.difficulty:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
 }
 
 .timer-box {
@@ -246,10 +234,12 @@ body {
 
   cursor: pointer;
 }
-.difficultyLabel {
+.difficultyLabel,
+.categoryLabel {
   color: #fff;
   margin-right: 0.5rem;
   font-weight: bold;
+  margin-bottom: 0.3rem;
 }
 .pauseTimer:hover {
   transform: scale(1.05);
@@ -1030,13 +1020,3 @@ body {
     color: red;
   }
 }
-/* @media (min-width: 450px) {
-  .coin-icon,
-  .heart-icon {
-    width: 40px;
-    height: 40px;
-  }
-  .header {
-    flex-direction: row;
-  }
-} */

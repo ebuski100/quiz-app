@@ -57,29 +57,7 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-/* .game-logo {
-  height: 100%;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-.game-logo-img {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  animation: bounce 1s linear infinite alternate;
-}
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px) scale(1.05);
-  }
-  100% {
-    transform: translateY(-4px) scale(1.1);
-  }
-} */
+
 .header {
   padding: 1rem 1.5rem;
   display: flex;
@@ -87,7 +65,6 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid blue; */
 
   width: 100%;
 }
@@ -129,7 +106,6 @@ body {
   width: 20px;
 }
 .heartnum {
-  /* position: absolute; */
   left: 12px;
   font-size: 12px;
   font-weight: bold;
@@ -221,7 +197,6 @@ body {
 }
 .edit-btn-link {
   text-decoration: none;
-  /* border: 1px solid red; */
 }
 .edit-btn-link:visited {
   color: #fff;
@@ -255,7 +230,6 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  /* border: none; */
   position: absolute;
 
   opacity: 0;

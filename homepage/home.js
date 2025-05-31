@@ -5,11 +5,31 @@ const profileBtn = document.querySelector(".profile");
 profileBtn.addEventListener("click", () => {});
 
 const url = `https://api.api-ninjas.com/v1/facts`;
+const oldUser = localStorage.getItem("oldUser");
+const userWelcomeMsg = document.querySelector(".userWelcomeMsg");
+const savedUsername = localStorage.getItem("username") || "Player";
+
+if (localStorage.getItem("showWelcome") === "true") {
+  if (!oldUser) {
+    setTimeout(() => {
+      userWelcomeMsg.classList.add("fly-in");
+    }, 500);
+    userWelcomeMsg.textContent = `Welcome ${savedUsername} 🖐🏼`;
+  } else {
+    setTimeout(() => {
+      userWelcomeMsg.classList.add("fly-in");
+    }, 500);
+    userWelcomeMsg.textContent = `Welcome Back ${savedUsername} 🖐🏼`;
+  }
+  localStorage.removeItem("showWelcome");
+} else {
+  userWelcomeMsg.textContent = "";
+}
 
 const reqOptions = {
   method: "GET",
   headers: {
-    "X-Api-Key": key, // Ensure the header key is correct
+    "X-Api-Key": key,
   },
 };
 
@@ -18,7 +38,7 @@ fetch(url, reqOptions)
     console.log("Response Status:", response.status);
 
     return response.text().then((text) => {
-      console.log("Response Body:", text); // Log the response body for debugging
+      console.log("Response Body:", text); //
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -32,7 +52,7 @@ fetch(url, reqOptions)
       const lastFetchDate = localStorage.getItem("lastFetchDate");
 
       if (!lastFetchDate || currentDate !== lastFetchDate) {
-        const newFact = data[0].fact; // Assuming the API returns an array of facts
+        const newFact = data[0].fact; //
         localStorage.setItem("dailyFact", newFact);
         localStorage.setItem("lastFetchDate", currentDate);
         dailyFacts.textContent = newFact;
@@ -124,13 +144,13 @@ footerIcons.forEach((footerIcon) => {
   footerIcon.addEventListener("click", () => {
     setTimeout(() => {
       if (footerIcon.classList.contains("home")) {
-        window.location.href = "index.html";
+        window.location.href = "home.html";
       } else if (footerIcon.classList.contains("profile")) {
-        window.location.href = "profilePage/user.html";
+        window.location.href = "../profilePage/user.html";
       } else if (footerIcon.classList.contains("setting-icon")) {
-        window.location.href = "SettingsPage/setting.html";
+        window.location.href = "../SettingsPage/setting.html";
       } else {
-        window.location.href = "StorePage/store.html";
+        window.location.href = "../StorePage/store.html";
       }
     }, 200);
   });
@@ -172,3 +192,13 @@ buttons.forEach((button) => {
     }
   });
 });
+
+const logo = document.querySelector(".game-logo");
+logo.addEventListener("click", () => {
+  localStorage.removeItem("oldUser");
+  localStorage.removeItem("gender");
+  localStorage.removeItem("username");
+  localStorage.removeItem("age");
+});
+
+console.log(logo);

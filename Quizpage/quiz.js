@@ -19,7 +19,7 @@ const timeUpCloseBtn = document.querySelector(".timeUpCloseBtn");
 const timeUpModal = document.querySelector(".time-upModal");
 const timeUpModalCont = document.querySelector(".time-upModalContainer");
 const adModalFooter = document.querySelector(".adModal-footer");
-const titleEl = document.querySelector(".title");
+// const titleEl = document.querySelector(".title");
 const timeUpFooter = document.querySelector(".timeUpModalFooter");
 const modalPriceWon = document.querySelector(".price-won");
 const leaveBtns = document.querySelectorAll(".LeaveBtn");
@@ -40,6 +40,8 @@ const pauseTimeNum = document.querySelector(".pauseTimeNum");
 const pauseTimer = document.querySelector(".pauseTimer");
 const disableTimer = localStorage.getItem("disableTimer");
 const savedProfileImage = localStorage.getItem("profileImage");
+const categoryLabel = document.querySelector(".categoryLabel");
+const category = document.querySelector(".category");
 const userProfile = document.querySelector(".userProfile");
 const difficultyLabel = document.querySelector(".difficultyLabel");
 const failedModal = document.querySelector(".failedModal");
@@ -51,24 +53,6 @@ const closeSecondChanceModal = document.querySelector(
   ".closeSecondChanceModal"
 );
 const savedUsername = localStorage.getItem("username") || "Player";
-const savedGender = localStorage.getItem("gender") || "dear";
-// const priceAmounts = [
-//   "#1,000,000",
-//   "#500,000",
-//   "#250,000",
-//   "#100,000",
-//   "#50,000",
-//   "#25,000",
-//   "#15,000",
-//   "#12,500",
-//   "#10,000",
-//   "#7,500",
-//   "#5,000",
-//   "#3,000",
-//   "#2,000",
-//   "#1,000",
-//   "#500",
-// ];
 const priceAmounts = [
   "#0",
   "#500",
@@ -88,16 +72,6 @@ const priceAmounts = [
   "#1,000,000",
 ];
 
-let title = "";
-if (savedGender === "male") {
-  title = "Mr.";
-} else if (savedGender === "female") {
-  title = "Mrs.";
-} else {
-  title = "dear";
-}
-
-const failedTitle = document.querySelector(".failedTitle");
 const failedUsername = document.querySelector(".failedUsername");
 const congratsUsername = document.querySelector(".congratsUsername");
 
@@ -142,7 +116,7 @@ function shouldShowSecondChance(currentPrice, currentHeartNum) {
 
 const quitEarlyModal = document.querySelector(".quitEarlyModal");
 const coinsMaxDisplay = document.querySelector(".coinMax-cont");
-// const secondChance = localStorage.getItem("secondChance");
+
 const heartMaxDisplay = document.querySelector(".heartMax-cont");
 const coinNum = document.querySelector(".coin-num");
 const heartText = document.querySelector(".heartnum");
@@ -186,10 +160,6 @@ function decodeHTMLEntities(text) {
   txt.innerHTML = text;
   return txt.value;
 }
-
-// priceTag.addEventListener("click", () => {
-//   quitEarlyModal.style.display = "block";
-// });
 function loadHints() {
   const fiftyFiftyUsed = localStorage.getItem("fiftyFiftyUsed");
   if (fiftyFiftyUsed === "true") {
@@ -222,22 +192,16 @@ function loadHints() {
 
 const difficulty = document.querySelector(".difficulty");
 
-// if (disableTimer) {
-//   // pauseTimeCount += 5;
-//   if (pauseTimeCount > 5) pauseTimeCount = 5;
-//   pauseTimeNum.textContent = pauseTimeCount;
-//   localStorage.setItem("pauseTimeCount", pauseTimeCount);
-//   enablePauseTimer();
-// }
 let shuffledAnswers = [];
 let correctAnswer = "";
 let attempts = 0;
 let timerInterval;
-const expertAnsBtn = document.querySelector(".call-an-expert"); // Select the expert-ans button
+const expertAnsBtn = document.querySelector(".call-an-expert");
 
 const selectedCategory = localStorage.getItem("selectedCategory") || "";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
 difficulty.textContent = selectedDifficulty;
+category.textContent = selectedCategory;
 console.log(selectedDifficulty);
 
 anotherQuestion.addEventListener("click", () => {
@@ -313,7 +277,6 @@ function showCorrectAns() {
   const correctOption = options[correctIndex];
   correctOption.parentElement.classList.add("blink-green");
 }
-// Disable hints buttons initially
 
 expertAnsBtn.addEventListener("click", () => {
   // Check if the button has already been used
@@ -362,22 +325,17 @@ if (!localStorage.getItem("questionStates")) {
 }
 
 function retainPriceOnAdSuccess(callback) {
-  // currentQuestionIndex += 1;
-  // localStorage.setItem("currentQuestionIndex", currentQuestionIndex);
-
   updateQuestionNumColors(currentQuestionIndex, false);
 
   if (callback) callback();
 }
 
 function checkForGameCompletion() {
-  // Always get the latest price from localStorage
   const currentPrice = localStorage.getItem("currentPrice") || "#0";
   if (currentQuestionIndex >= questNumColors.length) {
     modalPriceWon.textContent = currentPrice;
     setTimeout(() => {
       if (currentPrice === "#0") {
-        failedTitle.textContent = title;
         failedUsername.textContent = savedUsername;
         failedModal.style.display = "block";
         if (soundState === "on") {
@@ -388,7 +346,7 @@ function checkForGameCompletion() {
           });
         }
       } else {
-        titleEl.textContent = title;
+        // titleEl.textContent = title;
         congratsUsername.textContent = savedUsername;
         congratulationsModal.style.display = "block";
         if (currentPrice === "#1,000,000") {
@@ -407,18 +365,6 @@ function checkForGameCompletion() {
     clearInterval(timerInterval);
   }
 }
-// closeSecondChanceModal.addEventListener("click", () => {
-//   secondChanceModal.style.display = "none";
-//   reducePriceOnFailure(); // Run normal failure logic
-//   setTimeout(() => {
-//     if (currentQuestionIndex + 1 >= questNumColors.length) {
-//       checkForGameCompletion();
-//       resetOnGameEnd();
-//     } else {
-//       window.location.reload();
-//     }
-//   }, 1000);
-// });
 
 closeSecondChanceModal.addEventListener("click", () => {
   secondChanceModal.style.display = "none";
@@ -432,48 +378,12 @@ closeSecondChanceModal.addEventListener("click", () => {
   });
 });
 
-// function reducePriceOnFailure() {
-
-//   priceTag.classList.add("blink-red");
-
-//   setTimeout(() => {
-//     priceTag.classList.remove("blink-red");
-
-//     // Always increment question index on failure
-//     if (currentQuestionIndex >= questNumColors.length) {
-//       checkForGameCompletion();
-//       resetOnGameEnd();
-//     } else {
-//       currentQuestionIndex += 1;
-//       localStorage.setItem("currentQuestionIndex", currentQuestionIndex);
-//     }
-
-//     // Handle price index logic
-//     if (currentPriceIndex > 0) {
-//       currentPriceIndex -= 1;
-//       localStorage.setItem("currentPriceIndex", currentPriceIndex);
-//       priceTag.textContent = priceAmounts[currentPriceIndex];
-//       localStorage.setItem("currentPrice", priceTag.textContent);
-//     } else {
-//       // Already at #0, stay there
-//       priceTag.textContent = priceAmounts[0];
-//       localStorage.setItem("currentPrice", priceTag.textContent);
-//       localStorage.setItem("currentPriceIndex", 0);
-//     }
-
-//     setTimeout(() => {
-//       priceTag.classList.remove("slide-in");
-//     }, 500);
-//   }, 1500);
-// }
-
 function reducePriceOnFailure(callback) {
   priceTag.classList.add("blink-red");
 
   setTimeout(() => {
     priceTag.classList.remove("blink-red");
 
-    // Always increment question index on failure
     if (currentQuestionIndex >= questNumColors.length) {
       checkForGameCompletion();
       resetOnGameEnd();
@@ -688,14 +598,6 @@ fetch(url)
                 console.log(questNumColors.length);
                 console.log(currentQuestionIndex);
 
-                // if (isCorrect) {
-                //   for (i = 0; i < priceAmounts.length; i++) {
-                //     localStorage.setItem(
-                //       "currentQuestionIndex",
-                //       currentQuestionIndex + 1
-                //     );
-                //   }
-                // }
                 if (currentQuestionIndex >= questNumColors.length) {
                   setTimeout(() => {
                     checkForGameCompletion();
@@ -817,7 +719,7 @@ fetch(url)
 
 quitBtn.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "../index.html";
+    window.location.href = "../homePage/home.html";
   }, 200);
 });
 
@@ -861,140 +763,6 @@ function startTimer() {
 function triggerTimeUpModal() {
   timeUpModal.style.display = "block";
 }
-
-// watchAdBtn.addEventListener("click", () => {
-//   backgroundMusic.pause();
-//   adModal.style.display = "block";
-//   fetch("../adLinks.json")
-//     .then((response) => response.json())
-//     .then((ads) => {
-//       let totalAdTime = 0; // Total time ads have played
-//       const maxAdTime = 60; // Maximum ad time in seconds
-//       const cancelTime = 40; // Time after which the cancel button appears
-//       let cancelButtonShown = false;
-
-//       // Function to show a random ad
-//       function showRandomAd() {
-//         let randomNumber = Math.floor(Math.random() * ads.length);
-//         const randomAd = ads[randomNumber];
-
-//         adVideo.src = randomAd.path; // Set the video source
-//         adVideo.load();
-//         adVideo.play(); // Play the video
-//       }
-
-//       // Function to start the ad sequence
-//       function startAdSequence() {
-//         totalAdTime = 0;
-//         cancelButtonShown = false;
-//         cancelAdBtn.style.display = "none"; // Hide the cancel button
-//         showRandomAd();
-//       }
-
-//       // Update the total duration when the video metadata is loaded
-//       adVideo.addEventListener("loadedmetadata", () => {
-//         const totalDuration = formatTime(adVideo.duration);
-//         totalDurationDisplay.textContent = totalDuration;
-//         progressBar.max = adVideo.duration; // Set the max value of the progress bar
-//       });
-
-//       adVideo.addEventListener("timeupdate", () => {
-//         const currentTime = formatTime(adVideo.currentTime);
-//         currentTimeDisplay.textContent = currentTime;
-//         progressBar.value = adVideo.currentTime;
-//       });
-
-//       // Format time in MM:SS format
-//       function formatTime(seconds) {
-//         const minutes = Math.floor(seconds / 60);
-//         const secs = Math.floor(seconds % 60);
-//         return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
-//       }
-//       // Event listener for when an ad ends
-//       adVideo.addEventListener("ended", () => {
-//         if (totalAdTime < maxAdTime) {
-//           setTimeout(() => {
-//             showRandomAd(); // Play another random ad after 1 second
-//           }, 500); // 1-second delay
-//         } else {
-//           adModal.style.display = "none";
-//           alert("ad-ended! continue to game");
-//           adVideo.style.display = "none"; // Hide the video
-//           cancelAdBtn.style.display = "none"; // Hide the cancel button
-//           adModalFooter.style.display = "none";
-//           // setTimeout(() => {
-//           //   location.reload();
-//           // }, 200);
-//           timeUpModal.style.display = "none";
-//           startTimer();
-//           if (savedMusicState === "playing") {
-//             backgroundMusic.play();
-//           } else {
-//             backgroundMusic.pause();
-//           }
-//         }
-//       });
-
-//       // Timer to track ad playback time
-//       const adTimer = setInterval(() => {
-//         totalAdTime++;
-
-//         // Show the cancel button after 40 seconds
-//         if (totalAdTime >= cancelTime && !cancelButtonShown) {
-//           cancelAdBtn.style.display = "block";
-//           cancelButtonShown = true;
-//           adModalFooter.style.display = "block";
-//         }
-
-//         // Stop the timer after 60 seconds
-//         if (totalAdTime >= maxAdTime) {
-//           clearInterval(adTimer);
-//         }
-//       }, 1000); // Increment every second
-
-//       // Event listener for the cancel button
-//       cancelAdBtn.addEventListener("click", () => {
-//         adModal.style.display = "none";
-//         adVideo.style.display = "none"; // Hide the video
-//         cancelAdBtn.style.display = "none"; // Hide the cancel button
-//         adVideo.pause();
-//         adVideo.src = "";
-//         adModalFooter.style.display = "none";
-//         if (savedMusicState === "playing") {
-//           backgroundMusic.play();
-//         } else {
-//           backgroundMusic.pause();
-//         }
-//         // setTimeout(() => {
-//         //   location.reload();
-//         // }, 200);
-//         timeUpModal.style.display = "none";
-//         startTimer()
-
-//         clearInterval(adTimer); // Stop the timer
-//       });
-//       adModalFooter.addEventListener("click", () => {
-//         adModal.style.display = "none";
-//         adVideo.style.display = "none";
-//         adVideo.pause();
-//         adVideo.src = "";
-//         if (savedMusicState === "playing") {
-//           backgroundMusic.play();
-//         } else {
-//           backgroundMusic.pause();
-//         }
-//         // setTimeout(() => {
-//         //   location.reload();
-//         // }, 200);
-//         timeUpModal.style.display = "none";
-//         startTimer();
-//         clearInterval(adTimer);
-//       });
-
-//       startAdSequence();
-//     })
-//     .catch((error) => console.error("Error loading ads:", error));
-// });
 
 let ads = [];
 let adTimer = null;
@@ -1074,12 +842,6 @@ watchAdBtns.forEach((watchAdBtn) => {
     if (lastAdBtnId === "secondChanceAdBtn") {
       secondChanceModal.style.display = "none";
       clearInterval(timerInterval);
-      // retainPriceOnAdSuccess(() => {
-      //   if (currentQuestionIndex >= questNumColors.length) {
-      //     checkForGameCompletion();
-      //     resetOnGameEnd();
-      //   }
-      // });
     }
     startAdSequence();
   });
@@ -1099,8 +861,6 @@ adVideo.addEventListener("ended", () => {
     }
     if (lastAdBtnId === "secondChanceAdBtn") {
       secondChanceModal.style.display = "none";
-
-      // updateQuestionNumColors(currentQuestionIndex, false);
 
       retainPriceOnAdSuccess(() => {
         currentQuestionIndex += 1;
@@ -1218,7 +978,7 @@ gsap.from(".option-text", {
 leaveBtns.forEach((leaveBtn) => {
   leaveBtn.addEventListener("click", () => {
     setTimeout(() => {
-      window.location.href = "../index.html";
+      window.location.href = "../homePage/home.html";
     }, 200);
   });
 });
@@ -1231,50 +991,6 @@ playAgains.forEach((playAgain) => {
     }, 300);
   });
 });
-
-// function resetGame() {
-//   if (currentQuestionIndex >= 5) {
-//     localStorage.removeItem("disableTimer");
-
-//     localStorage.getItem("expertAnsUsed");
-//     localStorage.getItem("fiftyPercentHintUsed");
-//     localStorage.getItem("fiftyHintBought");
-//     localStorage.getItem("anotherQuestionBought");
-//     localStorage.getItem("expertAnsBought");
-
-//     localStorage.removeItem("currentPrice");
-//     localStorage.removeItem("currentQuestionIndex");
-//     localStorage.removeItem("currentPriceIndex");
-//     localStorage.removeItem("questionStates");
-//     localStorage.removeItem("fiftyFiftyUsed");
-//     localStorage.removeItem("expertUsed");
-//     localStorage.removeItem("anotherQuestionUsed");
-//     // localStorage.removeItem("anotherQuestionUsed");
-//     localStorage.removeItem("fiftyPercentHintUsed");
-//     localStorage.removeItem("expertAnsUsed");
-//     localStorage.removeItem("anotherQuestionHintUsed");
-//     localStorage.removeItem("fiftyHintBought");
-//     localStorage.removeItem("expertAnsBought");
-//     localStorage.removeItem("anotherQuestionBought");
-//     resetHeartNum();
-//     resetCoinCount();
-//     localStorage.setItem("pauseTimeCount", "0");
-//     pauseTimeNum.textContent = "0";
-//     pauseTimeNum.classList.remove("hintNumDisplay");
-
-//     localStorage.setItem("fiftyFiftyUsed", "false");
-//     localStorage.setItem("expertUsed", "false");
-//     localStorage.setItem("anotherQuestionUsed", "false");
-//     localStorage.setItem("currentPrice", "#500");
-//     localStorage.setItem("currentQuestionIndex", "0");
-//     localStorage.setItem("currentPriceIndex", priceAmounts.length - 1);
-//     questNumColors.forEach((questNumColor) => {
-//       questNumColor.style.backgroundColor = "white";
-//     });
-//   }
-// }
-
-// resetGame();
 
 function resetOnGameEnd() {
   if (currentQuestionIndex >= 15) {
@@ -1346,9 +1062,6 @@ function fiftyFifty() {
     option.parentElement.style.backgroundColor = "grey";
     option.parentElement.style.pointerEvents = "none"; // Disable click
   });
-  // fiftyCount -= 1;
-  // if (fiftyCount < 0) fiftyCount = 0;
-  // localStorage.setItem("fiftyNum", fiftyCount);
 
   fiftyFiftyBtn.style.backgroundColor = "grey";
   fiftyFiftyBtn.style.pointerEvents = "none";
@@ -1364,6 +1077,7 @@ if (savedTheme === "dark") {
   });
 } else {
   difficultyLabel.style.color = "rgb(18, 16, 128)";
+  categoryLabel.style.color = "rgb(18, 16, 128)";
 }
 const savedMusicState = localStorage.getItem("musicState") || "paused";
 
@@ -1478,15 +1192,21 @@ function playPurchaseFailSound() {
     }, 300);
   }
 }
-difficulty.addEventListener("click", () => {
-  if (soundState === "on") {
-    soundEffect.currentTime = 0;
-    soundEffect.play();
-  }
-  setTimeout(() => {
-    location.href = "../SettingsPage/setting.html";
-  }, 1000);
+
+const settingsBtns = document.querySelectorAll(".settingsBtn");
+
+settingsBtns.forEach((settingsBtn) => {
+  settingsBtn.addEventListener("click", () => {
+    if (soundState === "on") {
+      soundEffect.currentTime = 0;
+      soundEffect.play();
+    }
+    setTimeout(() => {
+      location.href = "../SettingsPage/setting.html";
+    }, 1000);
+  });
 });
+
 // disablePauseTimer();
 resumeQuizTimer();
 loadHints();
