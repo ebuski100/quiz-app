@@ -147,7 +147,7 @@ footerIcons.forEach((footerIcon) => {
   footerIcon.addEventListener("click", () => {
     setTimeout(() => {
       if (footerIcon.classList.contains("home")) {
-        window.location.href = base + "homePage/home.html";
+        window.location.href = base + "homepage/home.html";
       } else if (footerIcon.classList.contains("profile")) {
         window.location.href = base + "profilePage/user.html";
       } else if (footerIcon.classList.contains("setting-icon")) {

@@ -11,6 +11,6 @@ if (!username || !age) {
 } else {
   setTimeout(() => {
     localStorage.setItem("showWelcome", "true");
-    window.location.href = base + "homePage/home.html";
+    window.location.href = base + "homepage/home.html";
   }, 5000);
 }

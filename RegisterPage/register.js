@@ -18,7 +18,7 @@ document
     localStorage.setItem("username", username);
     localStorage.setItem("age", age);
     localStorage.setItem("showWelcome", "true");
-    window.location.href = base + "homePage/home.html";
+    window.location.href = base + "homepage/home.html";
   });
 
 const buttons = document.querySelectorAll(".btn");
