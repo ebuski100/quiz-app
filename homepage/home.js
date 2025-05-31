@@ -9,6 +9,9 @@ const oldUser = localStorage.getItem("oldUser");
 const userWelcomeMsg = document.querySelector(".userWelcomeMsg");
 const savedUsername = localStorage.getItem("username") || "Player";
 
+const isGithubPages = window.location.hostname.includes("github.io");
+const base = isGithubPages ? "/quiz-app/" : "../";
+
 if (localStorage.getItem("showWelcome") === "true") {
   if (!oldUser) {
     setTimeout(() => {
@@ -110,13 +113,13 @@ if (currentHeartNum >= 5) {
 storeBtns.forEach((storeBtn) => {
   storeBtn.addEventListener("click", () => {
     setTimeout(() => {
-      window.location.href = "../StorePage/store.html";
+      window.location.href = base + "StorePage/store.html";
     }, 200);
   });
 });
 playBtn.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "../Quizpage/quiz.html";
+    window.location.href = base + "Quizpage/quiz.html";
   }, 200);
 });
 exitBtn.addEventListener("click", () => {
@@ -144,13 +147,13 @@ footerIcons.forEach((footerIcon) => {
   footerIcon.addEventListener("click", () => {
     setTimeout(() => {
       if (footerIcon.classList.contains("home")) {
-        window.location.href = "home.html";
+        window.location.href = base + "homePage/home.html";
       } else if (footerIcon.classList.contains("profile")) {
-        window.location.href = "../profilePage/user.html";
+        window.location.href = base + "profilePage/user.html";
       } else if (footerIcon.classList.contains("setting-icon")) {
-        window.location.href = "../SettingsPage/setting.html";
+        window.location.href = base + "SettingsPage/setting.html";
       } else {
-        window.location.href = "../StorePage/store.html";
+        window.location.href = base + "StorePage/store.html";
       }
     }, 200);
   });
