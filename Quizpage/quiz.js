@@ -40,10 +40,9 @@ const pauseTimeNum = document.querySelector(".pauseTimeNum");
 const pauseTimer = document.querySelector(".pauseTimer");
 const disableTimer = localStorage.getItem("disableTimer");
 const savedProfileImage = localStorage.getItem("profileImage");
-const categoryLabel = document.querySelector(".categoryLabel");
-const category = document.querySelector(".category");
+
 const userProfile = document.querySelector(".userProfile");
-const difficultyLabel = document.querySelector(".difficultyLabel");
+
 const failedModal = document.querySelector(".failedModal");
 const millionaire = document.querySelector(".millionaire");
 const secondChanceAltOpt = document.querySelector(".secondChanceAltOpt");
@@ -53,6 +52,7 @@ const closeSecondChanceModal = document.querySelector(
   ".closeSecondChanceModal"
 );
 const savedUsername = localStorage.getItem("username") || "Player";
+const quizSetting = document.getElementById("quizSetting");
 const priceAmounts = [
   "#0",
   "#500",
@@ -134,6 +134,9 @@ if (isNaN(pauseTimeCount)) {
 }
 pauseTimeNum.textContent = pauseTimeCount;
 
+quizSetting.addEventListener("click", () => {
+  location.href = base + "SettingsPage/setting.html";
+});
 if (currentHeartNum === null || isNaN(currentHeartNum)) {
   currentHeartNum = 5; // Set to 5 only if heartNum is not defined
   localStorage.setItem("heartNum", currentHeartNum);
@@ -203,9 +206,6 @@ const expertAnsBtn = document.querySelector(".call-an-expert");
 
 const selectedCategory = localStorage.getItem("selectedCategory") || "";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
-difficulty.textContent = selectedDifficulty;
-category.textContent = selectedCategory;
-console.log(selectedDifficulty);
 
 anotherQuestion.addEventListener("click", () => {
   const anotherQuestionUsed =
@@ -1078,10 +1078,8 @@ if (savedTheme === "dark") {
   storeBtns.forEach((storeBtn) => {
     storeBtn.classList.add("storeBtnBackground");
   });
-} else {
-  difficultyLabel.style.color = "rgb(18, 16, 128)";
-  categoryLabel.style.color = "rgb(18, 16, 128)";
 }
+
 const savedMusicState = localStorage.getItem("musicState") || "paused";
 
 if (savedMusicState === "playing") {

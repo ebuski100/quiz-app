@@ -23,10 +23,11 @@ const savedCategory = localStorage.getItem("selectedCategory") || ""; // Default
 categorySelect.value = savedCategory;
 
 categorySelect.addEventListener("change", () => {
-  const selectedCategory = categorySelect.textContent;
+  const selectedCategory = categorySelect.value;
   localStorage.setItem("selectedCategory", selectedCategory);
   console.log("Category set to:", selectedCategory);
 });
+
 if (savedTheme === "dark") {
   container.classList.add("dark");
   settingTitle.classList.add("head-color");

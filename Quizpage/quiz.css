@@ -25,12 +25,12 @@ body {
 
 .game-container {
   position: relative;
-  /* border: 6px solid blue; */
+
   background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 90%;
   box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
   /* padding: 1rem; */
   height: 100%;
@@ -57,7 +57,7 @@ body {
   border-bottom: 5px groove blue;
   border-right: 5px groove blue;
   border-left: 5px ridge blue;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   border-radius: 1.5rem;
   font-size: 1.5rem;
   text-align: center;
@@ -74,7 +74,7 @@ body {
   align-items: center;
   /* border: 1px solid blue; */
 
-  width: 80%;
+  width: auto;
 }
 
 .coins,
@@ -90,7 +90,7 @@ body {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 1rem;
-  margin-right: 1rem;
+  margin-right: 0.5em;
   margin-bottom: 1rem;
   width: 100px;
   cursor: pointer;
@@ -134,12 +134,11 @@ body {
   right: -5px;
 }
 .profile-img {
-  /* border: 1px solid rgb(0, 26, 255); */
   background-color: hsla(300, 12%, 94%, 0.856);
   padding: 3px 5px 3px 7px;
   height: 40px;
   max-width: 40px;
-  /* width: 40px; */
+
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;
@@ -155,49 +154,38 @@ body {
   transform: scale(1.05);
 }
 
-.game-logo {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  /* padding: 0 3rem; */
-}
-
-.categoryCont,
-.difficultyCont {
-  /* border: 1px solid yellow; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 0.5rem;
-}
-.difficulty,
-.category {
-  background-color: blue;
-  color: #fff;
-  font-weight: bold;
-  padding: 0.2rem 1rem;
-  border-radius: 0.5rem;
-  margin-right: 1rem;
-  cursor: pointer;
+.tooltip-box {
   position: relative;
-  box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
+  /* background: rgb(10, 10, 37); */
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: blue;
+
+  box-shadow: 3px 3px 3px rgba(68, 67, 67, 0.801);
 }
-.difficulty:hover,
-.category:hover {
-  transform: scale(1.05);
-  background-color: rgb(63, 63, 245);
+.tooltip {
+  visibility: hidden;
+  width: 80px;
+  background-color: rgb(9, 4, 85);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+
+  position: absolute;
+
+  opacity: 0;
+  text-align: center;
+  bottom: -2rem;
+  left: -3rem;
+  transition: opacity 0.5s;
 }
-.difficulty:active,
-.profile-img:active,
-.category:active {
-  transform: scale(1.1) translateX(3px) translateY(3px);
+.tooltip-box:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip-box:active {
+  transform: scale(1.05) translateX(2px) translateY(2px);
+  background-color: rgb(6, 6, 161);
 }
 
 .timer-box {
@@ -208,7 +196,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid yellow; */
 }
 
 .timer-bar {
