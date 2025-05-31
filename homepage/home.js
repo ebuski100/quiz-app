@@ -116,7 +116,7 @@ storeBtns.forEach((storeBtn) => {
 });
 playBtn.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "Quizpage/quiz.html";
+    window.location.href = "../Quizpage/quiz.html";
   }, 200);
 });
 exitBtn.addEventListener("click", () => {

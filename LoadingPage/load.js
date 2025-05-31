@@ -3,11 +3,11 @@ const age = localStorage.getItem("age");
 
 if (!username || !age) {
   setTimeout(() => {
-    window.location.href = "../RegisterPage/register.html";
+    window.location.href = "/quiz-app/RegisterPage/register.html";
   }, 5000);
 } else {
   setTimeout(() => {
     localStorage.setItem("showWelcome", "true");
-    location.href = "../homePage/home.html";
+    window.location.href = "/quiz-app/homePage/home.html";
   }, 5000);
 }
