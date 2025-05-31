@@ -196,12 +196,12 @@ buttons.forEach((button) => {
   });
 });
 
-const logo = document.querySelector(".game-logo");
-logo.addEventListener("click", () => {
-  localStorage.removeItem("oldUser");
-  localStorage.removeItem("gender");
-  localStorage.removeItem("username");
-  localStorage.removeItem("age");
-});
+// const logo = document.querySelector(".game-logo");
+// logo.addEventListener("click", () => {
+//   localStorage.removeItem("oldUser");
+//   localStorage.removeItem("gender");
+//   localStorage.removeItem("username");
+//   localStorage.removeItem("age");
+// });
 
 console.log(logo);
