@@ -2,7 +2,7 @@ const username = localStorage.getItem("username");
 const age = localStorage.getItem("age");
 
 const isGithubPages = window.location.hostname.includes("github.io");
-const base = isGithubPages ? "/quiz-app/" : "";
+const base = isGithubPages ? "/quiz-app/" : "../";
 
 if (!username || !age) {
   setTimeout(() => {
