@@ -5,6 +5,8 @@ const quitBtn = document.querySelector(".notInterested");
 const regSubmitBtn = document.querySelector(".regSubmitBtn");
 console.log(regSubmitBtn);
 
+const isGithubPages = window.location.hostname.includes("github.io");
+const base = isGithubPages ? "/quiz-app/" : "../";
 document
   .getElementById("registerForm")
   .addEventListener("submit", function (e) {
@@ -16,7 +18,7 @@ document
     localStorage.setItem("username", username);
     localStorage.setItem("age", age);
     localStorage.setItem("showWelcome", "true");
-    window.location.href = "../homePage/home.html";
+    window.location.href = base + "homePage/home.html";
   });
 
 const buttons = document.querySelectorAll(".btn");
