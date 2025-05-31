@@ -3,6 +3,8 @@ const canvas = document.querySelector("#canvas");
 const captureButton = document.querySelector("#capture-button");
 const cancelButton = document.querySelector("#cancel-button");
 
+const isGithubPages = window.location.hostname.includes("github.io");
+const base = isGithubPages ? "/quiz-app/" : "../";
 // Access the user's webcam
 navigator.mediaDevices
   .getUserMedia({ video: true })
@@ -18,7 +20,7 @@ navigator.mediaDevices
 
 cancelButton.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "../EditPage/edit.html";
+    window.location.href = base + "EditPage/edit.html";
   }, 200);
   // Redirect to edit page
 });
@@ -53,7 +55,7 @@ captureButton.addEventListener("click", () => {
 
   // Redirect back to edit.html
   setTimeout(() => {
-    window.location.href = "../EditPage/edit.html";
+    window.location.href = base + "EditPage/edit.html";
   }, 200);
 });
 const savedMusicState = localStorage.getItem("musicState") || "paused";

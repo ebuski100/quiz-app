@@ -1,5 +1,6 @@
 // console.log(avatarItems);
-
+const isGithubPages = window.location.hostname.includes("github.io");
+const base = isGithubPages ? "/quiz-app/" : "../";
 const avatarItems = document.querySelectorAll(".avatar-item");
 
 const baseUrl = "https://api.dicebear.com/6.x/adventurer/svg?";
@@ -80,7 +81,7 @@ quitBtn.addEventListener("click", () => {
     soundEffect.play();
   }
   setTimeout(() => {
-    window.location.href = "../EditPage/edit.html";
+    window.location.href = base + "EditPage/edit.html";
   }, 200);
 });
 
@@ -91,7 +92,7 @@ avatarItems.forEach((avatarItem) => {
       soundEffect.play(); // Play the sound effect
     }
     setTimeout(() => {
-      window.location.href = "../EditPage/edit.html";
+      window.location.href = base + "EditPage/edit.html";
     }, 200);
   });
 });

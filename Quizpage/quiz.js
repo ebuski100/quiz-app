@@ -114,6 +114,9 @@ function shouldShowSecondChance(currentPrice, currentHeartNum) {
   );
 }
 
+const isGithubPages = window.location.hostname.includes("github.io");
+const base = isGithubPages ? "/quiz-app/" : "../";
+
 const quitEarlyModal = document.querySelector(".quitEarlyModal");
 const coinsMaxDisplay = document.querySelector(".coinMax-cont");
 
@@ -216,7 +219,7 @@ anotherQuestion.addEventListener("click", () => {
 });
 userProfile.addEventListener("click", () => {
   setTimeout(() => {
-    location.href = "../profilePage/user.html";
+    location.href = base + "profilePage/user.html";
   }, 200);
 });
 moreTimeOption.addEventListener("click", () => {
@@ -719,14 +722,14 @@ fetch(url)
 
 quitBtn.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "../homePage/home.html";
+    window.location.href = base + "homepage/home.html";
   }, 200);
 });
 
 storeBtns.forEach((storeBtn) => {
   storeBtn.addEventListener("click", () => {
     setTimeout(() => {
-      window.location.href = "../StorePage/store.html";
+      window.location.href = base + "StorePage/store.html";
     }, 200);
   });
 });
@@ -978,7 +981,7 @@ gsap.from(".option-text", {
 leaveBtns.forEach((leaveBtn) => {
   leaveBtn.addEventListener("click", () => {
     setTimeout(() => {
-      window.location.href = "../homePage/home.html";
+      window.location.href = base + "homepage/home.html";
     }, 200);
   });
 });
@@ -987,7 +990,7 @@ playAgains.forEach((playAgain) => {
   playAgain.addEventListener("click", () => {
     resetOnGameEnd();
     setTimeout(() => {
-      window.location.href = "../Quizpage/quiz.html";
+      window.location.href = base + "Quizpage/quiz.html";
     }, 300);
   });
 });
@@ -1202,7 +1205,7 @@ settingsBtns.forEach((settingsBtn) => {
       soundEffect.play();
     }
     setTimeout(() => {
-      location.href = "../SettingsPage/setting.html";
+      location.href = base + "SettingsPage/setting.html";
     }, 1000);
   });
 });

@@ -33,17 +33,20 @@ const oldUser = localStorage.getItem("oldUser");
 const profileCameraBtn = document.getElementById("profile-camera-btn");
 const bannerCameraBtn = document.getElementById("banner-camera-btn");
 
+const isGithubPages = window.location.hostname.includes("github.io");
+const base = isGithubPages ? "/quiz-app/" : "../";
+
 profileCameraBtn.addEventListener("click", () => {
   localStorage.setItem("captureMode", "profileImage"); // Set flag for profile image
   setTimeout(() => {
-    window.location.href = "../photoCapture/camera.html";
+    window.location.href = base + "photoCapture/camera.html";
   }, 200); // Redirect to camera.html
 });
 
 bannerCameraBtn.addEventListener("click", () => {
   localStorage.setItem("captureMode", "bannerImage"); // Set flag
   setTimeout(() => {
-    window.location.href = "../photoCapture/camera.html";
+    window.location.href = base + "photoCapture/camera.html";
   }, 200);
   // Redirect to camera.html
 });
@@ -55,7 +58,7 @@ removeProfileBtn.addEventListener("click", () => {
 
 editQuitBtn.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "../profilePage/user.html";
+    window.location.href = base + "profilePage/user.html";
   }, 200);
 });
 if (usernameInput) {
@@ -113,7 +116,7 @@ if (banner) {
 
 chooseAvatarBtn.addEventListener("click", () => {
   setTimeout(() => {
-    window.location.href = "../Avatar/avatar.html";
+    window.location.href = base + "Avatar/avatar.html";
   }, 200);
 });
 submitBtn.addEventListener("click", () => {
@@ -125,7 +128,7 @@ submitBtn.addEventListener("click", () => {
   localStorage.setItem("username", username);
   localStorage.setItem("oldUser", "true");
   setTimeout(() => {
-    window.location.href = "../profilePage/user.html";
+    window.location.href = base + "profilePage/user.html";
   }, 200);
 });
 
