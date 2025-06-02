@@ -6,7 +6,7 @@ quitBtn.addEventListener("click", () => {
 });
 const adVideo = document.getElementById("ad-video");
 const getLifeItems = document.querySelectorAll(".getLife");
-
+const shareBtn = document.querySelector(".invite");
 const modalFooter = document.querySelector(".modal-footer");
 const getAHintModal = document.querySelector(".getAHintModal");
 // Load the adLinks.json file
@@ -59,6 +59,26 @@ const getAHintBtns = document.querySelectorAll(".getAHintBtn");
 console.log(getAHintBtns);
 let lastAdBtnId = null;
 let hintMode = null;
+
+shareBtn.addEventListener("click", () => {
+  const shareData = {
+    title: "Villa Quiz Game",
+    text: "Try out this fun quiz app and earn rewards!",
+    url: "https://ebuski100.github.io/quiz-app/",
+  };
+
+  if (navigator.share) {
+    navigator
+      .share(shareData)
+      .then(() => console.log("App shared successfully!"))
+      .catch((error) => console.log("Error sharing:", error));
+  } else {
+    // Fallback: copy link to clipboard
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert("Quiz app link copied to clipboard! Share it with your friends.");
+    });
+  }
+});
 
 const isGithubPages = window.location.hostname.includes("github.io");
 const base = isGithubPages ? "/quiz-app/" : "../";

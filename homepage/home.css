@@ -316,15 +316,15 @@ button {
 }
 
 .fly-in {
-  animation: flyInLeft 0.8s linear forwards,
-    blinking 1s linear alternate-reverse 1s;
+  animation: flyInLeft 0.8s linear forwards;
+  /* blinking 1s linear alternate-reverse 1s; */
 }
 
-@keyframes blinking {
+/* @keyframes blinking {
   to {
     transform: scale(1.1);
   }
-}
+} */
 @keyframes flyInLeft {
   50% {
     opacity: 0.3;
