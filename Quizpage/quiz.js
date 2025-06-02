@@ -204,7 +204,7 @@ let attempts = 0;
 let timerInterval;
 const expertAnsBtn = document.querySelector(".call-an-expert");
 
-const selectedCategory = localStorage.getItem("selectedCategory") || "";
+// const selectedCategory = localStorage.getItem("selectedCategory") || "";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
 
 anotherQuestion.addEventListener("click", () => {
@@ -520,9 +520,9 @@ setTimeout(() => {
 }, 500);
 
 let url = `https://opentdb.com/api.php?amount=15&type=multiple&difficulty=${selectedDifficulty}`;
-if (selectedCategory) {
-  url += `&category=${selectedCategory}`;
-}
+// if (selectedCategory) {
+//   url += `&category=${selectedCategory}`;
+// }
 fetch(url)
   .then((res) => {
     if (!res.ok) {
@@ -532,7 +532,7 @@ fetch(url)
   })
   .then((data) => {
     if (!data.results || !data.results.length) {
-      question.innerHTML = `<div class="failureMessage">No questions found for this category/difficulty.<br>Please change your settings or try again later.</div>`;
+      question.innerHTML = `<div class="failureMessage">No questions found.<br>Please change your settings or try again later.</div>`;
       options.forEach((opt) => {
         opt.parentElement.style.pointerEvents = "none";
         opt.parentElement.style.opacity = "0.5";

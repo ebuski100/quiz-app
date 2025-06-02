@@ -8,7 +8,7 @@ const themeIcon = document.querySelector(".themeIcon");
 const savedTheme = localStorage.getItem("theme") || "light";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
 
-const categoryLabels = document.querySelectorAll(".categoryLabel");
+// const categoryLabels = document.querySelectorAll(".categoryLabel");
 
 difficultySelect.value = selectedDifficulty;
 difficultySelect.addEventListener("change", () => {
@@ -17,24 +17,24 @@ difficultySelect.addEventListener("change", () => {
   console.log("Difficulty set to:", selectedDifficulty);
 });
 
-const categorySelect = document.getElementById("categorySelect");
-const savedCategory = localStorage.getItem("selectedCategory") || ""; // Default: Any Category
+// const categorySelect = document.getElementById("categorySelect");
+// const savedCategory = localStorage.getItem("selectedCategory") || ""; // Default: Any Category
 
-categorySelect.value = savedCategory;
+// categorySelect.value = savedCategory;
 
-categorySelect.addEventListener("change", () => {
-  const selectedCategory = categorySelect.value;
-  localStorage.setItem("selectedCategory", selectedCategory);
-  console.log("Category set to:", selectedCategory);
-});
+// categorySelect.addEventListener("change", () => {
+//   const selectedCategory = categorySelect.value;
+//   localStorage.setItem("selectedCategory", selectedCategory);
+//   console.log("Category set to:", selectedCategory);
+// });
 
 if (savedTheme === "dark") {
   container.classList.add("dark");
   settingTitle.classList.add("head-color");
   themeIcon.src = "../images/light-mode.png";
-  categoryLabels.forEach((categoryLabel) => {
-    categoryLabel.classList.add("head-color");
-  });
+  // categoryLabels.forEach((categoryLabel) => {
+  //   categoryLabel.classList.add("head-color");
+  // });
 } else {
   themeIcon.src = "../images/night-mode.png";
 }
@@ -42,9 +42,9 @@ if (savedTheme === "dark") {
 themeBtn.addEventListener("click", () => {
   container.classList.toggle("dark");
   settingTitle.classList.toggle("head-color");
-  categoryLabels.forEach((categoryLabel) => {
-    categoryLabel.classList.toggle("head-color");
-  });
+  // categoryLabels.forEach((categoryLabel) => {
+  //   categoryLabel.classList.toggle("head-color");
+  // });
   if (container.classList.contains("dark")) {
     themeIcon.src = "../images/light-mode.png";
     localStorage.setItem("theme", "dark");
