@@ -12,17 +12,6 @@ body {
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding: 1rem;
 }
-#loader-overlay {
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s;
-}
 
 .container {
   display: flex;
@@ -30,8 +19,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  width: 70%;
-  height: 100%;
+  width: 90%;
+  height: auto;
 
   background: #fff;
   border-radius: 2rem;
@@ -66,11 +55,21 @@ button {
   font-weight: bold;
   font-size: 1rem;
 }
+.gameButtons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 .play {
   background-color: blue;
   border-radius: 0.5rem;
   box-shadow: 0 3px 0 rgb(3, 3, 107);
   text-align: center;
+  margin: 1rem 0.5rem;
+  margin-top: 2rem;
+  width: 30%;
 }
 .play:hover {
   background-color: rgb(47, 66, 243);
@@ -84,6 +83,8 @@ button {
   background-color: red;
   border-radius: 0.5rem;
   box-shadow: 0 3px 0 rgb(175, 5, 5);
+  margin: 1rem 0.5rem;
+  width: 30%;
 }
 .exit:hover {
   background-color: tomato;
@@ -91,7 +92,7 @@ button {
 }
 .home-header {
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 2rem;
 
   display: flex;
   flex-direction: row;
@@ -103,11 +104,12 @@ button {
   display: flex;
   justify-content: left;
   align-items: center;
+  /* border: 1px solid blue; */
 }
 .game-logo-img {
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  height: 3rem;
+  width: 3rem;
   animation: bounce 1s linear infinite alternate;
 }
 @keyframes bounce {
@@ -129,7 +131,7 @@ button {
   justify-content: center;
   align-items: center;
   /* border: 1px solid blue; */
-  width: auto;
+  width: 50%;
 }
 
 .coins,
@@ -145,11 +147,12 @@ button {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 1.5rem;
-  padding-right: 10px;
+  padding-right: 1.5rem;
   width: 100%;
-
-  margin-right: 2rem;
   cursor: pointer;
+}
+.coins {
+  margin-right: 1rem;
 }
 .heart-text:hover,
 .coin-num:hover {
@@ -159,18 +162,19 @@ button {
 .storeBtns:active {
   background-color: rgb(105, 14, 105);
 }
-.coin-icon img {
-  height: 20px;
-  width: 20px;
+.coin-icon img,
+.heart-icon img {
+  height: 1rem;
+  width: 1rem;
 }
-.heartnum {
+.heartnum,
+.coin-num {
   left: 12px;
   font-size: 12px;
   font-weight: bold;
   font-family: cursive;
 }
 
-.star-icon,
 .coin-icon,
 .heart-icon {
   position: absolute;
@@ -179,26 +183,32 @@ button {
   padding: 2px;
   border-radius: 50%;
   left: -5px;
-  height: 32px;
-  width: 32px;
+  height: 1.5rem;
+  width: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.coins,
-.heart {
-  padding-right: 1.3rem;
 }
 
 .coins-btn,
 .heart-btn {
   position: absolute;
   right: -5px;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
 }
-
-.coin-link {
-  width: 300px;
-  background-color: red;
+.coins-btn img,
+.heart-btn img {
+  height: 1.5rem;
+}
+@media (min-width: 768px) {
+  .gameButtons {
+    flex-direction: row;
+  }
+  .exit {
+    margin-top: 2rem;
+  }
 }
 
 .homeInvite {
@@ -212,6 +222,7 @@ button {
   align-items: center;
   cursor: pointer;
   box-shadow: 0 3px 3px rgb(68, 67, 67);
+  /* border: 1px solid blue; */
 }
 .homeInvite:hover {
   transform: scale(1.05);
@@ -236,19 +247,18 @@ button {
   padding: 1rem;
   box-shadow: 0 4px 0 rgb(9, 9, 128);
   height: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 .heading {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
 }
-.title-underline {
-  position: absolute;
-  height: 3px;
-  width: 200px;
-  background: yellow;
-}
+
 .do-you-know-logo {
   font-size: 32px;
   margin-right: 1rem;
@@ -269,10 +279,10 @@ button {
   font-family: cursive;
   text-align: center;
   margin-top: 1rem;
-  width: 100%;
+  width: 80%;
 
   overflow-wrap: break-word;
-
+  /* border: 1px solid red; */
   box-shadow: 0 3px 0 rgb(184, 172, 8);
 }
 
@@ -480,15 +490,19 @@ button {
 .coinMax-cont {
   position: absolute;
   right: -5px;
-  background: orange;
+  background: rgb(226, 84, 18);
   color: #fff;
-  height: 40px;
-  width: 40px;
+  height: 1.5rem;
+  width: 1.5rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden;
+}
+.heartMax-cont img,
+.coinMax-cont img {
+  height: 1rem;
 }
 
 .displayMax {
