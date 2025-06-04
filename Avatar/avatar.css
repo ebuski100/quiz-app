@@ -51,11 +51,12 @@ body {
 }
 .avatars {
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(12, 100px);
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(20, 100px);
   gap: 1rem;
   height: auto;
 }
+
 .avatar-item {
   background-color: rgba(43, 23, 43, 0.979);
   border: 3px solid #fff;
@@ -65,7 +66,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  /* font-size: 0.5rem; */
 }
 .avatar-item:hover {
   background: rgba(70, 45, 70, 0.808);
@@ -85,4 +86,23 @@ body {
 
 .bodyBackground {
   background-color: rgba(43, 23, 43, 0.979);
+}
+
+@media (min-width: 600px) {
+  .avatars {
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(15, 100px);
+  }
+}
+@media (min-width: 780px) {
+  .avatars {
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(12, 100px);
+  }
+}
+@media (min-width: 1024px) {
+  .avatars {
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(10, 100px);
+  }
 }

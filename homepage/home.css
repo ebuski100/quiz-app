@@ -129,7 +129,7 @@ button {
   justify-content: center;
   align-items: center;
   /* border: 1px solid blue; */
-  width: 80%;
+  width: auto;
 }
 
 .coins,
@@ -199,6 +199,29 @@ button {
 .coin-link {
   width: 300px;
   background-color: red;
+}
+
+.homeInvite {
+  border: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: blue;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 3px rgb(68, 67, 67);
+}
+.homeInvite:hover {
+  transform: scale(1.05);
+}
+.homeInvite:active {
+  transform: scale(1.1) translateX(2px) translateY(2px);
+}
+
+.homeInvite img {
+  height: 1.5rem;
 }
 
 .setting-icon {
@@ -272,7 +295,7 @@ button {
 .tooltip {
   visibility: hidden;
   width: 120px;
-  background-color: rgb(9, 4, 85);
+  background-color: rgb(7, 0, 107);
   color: #fff;
   padding: 5px;
   border-radius: 5px;

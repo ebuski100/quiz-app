@@ -12,8 +12,7 @@ body {
 
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding: 1rem;
-  /* height: 250vh; */
-  height: 165vh;
+  height: 150vh;
 }
 .storeDescription {
   display: flex;
@@ -272,12 +271,6 @@ body {
   background: rgb(151, 191, 245);
 }
 
-.invite {
-  background-image: linear-gradient(120deg, rgb(145, 145, 255) 0%, blue 100%);
-  color: #fff;
-  height: 20%;
-}
-
 .coins-img,
 .lives-img,
 .hints-img {
@@ -337,9 +330,27 @@ body {
   justify-content: center;
   align-items: center;
 }
-.invite-btn {
+.invite {
   border: none;
-  box-shadow: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: blue;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 3px rgb(68, 67, 67);
+}
+.invite:hover {
+  transform: scale(1.05);
+}
+.invite:active {
+  transform: scale(1.1) translateX(2px) translateY(2px);
+}
+
+.invite img {
+  height: 1.5rem;
 }
 .coins-price {
   background-color: rgb(12, 206, 12);
@@ -409,10 +420,12 @@ body {
   left: -3rem;
   transition: opacity 0.5s;
 }
+
 .tooltip-box:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
+
 .footer-btn:active {
   transform: scale(1.2) translateX(3px) translateY(3px);
 }

@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .profile-container {
@@ -18,7 +18,7 @@ body {
   border: 6px solid blue;
   background: #ffffff;
 
-  width: 60%;
+  width: 70%;
   box-shadow: 0 4px 0 rgb(13, 13, 151);
 
   height: 90%;
@@ -56,17 +56,18 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid blue; */
 }
 
 .header {
-  padding: 1rem 1.5rem;
+  padding: 1rem 0;
   display: flex;
   height: 30%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
-  width: 100%;
+  /* border: 1px solid green; */
+  width: auto;
 }
 
 .coins,
@@ -79,13 +80,10 @@ body {
   background: #1b082e;
   color: #fff;
   border-radius: 1rem;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 1.5rem;
-  padding-right: 10px;
-  width: 200px;
+  padding: 0.5rem 1rem;
+  width: 100px;
   /* border: 1px solid rgb(255, 0, 21); */
-  margin-right: 2rem;
+  margin-right: 1rem;
   text-decoration: none;
   cursor: pointer;
 }
@@ -127,15 +125,37 @@ body {
   justify-content: center;
   align-items: center;
 }
-.coins,
+/* .coins,
 .heart {
   padding-right: 1.3rem;
-}
+} */
 
 .coins-btn,
 .heart-btn {
   position: absolute;
   right: -5px;
+}
+.userinvite {
+  border: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: blue;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 3px rgb(68, 67, 67);
+}
+.userinvite:hover {
+  transform: scale(1.05);
+}
+.userinvite:active {
+  transform: scale(1.1) translateX(2px) translateY(2px);
+}
+
+.userinvite img {
+  height: 1.5rem;
 }
 
 .footer {

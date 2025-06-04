@@ -8,7 +8,7 @@ const coinNum = document.querySelector(".coin-num");
 const heartText = document.querySelector(".heartnum");
 console.log(heartText);
 const savedUsername = localStorage.getItem("username") || "Player";
-
+const shareBtn = document.querySelector(".userinvite");
 const isGithubPages = window.location.hostname.includes("github.io");
 const base = isGithubPages ? "/quiz-app/" : "../";
 const quitBtn = document.querySelector(".quit-btn");
@@ -72,6 +72,26 @@ storeBtns.forEach((storeBtn) => {
 });
 
 const savedMusicState = localStorage.getItem("musicState") || "paused";
+
+shareBtn.addEventListener("click", () => {
+  const shareData = {
+    title: "Villa Quiz Game",
+    text: "Try out this fun quiz app and earn rewards!",
+    url: "https://ebuski100.github.io/quiz-app/",
+  };
+
+  if (navigator.share) {
+    navigator
+      .share(shareData)
+      .then(() => console.log("App shared successfully!"))
+      .catch((error) => console.log("Error sharing:", error));
+  } else {
+    // Fallback: copy link to clipboard
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert("Quiz app link copied to clipboard! Share it with your friends.");
+    });
+  }
+});
 
 if (savedMusicState === "playing") {
   backgroundMusic.play();

@@ -163,6 +163,29 @@ body {
 
   box-shadow: 3px 3px 3px rgba(68, 67, 67, 0.801);
 }
+.quizinvite {
+  border: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: blue;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 3px rgb(68, 67, 67);
+}
+.quizinvite:hover {
+  transform: scale(1.05);
+}
+.quizinvite:active {
+  transform: scale(1.1) translateX(2px) translateY(2px);
+}
+
+.quizinvite img {
+  height: 1.5rem;
+}
+
 .tooltip {
   visibility: hidden;
   width: 80px;

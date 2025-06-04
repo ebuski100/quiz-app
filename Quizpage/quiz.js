@@ -38,6 +38,7 @@ const anotherQuestion = document.querySelector(".another-question");
 const moreTimeOption = document.querySelector(".More-timeOption");
 const pauseTimeNum = document.querySelector(".pauseTimeNum");
 const pauseTimer = document.querySelector(".pauseTimer");
+const shareBtn = document.querySelector(".quizinvite");
 const disableTimer = localStorage.getItem("disableTimer");
 const savedProfileImage = localStorage.getItem("profileImage");
 
@@ -127,6 +128,26 @@ console.log(heartText);
 const secondChanceModal = document.querySelector(".secondChanceModal");
 const currentCoins = parseInt(localStorage.getItem("coinCount")) || 0;
 let currentHeartNum = parseInt(localStorage.getItem("heartNum"));
+
+shareBtn.addEventListener("click", () => {
+  const shareData = {
+    title: "Villa Quiz Game",
+    text: "Try out this fun quiz app and earn rewards!",
+    url: "https://ebuski100.github.io/quiz-app/",
+  };
+
+  if (navigator.share) {
+    navigator
+      .share(shareData)
+      .then(() => console.log("App shared successfully!"))
+      .catch((error) => console.log("Error sharing:", error));
+  } else {
+    // Fallback: copy link to clipboard
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert("Quiz app link copied to clipboard! Share it with your friends.");
+    });
+  }
+});
 
 let pauseTimeCount = parseInt(localStorage.getItem("pauseTimeCount"));
 if (isNaN(pauseTimeCount)) {

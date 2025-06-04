@@ -3,7 +3,7 @@ const key = "bd2DHoYWEBZI3SRst11pdQ==AKpB7FjAFnNsNFiU";
 const profileBtn = document.querySelector(".profile");
 
 profileBtn.addEventListener("click", () => {});
-
+const shareBtn = document.querySelector(".homeInvite");
 const url = `https://api.api-ninjas.com/v1/facts`;
 const oldUser = localStorage.getItem("oldUser");
 const userWelcomeMsg = document.querySelector(".userWelcomeMsg");
@@ -28,6 +28,28 @@ if (localStorage.getItem("showWelcome") === "true") {
 } else {
   userWelcomeMsg.textContent = "";
 }
+
+shareBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const shareData = {
+    title: "Villa Quiz Game",
+    text: "Try out this fun quiz app and earn rewards!",
+    url: "https://ebuski100.github.io/quiz-app/",
+  };
+
+  if (navigator.share) {
+    navigator
+      .share(shareData)
+      .then(() => console.log("App shared successfully!"))
+      .catch((error) => console.log("Error sharing:", error));
+  } else {
+    // Fallback: copy link to clipboard
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert("Quiz app link copied to clipboard! Share it with your friends.");
+    });
+  }
+});
 
 const reqOptions = {
   method: "GET",
