@@ -1058,33 +1058,6 @@ body {
   visibility: visible;
   z-index: 99;
 }
-@media (min-width: 600px) {
-  .coins,
-  .heart {
-    width: 120px;
-  }
-}
-
-/* Large screens */
-@media (min-width: 900px) {
-  .coins,
-  .heart {
-    width: 180px;
-  }
-
-  .heartnum,
-  .coin-num {
-    font-size: 8px;
-  }
-}
-
-/* Extra large screens */
-@media (min-width: 1200px) {
-  .coins,
-  .heart {
-    width: 200px;
-  }
-}
 
 .blinked-red {
   animation: blinkRed 1s linear 3;
