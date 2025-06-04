@@ -30,7 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   box-shadow: 0 4px 4px rgba(53, 53, 54, 0.753);
   /* padding: 1rem; */
   height: 100%;
@@ -50,6 +50,7 @@ body {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  /* padding: 1rem; */
 }
 .quit-btn {
   background-color: blue;
@@ -64,20 +65,25 @@ body {
   width: 70px;
   cursor: pointer;
 }
-
+.leftHeader {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid yellow; */
+  align-items: center;
+}
 .header {
-  padding: 1rem 0;
+  padding: 1rem;
+
   display: flex;
   height: 30%;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid blue; */
-
-  width: auto;
+  width: 50%;
+  /* border: 1px solid yellow; */
 }
 
-.coins,
+/* .coins,
 .heart {
   display: flex;
   flex-direction: row;
@@ -95,9 +101,30 @@ body {
   width: 100px;
   cursor: pointer;
   height: 20px;
+} */
+
+.coins,
+.heart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #1b082e;
+  color: #fff;
+  border-radius: 1rem;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+.coins {
+  margin-right: 1rem;
 }
 
-.coin-icon img {
+/* .coin-icon img {
   height: 20px;
   width: 20px;
 }
@@ -106,10 +133,23 @@ body {
   font-size: 12px;
   font-weight: bold;
   font-family: cursive;
-  /* color: red; */
+ 
+} */
+
+.coin-icon img,
+.heart-icon img {
+  height: 1rem;
+  width: 1rem;
+}
+.heartnum,
+.coin-num {
+  left: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: cursive;
 }
 
-.coin-icon,
+/* .coin-icon,
 .heart-icon {
   position: absolute;
   border: none;
@@ -122,24 +162,46 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.coins,
-.heart {
-  padding-right: 1.3rem;
+} */
+.coin-icon,
+.heart-icon {
+  position: absolute;
+  border: none;
+  background-color: blue;
+  padding: 2px;
+  border-radius: 50%;
+  left: -5px;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* .coins-btn,
+.heart-btn {
+  position: absolute;
+  right: -5px;
+} */
 .coins-btn,
 .heart-btn {
   position: absolute;
   right: -5px;
+  display: flex;
+  align-items: center;
+}
+.coins-btn img,
+.heart-btn img {
+  height: 1.5rem;
 }
 .profile-img {
   background-color: hsla(300, 12%, 94%, 0.856);
   padding: 3px 5px 3px 7px;
-  height: 40px;
-  max-width: 40px;
+  height: 2.5rem;
+  max-width: 2.5rem;
 
   border-radius: 0.5rem;
+  margin-right: 1rem;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 3px 3px 3px rgba(68, 67, 67, 0.801);
@@ -163,16 +225,18 @@ body {
 
   box-shadow: 3px 3px 3px rgba(68, 67, 67, 0.801);
 }
-.quizinvite {
+.quizinvite,
+.setting-icon {
   border: none;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   background-color: blue;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem 0.5rem 0.5rem;
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-right: 1rem;
   box-shadow: 0 3px 3px rgb(68, 67, 67);
 }
 .quizinvite:hover {
@@ -183,7 +247,7 @@ body {
 }
 
 .quizinvite img {
-  height: 1.5rem;
+  height: 1rem;
 }
 
 .tooltip {
@@ -896,8 +960,8 @@ body {
   right: -5px;
   background: orange;
   color: #fff;
-  height: 40px;
-  width: 40px;
+  height: 1.5rem;
+  width: 1.5rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -905,6 +969,10 @@ body {
   visibility: hidden;
 }
 
+.heartMax-cont img,
+.coinMax-cont img {
+  height: 1rem;
+}
 .blink-orange {
   animation: blink-orange 0.5s linear 3; /* 3 blinks */
 }

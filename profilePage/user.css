@@ -18,7 +18,7 @@ body {
   border: 6px solid blue;
   background: #ffffff;
 
-  width: 70%;
+  width: 90%;
   box-shadow: 0 4px 0 rgb(13, 13, 151);
 
   height: 90%;
@@ -60,14 +60,18 @@ body {
 }
 
 .header {
-  padding: 1rem 0;
+  padding: 1rem;
   display: flex;
   height: 30%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid green; */
-  width: auto;
+  /* border: 1px solid blue; */
+  width: 50%;
+}
+
+.coins {
+  margin-right: 1rem;
 }
 
 .coins,
@@ -80,11 +84,11 @@ body {
   background: #1b082e;
   color: #fff;
   border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  width: 100px;
-  /* border: 1px solid rgb(255, 0, 21); */
-  margin-right: 1rem;
-  text-decoration: none;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
   cursor: pointer;
 }
 .coins:hover,
@@ -95,22 +99,20 @@ body {
 .heart:active {
   background: #3c1366;
 }
-.coins:visited,
-.heart:visited {
-  text-decoration: dotted;
+
+.coin-icon img,
+.heart-icon img {
+  height: 1rem;
+  width: 1rem;
 }
-.coin-icon img {
-  height: 20px;
-  width: 20px;
-}
-.heartnum {
+.heartnum,
+.coin-num {
   left: 12px;
   font-size: 12px;
   font-weight: bold;
   font-family: cursive;
 }
 
-.star-icon,
 .coin-icon,
 .heart-icon {
   position: absolute;
@@ -119,26 +121,28 @@ body {
   padding: 2px;
   border-radius: 50%;
   left: -5px;
-  height: 32px;
-  width: 32px;
+  height: 1.5rem;
+  width: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* .coins,
-.heart {
-  padding-right: 1.3rem;
-} */
 
 .coins-btn,
 .heart-btn {
   position: absolute;
   right: -5px;
+  display: flex;
+  align-items: center;
+}
+.coins-btn img,
+.heart-btn img {
+  height: 1.5rem;
 }
 .userinvite {
   border: none;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   background-color: blue;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem 0.5rem 0.5rem;
@@ -155,7 +159,7 @@ body {
 }
 
 .userinvite img {
-  height: 1.5rem;
+  height: 1rem;
 }
 
 .footer {
@@ -285,16 +289,26 @@ body {
   right: -5px;
   background: orange;
   color: #fff;
-  height: 40px;
-  width: 40px;
+  height: 1.5rem;
+  width: 1.5rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden;
 }
+.heartMax-cont img,
+.coinMax-cont img {
+  height: 1rem;
+}
 
 .displayMax {
   visibility: visible;
   z-index: 99;
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    width: 60%;
+  }
 }

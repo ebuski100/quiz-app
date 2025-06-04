@@ -196,12 +196,12 @@ button {
   right: -5px;
   display: flex;
   align-items: center;
-  /* border: 1px solid blue; */
 }
 .coins-btn img,
 .heart-btn img {
   height: 1.5rem;
 }
+
 @media (min-width: 768px) {
   .gameButtons {
     flex-direction: row;
@@ -209,12 +209,15 @@ button {
   .exit {
     margin-top: 2rem;
   }
+  .container {
+    width: 60%;
+  }
 }
 
 .homeInvite {
   border: none;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   background-color: blue;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem 0.5rem 0.5rem;
@@ -232,7 +235,7 @@ button {
 }
 
 .homeInvite img {
-  height: 1.5rem;
+  height: 1rem;
 }
 
 .setting-icon {
