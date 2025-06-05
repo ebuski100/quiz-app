@@ -88,11 +88,11 @@ body {
   padding: 1rem;
   display: flex;
   height: 30%;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid blue; */
-  width: auto;
+
+  width: 40%;
 }
 .coins,
 .heart {
@@ -111,6 +111,10 @@ body {
   width: 100%;
 
   margin-right: 1rem;
+}
+
+.coins {
+  margin-bottom: 0.5rem;
 }
 
 .coin-icon img,
@@ -689,5 +693,11 @@ body {
   }
   .footer {
     padding: 1rem 4rem;
+  }
+  .header {
+    flex-direction: row;
+  }
+  .coins {
+    margin-bottom: 0;
   }
 }
