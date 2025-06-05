@@ -50,6 +50,7 @@ body {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+
   /* padding: 1rem; */
 }
 .quit-btn {
@@ -77,12 +78,9 @@ body {
 
   display: flex;
   height: 30%;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto;
-  /* width: 50%; */
-  /* border: 1px solid yellow; */
 }
 
 /* .coins,
@@ -123,7 +121,7 @@ body {
   cursor: pointer;
 }
 .coins {
-  margin-right: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* .coin-icon img {
@@ -1077,5 +1075,12 @@ body {
 @media (min-width: 768px) {
   .game-container {
     width: 60%;
+  }
+  .header {
+    flex-direction: row;
+  }
+  .coins {
+    margin-right: 1rem;
+    margin-bottom: 0;
   }
 }
