@@ -42,7 +42,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  width: 90%;
+  width: 100%;
   box-shadow: 0 4px 0 rgb(13, 13, 151);
   height: 100%;
   border-radius: 1rem;
@@ -92,7 +92,7 @@ body {
   justify-content: center;
   align-items: center;
   /* border: 1px solid blue; */
-  width: 50%;
+  width: auto;
 }
 .coins,
 .heart {
@@ -451,7 +451,7 @@ body {
   margin: 5% auto;
   background-color: rgba(100, 99, 100, 0.411);
   padding: 0.5rem 0;
-  width: 100%;
+  width: 90%;
   height: 80%;
 
   text-align: center;

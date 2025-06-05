@@ -69,9 +69,7 @@ body {
 .leftHeader {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid yellow; */
   align-items: center;
-  /* width: 100%; */
 }
 .header {
   padding: 1rem;
@@ -848,7 +846,7 @@ body {
   padding: 0.5rem 0;
   margin: 5% auto;
   border-radius: 1rem;
-  width: 100%;
+  width: 90%;
   height: 80%;
 
   text-align: center;
