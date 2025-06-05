@@ -43,7 +43,7 @@ body {
   padding: 1rem 2rem;
   border: none;
   border-radius: 5px;
-  width: 50%;
+  width: 90%;
   /* text-align: center; */
 }
 
@@ -121,4 +121,10 @@ label {
 .regSubmitBtn:active,
 .notInterested:active {
   transform: scale(1.1) translateX(2px) translateY(2px);
+}
+
+@media (min-width: 768px) {
+  .registerContainer {
+    width: 60%;
+  }
 }

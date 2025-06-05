@@ -202,18 +202,6 @@ button {
   height: 1.5rem;
 }
 
-@media (min-width: 768px) {
-  .gameButtons {
-    flex-direction: row;
-  }
-  .exit {
-    margin-top: 2rem;
-  }
-  .container {
-    width: 60%;
-  }
-}
-
 .homeInvite {
   border: none;
   height: 2rem;
@@ -290,7 +278,7 @@ button {
 }
 
 .footer {
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
 
   width: 100%;
   background: rgb(14, 14, 179);
@@ -511,4 +499,19 @@ button {
 .displayMax {
   visibility: visible;
   z-index: 99;
+}
+
+@media (min-width: 768px) {
+  .gameButtons {
+    flex-direction: row;
+  }
+  .exit {
+    margin-top: 2rem;
+  }
+  .container {
+    width: 60%;
+  }
+  .footer {
+    padding: 1rem 4rem;
+  }
 }

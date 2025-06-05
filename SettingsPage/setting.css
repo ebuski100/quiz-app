@@ -24,7 +24,7 @@ body {
   border: 6px solid blue;
   background: #fff9d4;
 
-  width: 60%;
+  width: 90%;
   box-shadow: 0 4px 0 rgb(13, 13, 151);
   height: 95%;
   border-radius: 1rem;
@@ -152,4 +152,10 @@ option {
 }
 .head-color {
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 60%;
+  }
 }
