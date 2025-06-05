@@ -70,6 +70,7 @@ body {
   flex-direction: row;
   /* border: 1px solid yellow; */
   align-items: center;
+  /* width: 100%; */
 }
 .header {
   padding: 1rem;
@@ -79,7 +80,8 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: auto;
+  /* width: 50%; */
   /* border: 1px solid yellow; */
 }
 
@@ -197,11 +199,11 @@ body {
 .profile-img {
   background-color: hsla(300, 12%, 94%, 0.856);
   padding: 3px 5px 3px 7px;
-  height: 2.5rem;
-  max-width: 2.5rem;
+  height: 2rem;
+  max-width: 2rem;
 
   border-radius: 0.5rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 3px 3px 3px rgba(68, 67, 67, 0.801);
@@ -236,7 +238,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   box-shadow: 0 3px 3px rgb(68, 67, 67);
 }
 .quizinvite:hover {
@@ -1069,5 +1071,11 @@ body {
   }
   50% {
     color: red;
+  }
+}
+
+@media (min-width: 768px) {
+  .game-container {
+    width: 60%;
   }
 }
