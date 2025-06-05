@@ -63,7 +63,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* padding: 0.5rem; */
+
   margin-bottom: 1rem;
 }
 .quit-btn {
@@ -112,9 +112,7 @@ body {
 
   margin-right: 1rem;
 }
-/* .coins {
-  margin-right: 1rem;
-} */
+
 .coin-icon img,
 .heart-icon img {
   height: 1rem;
@@ -292,7 +290,6 @@ body {
 .all-hints-desc {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 }
 .hints-desc {
   height: 100%;
@@ -451,11 +448,10 @@ body {
   background-color: rgba(0, 0, 0, 0.959);
 }
 .ad-contents {
-  /* background-color: rgb(73, 69, 75); */
   margin: 5% auto;
   background-color: rgba(100, 99, 100, 0.411);
   padding: 0.5rem 0;
-  width: 80%;
+  width: 100%;
   height: 80%;
 
   text-align: center;
@@ -502,7 +498,7 @@ body {
   color: #fff;
 }
 #progressBar {
-  width: 70%;
+  width: 60%;
   margin: 1rem;
 }
 

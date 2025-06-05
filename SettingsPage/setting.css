@@ -137,7 +137,7 @@ option {
   border: none;
 }
 .item3 img.muted {
-  opacity: 0.5; /* Dim the icon when muted */
+  opacity: 0.5;
 }
 
 .categoryLabel {

@@ -83,26 +83,6 @@ body {
   align-items: center;
 }
 
-/* .coins,
-.heart {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background: #1b082e;
-  color: #fff;
-  border-radius: 1rem;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 1rem;
-  margin-right: 0.5em;
-  margin-bottom: 1rem;
-  width: 100px;
-  cursor: pointer;
-  height: 20px;
-} */
-
 .coins,
 .heart {
   display: flex;
@@ -124,18 +104,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* .coin-icon img {
-  height: 20px;
-  width: 20px;
-}
-.heartnum {
-  left: 12px;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: cursive;
- 
-} */
-
 .coin-icon img,
 .heart-icon img {
   height: 1rem;
@@ -149,20 +117,6 @@ body {
   font-family: cursive;
 }
 
-/* .coin-icon,
-.heart-icon {
-  position: absolute;
-  border: none;
-  background-color: blue;
-  padding: 5px;
-  border-radius: 50%;
-  left: -5px;
-  height: 22px;
-  width: 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .coin-icon,
 .heart-icon {
   position: absolute;
@@ -178,11 +132,6 @@ body {
   align-items: center;
 }
 
-/* .coins-btn,
-.heart-btn {
-  position: absolute;
-  right: -5px;
-} */
 .coins-btn,
 .heart-btn {
   position: absolute;
@@ -899,7 +848,7 @@ body {
   padding: 0.5rem 0;
   margin: 5% auto;
   border-radius: 1rem;
-  width: 80%;
+  width: 100%;
   height: 80%;
 
   text-align: center;
@@ -927,7 +876,7 @@ body {
   font-size: 48px;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  /* border-radius: 50%; */
+
   padding: 0 1rem;
   cursor: pointer;
   border-radius: 1rem;
@@ -941,13 +890,11 @@ body {
   transform: scale(1.3) translateX(3px) translateY(3px);
 }
 .video-timer {
-  /* padding: 1rem; */
-  /* border: 1px solid blue; */
   display: none;
   color: #fff;
 }
 #progressBar {
-  width: 70%;
+  width: 60%;
   margin: 1rem;
 }
 

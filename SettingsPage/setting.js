@@ -8,8 +8,6 @@ const themeIcon = document.querySelector(".themeIcon");
 const savedTheme = localStorage.getItem("theme") || "light";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
 
-// const categoryLabels = document.querySelectorAll(".categoryLabel");
-
 difficultySelect.value = selectedDifficulty;
 difficultySelect.addEventListener("change", () => {
   const selectedDifficulty = difficultySelect.value;
@@ -17,24 +15,10 @@ difficultySelect.addEventListener("change", () => {
   console.log("Difficulty set to:", selectedDifficulty);
 });
 
-// const categorySelect = document.getElementById("categorySelect");
-// const savedCategory = localStorage.getItem("selectedCategory") || ""; // Default: Any Category
-
-// categorySelect.value = savedCategory;
-
-// categorySelect.addEventListener("change", () => {
-//   const selectedCategory = categorySelect.value;
-//   localStorage.setItem("selectedCategory", selectedCategory);
-//   console.log("Category set to:", selectedCategory);
-// });
-
 if (savedTheme === "dark") {
   container.classList.add("dark");
   settingTitle.classList.add("head-color");
   themeIcon.src = "../images/light-mode.png";
-  // categoryLabels.forEach((categoryLabel) => {
-  //   categoryLabel.classList.add("head-color");
-  // });
 } else {
   themeIcon.src = "../images/night-mode.png";
 }
@@ -42,9 +26,7 @@ if (savedTheme === "dark") {
 themeBtn.addEventListener("click", () => {
   container.classList.toggle("dark");
   settingTitle.classList.toggle("head-color");
-  // categoryLabels.forEach((categoryLabel) => {
-  //   categoryLabel.classList.toggle("head-color");
-  // });
+
   if (container.classList.contains("dark")) {
     themeIcon.src = "../images/light-mode.png";
     localStorage.setItem("theme", "dark");
@@ -57,7 +39,6 @@ themeBtn.addEventListener("click", () => {
 const musicBtn = document.querySelector(".item4"); // Select the Music button
 const backgroundMusic = document.getElementById("backgroundMusic"); // Select the audio element
 
-// Retrieve the saved music state from localStorage
 const backgroundMusicIcon = document.querySelector(".background-music-icon");
 const savedMusicState = localStorage.getItem("musicState") || "paused";
 const savedMusicTime = parseFloat(localStorage.getItem("musicTime")) || 0;
