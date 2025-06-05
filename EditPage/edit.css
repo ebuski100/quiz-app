@@ -51,17 +51,14 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  bottom: -0.5rem;
+  left: -1.5rem;
   position: absolute;
-  left: 52%;
-  top: 43%;
 }
 .image-avatar {
   border: 5px solid blue;
   border-radius: 50%;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translatex(-50%);
+
   overflow: hidden;
   height: 150px;
   width: 150px;
@@ -115,6 +112,18 @@ body {
 
 .edit-img {
   margin-bottom: 5rem;
+
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.editImgBtnCont {
+  position: relative;
+
+  height: 100%;
 }
 .user-description {
   padding: 0 2rem;

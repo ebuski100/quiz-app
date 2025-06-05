@@ -12,7 +12,8 @@ body {
 
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding: 1rem;
-  height: 110vh;
+
+  /* height: 110vh; */
 }
 .storeDescription {
   display: flex;
@@ -47,6 +48,7 @@ body {
   height: 100%;
   border-radius: 1rem;
   padding: 1rem;
+  padding-bottom: 5.5rem;
 }
 .div-item:hover,
 .quit-btn:hover {
@@ -406,6 +408,7 @@ body {
   align-items: center;
 
   position: absolute;
+
   bottom: 0;
   left: 0;
 }
