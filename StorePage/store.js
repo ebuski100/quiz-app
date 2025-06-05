@@ -53,9 +53,7 @@ const fiftyHintBought = localStorage.getItem("fiftyHintBought");
 const expertAnsBought = localStorage.getItem("expertAnsBought");
 const anotherQuestionBought = localStorage.getItem("anotherQuestionBought");
 const getAHintBtns = document.querySelectorAll(".getAHintBtn");
-// let adHintCount = parseInt(localStorage.getItem("adHintCount")) || 0;
 
-// console.log(document.querySelectorAll(".getAHintBtn"));
 console.log(getAHintBtns);
 let lastAdBtnId = null;
 let hintMode = null;
@@ -365,142 +363,6 @@ getaHintCoin.addEventListener("click", () => {
   hintMode = "coin";
   updateHintModalOptionsState();
 });
-// function updateHintModalOptionsState() {
-//   hintModalOptions.forEach((hintModalOption) => {
-//     function disableHintModalOpt() {
-//       hintModalOption.style.backgroundColor = "grey";
-//       hintModalOption.style.opacity = "0.5";
-//       hintModalOption.style.pointerEvents = "none";
-//     }
-
-//     hintModalOption.addEventListener("click", () => {
-//       let savedCoins = parseInt(localStorage.getItem("coinCount")) || 0;
-
-//       // FIFTY-FIFTY
-//       if (hintModalOption.classList.contains("fifty-fifty")) {
-//         if (hintMode === "coin") {
-//           if (savedCoins >= 1000) {
-//             savedCoins -= 1000;
-//             localStorage.setItem("coinCount", savedCoins);
-//             coinNum.textContent = savedCoins;
-//             localStorage.setItem("fiftyFiftyUsed", false);
-//             fiftyPercentText.textContent = "usedUp 🚫";
-//             fiftyPercentText.style.color = "red";
-//             localStorage.setItem("fiftyHintBought", "true");
-//             coinNum.classList.add("coin-num1");
-//             coinsMaxDisplay.classList.remove("displayMax");
-//             disableHintModalOpt();
-//             window.scrollTo({ top: 0, behavior: "smooth" });
-//             playCoinPurchaseSound();
-//             allHintsUsedNow();
-//             setTimeout(() => {
-//               getAHintModal.style.display = "none";
-//             }, 1000);
-//           } else {
-//             alert("Not Enough Coins to get a fifty Percent Hint 💔");
-//             playPurchaseFailSound();
-//           }
-//         } else if (hintMode === "ad") {
-//           localStorage.setItem("fiftyFiftyUsed", false);
-//           fiftyPercentText.textContent = "usedUp 🚫";
-//           fiftyPercentText.style.color = "red";
-//           localStorage.setItem("fiftyHintBought", "true");
-//           window.scrollTo({ top: 0, behavior: "smooth" });
-//           disableHintModalOpt();
-//           playCoinPurchaseSound();
-//           allHintsUsedNow();
-//           setTimeout(() => {
-//             getAHintModal.style.display = "none";
-//           }, 1000);
-//         }
-//       }
-
-//       // EXPERT ANSWER
-//       if (hintModalOption.classList.contains("expertAns")) {
-//         if (hintMode === "coin") {
-//           if (savedCoins >= 1000) {
-//             savedCoins -= 1000;
-//             localStorage.setItem("coinCount", savedCoins);
-//             coinNum.textContent = savedCoins;
-//             localStorage.setItem("expertUsed", false);
-//             localStorage.setItem("expertAnsUsed", true);
-//             expertAnsText.textContent = "usedUp 🚫";
-//             expertAnsText.style.color = "red";
-//             localStorage.setItem("expertAnsBought", "true");
-//             coinNum.classList.add("coin-num1");
-//             coinsMaxDisplay.classList.remove("displayMax");
-//             window.scrollTo({ top: 0, behavior: "smooth" });
-//             disableHintModalOpt();
-//             playCoinPurchaseSound();
-//             allHintsUsedNow();
-//             setTimeout(() => {
-//               getAHintModal.style.display = "none";
-//             }, 1000);
-//           } else {
-//             alert("Not Enough Coins to get an Expert answer 💔");
-//             playPurchaseFailSound();
-//           }
-//         } else if (hintMode === "ad") {
-//           localStorage.setItem("expertUsed", false);
-//           localStorage.setItem("expertAnsUsed", true);
-//           expertAnsText.textContent = "usedUp 🚫";
-//           expertAnsText.style.color = "red";
-//           window.scrollTo({ top: 0, behavior: "smooth" });
-//           localStorage.setItem("expertAnsBought", "true");
-//           disableHintModalOpt();
-//           playCoinPurchaseSound();
-
-//           allHintsUsedNow();
-//           setTimeout(() => {
-//             getAHintModal.style.display = "none";
-//           }, 1000);
-//         }
-//       }
-
-//       // ANOTHER QUESTION
-//       if (hintModalOption.classList.contains("anotherQuestion")) {
-//         if (hintMode === "coin") {
-//           if (savedCoins >= 1000) {
-//             savedCoins -= 1000;
-//             localStorage.setItem("coinCount", savedCoins);
-//             coinNum.textContent = savedCoins;
-//             localStorage.setItem("anotherQuestionUsed", false);
-
-//             anotherQuestionText.textContent = "usedUp 🚫";
-//             anotherQuestionText.style.color = "red";
-//             localStorage.setItem("anotherQuestionBought", "true");
-//             coinNum.classList.add("coin-num1");
-//             coinsMaxDisplay.classList.remove("displayMax");
-//             window.scrollTo({ top: 0, behavior: "smooth" });
-//             disableHintModalOpt();
-//             playCoinPurchaseSound();
-//             allHintsUsedNow();
-//             setTimeout(() => {
-//               getAHintModal.style.display = "none";
-//             }, 1000);
-//           } else {
-//             alert("Not Enough Coins to get another Question 💔");
-//             playPurchaseFailSound();
-//           }
-//         } else if (hintMode === "ad") {
-//           localStorage.setItem("anotherQuestionUsed", false);
-//           localStorage.setItem("anotherQuestionHintUsed", true);
-//           anotherQuestionText.textContent = "usedUp 🚫";
-//           anotherQuestionText.style.color = "red";
-//           localStorage.setItem("anotherQuestionBought", "true");
-//           window.scrollTo({ top: 0, behavior: "smooth" });
-//           disableHintModalOpt();
-//           playCoinPurchaseSound();
-
-//           allHintsUsedNow();
-//           setTimeout(() => {
-//             getAHintModal.style.display = "none";
-//           }, 1000);
-//         }
-//       }
-//     });
-//   });
-// }
 
 function updateHintModalOptionsState() {
   // Remove all previous listeners by cloning each node
@@ -784,11 +646,6 @@ function handleAdEnded() {
     // Now in handleAdEnded, call:
     adCoinIncrease(lastAdBtnId);
     getHintAd(lastAdBtnId);
-    //  else if (watchAdBtn.id === "oneLifeAdBtn") {
-    //   localStorage.setItem("playCoinSound", "true");
-    //   currentHeartNum += 1;
-    //   heartText.textContent = currentHeartNum;
-    //   localStorage.setItem("heartNum", currentHeartNum);
 
     modalFooter.style.display = "none";
     if (savedMusicState === "playing") {
@@ -896,12 +753,7 @@ watchAdBtns.forEach((watchAdBtn) => {
           } else {
             backgroundMusic.pause();
           }
-          // if (watchAdBtn.id === "oneLifeAdBtn") {
-          //   localStorage.setItem("playCoinSound", "true");
-          //   currentHeartNum += 1;
-          //   heartText.textContent = currentHeartNum;
-          //   localStorage.setItem("heartNum", currentHeartNum);
-          // }
+
           adCoinIncrease(lastAdBtnId);
           getHintAd(lastAdBtnId);
           disableGetCoins();
@@ -910,10 +762,6 @@ watchAdBtns.forEach((watchAdBtn) => {
             playCoinPurchaseSoundAd();
           }
           clearInterval(adTimer);
-          // setTimeout(() => {
-          //   window.location.reload();
-          // }, 1000);
-          // Stop the timer
         });
         modalFooter.addEventListener("click", () => {
           adModal.style.display = "none";
@@ -926,12 +774,6 @@ watchAdBtns.forEach((watchAdBtn) => {
           } else {
             backgroundMusic.pause();
           }
-          // if (watchAdBtn.id === "oneLifeAdBtn") {
-          //   localStorage.setItem("playCoinSound", "true");
-          //   currentHeartNum += 1;
-          //   heartText.textContent = currentHeartNum;
-          //   localStorage.setItem("heartNum", currentHeartNum);
-          // }
 
           adCoinIncrease(lastAdBtnId);
           getHintAd(lastAdBtnId);
@@ -941,9 +783,6 @@ watchAdBtns.forEach((watchAdBtn) => {
             playCoinPurchaseSoundAd();
           }
           clearInterval(adTimer);
-          // setTimeout(() => {
-          //   window.location.reload();
-          // }, 1000);
         });
 
         // Start the ad sequence
@@ -1057,41 +896,6 @@ allHintsCoin.addEventListener("click", () => {
   }
 });
 
-// allHintsLife.addEventListener("click", () => {
-//   const fiftyFiftyUsed = localStorage.getItem("fiftyFiftyUsed");
-//   const expertUsed = localStorage.getItem("expertUsed");
-//   const anotherQuestionUsed = localStorage.getItem("anotherQuestionUsed");
-//   let currentHeartNum = parseInt(localStorage.getItem("heartNum"));
-//   if (currentHeartNum === null || isNaN(currentHeartNum)) {
-//     currentHeartNum = 5;
-//     localStorage.setItem("heartNum", currentHeartNum);
-//   }
-
-//   if (currentHeartNum >= 5) {
-//     if (
-//       fiftyFiftyUsed === "true" ||
-//       expertUsed === "true" ||
-//       anotherQuestionUsed === "true"
-//     ) {
-//       localStorage.setItem("fiftyFiftyUsed", "false");
-//       localStorage.setItem("expertUsed", "false");
-//       localStorage.setItem("anotherQuestionUsed", "false");
-//       currentHeartNum -= 5;
-//       heartText.textContent = currentHeartNum;
-//       localStorage.setItem("heartNum", currentHeartNum);
-//       // disableGetHearts();
-//       disableGetCoins();
-//       playCoinPurchaseSound();
-//       disableHints();
-//     } else {
-//       disableHints();
-//     }
-//   } else {
-//     alert("Not Enough hearts to get All hints ");
-//     playPurchaseFailSound();
-//   }
-// });
-
 footerIcons.forEach((footerIcon) => {
   footerIcon.addEventListener("click", () => {
     setTimeout(() => {
@@ -1145,6 +949,6 @@ function resetHints() {
   localStorage.removeItem("expertAnsUsed");
 }
 
-resetCoinCount();
-resetHeartNum();
-resetTimer();
+// resetCoinCount();
+// resetHeartNum();
+// resetTimer();
