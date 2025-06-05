@@ -414,9 +414,9 @@ body {
   color: rgb(230, 1, 1);
 }
 .questionNumBox {
-  padding: 0 3rem;
+  padding: 0 1rem;
   width: 100%;
-
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -606,9 +606,9 @@ body {
 .secondChanceModalContainer,
 .quitEarlyModalContainer {
   background-color: rgb(73, 69, 75);
-  margin: 5% auto;
+  margin: 15% auto;
   padding: 1rem;
-  width: 60%;
+  width: 80%;
   border-radius: 1rem;
   text-align: center;
   position: relative;
@@ -1082,5 +1082,8 @@ body {
   .coins {
     margin-right: 1rem;
     margin-bottom: 0;
+  }
+  .questionNumBox {
+    width: 80%;
   }
 }
