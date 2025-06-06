@@ -15,6 +15,10 @@ body {
 
   /* height: 110vh; */
 }
+
+.noCopy {
+  user-select: none;
+}
 .storeDescription {
   display: flex;
   flex-direction: row;

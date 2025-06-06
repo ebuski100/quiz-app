@@ -131,12 +131,14 @@ body {
 }
 .nickname {
   display: block;
+  user-select: none;
 }
 .nickName {
   border: none;
   border-bottom: 1px solid blue;
   width: 100%;
   padding: 0 0.5rem;
+
   outline: none;
   font-family: cursive;
   font-size: 1rem;
@@ -189,6 +191,8 @@ body {
 .gender {
   margin-bottom: 1rem;
   width: 100%;
+  user-select: none;
+  /* color: yellow; */
   /* border-bottom: 1px solid blue; */
 }
 

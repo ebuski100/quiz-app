@@ -81,7 +81,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+.noCopy {
+  user-select: none;
+}
 .coins,
 .heart {
   display: flex;
@@ -146,7 +148,7 @@ body {
   background-color: hsla(300, 12%, 94%, 0.856);
   padding: 3px 5px 3px 7px;
   height: 2.7rem;
-  width: 3rem;
+  width: 3.2rem;
 
   border-radius: 0.5rem;
   margin-right: 0.5rem;
@@ -354,6 +356,7 @@ body {
   width: 100%;
   margin-top: 5px;
   padding: 0.5rem;
+  user-select: none;
   flex-direction: column;
 }
 .resultMessage {
@@ -410,6 +413,7 @@ body {
   color: #fff;
   border-radius: 1rem;
   flex-grow: 2;
+  user-select: none;
 }
 
 .options-cont {

@@ -201,6 +201,7 @@ body {
 .profile-username {
   color: #10069c;
   font-weight: bold;
+  user-select: none;
 }
 
 .editIcon {

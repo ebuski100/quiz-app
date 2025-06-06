@@ -37,6 +37,9 @@ body {
   align-items: center;
 }
 
+.noCopy {
+  user-select: none;
+}
 .btns {
   padding: 0.5rem;
   color: #fff;

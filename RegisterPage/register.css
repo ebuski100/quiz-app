@@ -35,7 +35,9 @@ body {
   border-radius: 0.5rem;
   background: linear-gradient(120deg, blue, purple);
 }
-
+.noCopy {
+  user-select: none;
+}
 .formBody {
   background-color: #fff;
   display: flex;
