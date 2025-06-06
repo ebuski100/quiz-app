@@ -187,10 +187,12 @@ body {
   margin-right: 0.5rem;
   box-shadow: 0 3px 3px rgb(68, 67, 67);
 }
-.quizinvite:hover {
+.quizinvite:hover,
+.setting-icon:hover {
   transform: scale(1.05);
 }
-.quizinvite:active {
+.quizinvite:active,
+.setting-icon:active {
   transform: scale(1.1) translateX(2px) translateY(2px);
 }
 

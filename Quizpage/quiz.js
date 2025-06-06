@@ -168,7 +168,9 @@ pauseTimeNum.textContent = pauseTimeCount;
 
 quizSetting.addEventListener("click", () => {
   localStorage.setItem("hasAnswered", "true");
-  location.href = base + "SettingsPage/setting.html";
+  setTimeout(() => {
+    location.href = base + "SettingsPage/setting.html";
+  }, 200);
 });
 if (currentHeartNum === null || isNaN(currentHeartNum)) {
   currentHeartNum = 5; // Set to 5 only if heartNum is not defined
@@ -1242,7 +1244,7 @@ function playCoinPurchaseSound() {
       coinSound.play().catch((error) => {
         console.error("Error playing coin sound:", error);
       });
-    }, 2000);
+    }, 1000);
   }
 }
 function playPurchaseFailSound() {
@@ -1256,21 +1258,6 @@ function playPurchaseFailSound() {
     }, 300);
   }
 }
-
-const settingsBtns = document.querySelectorAll(".settingsBtn");
-
-settingsBtns.forEach((settingsBtn) => {
-  settingsBtn.addEventListener("click", () => {
-    if (soundState === "on") {
-      soundEffect.currentTime = 0;
-      soundEffect.play();
-    }
-    setTimeout(() => {
-      location.href = base + "SettingsPage/setting.html";
-    }, 1000);
-  });
-});
-
 // disablePauseTimer();
 resumeQuizTimer();
 loadHints();

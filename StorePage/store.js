@@ -889,7 +889,7 @@ footerIcons.forEach((footerIcon) => {
       } else {
         window.location.href = base + "StorePage/store.html";
       }
-    }, 100);
+    }, 200);
   });
 });
 
@@ -930,6 +930,7 @@ function resetHints() {
   localStorage.removeItem("expertAnsUsed");
 }
 
-resetCoinCount();
-resetHeartNum();
-resetTimer();
+// resetCoinCount();
+// resetHeartNum();
+// resetTimer();
+//
