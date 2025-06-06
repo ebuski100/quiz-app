@@ -144,16 +144,6 @@ if (anotherQuestionBought === "true") {
   anotherQuestionText.style.color = "red";
 }
 
-// if (adHintCount >= 3) {
-//   allHintsAdBtn.style.pointerEvents = "none";
-//   allHintsAdBtn.style.opacity = "0.5";
-//   allHintsAdBtn.style.backgroundColor = "grey";
-// } else {
-//   allHintsAdBtn.style.pointerEvents = "auto";
-//   allHintsAdBtn.style.opacity = "1";
-//   allHintsAdBtn.style.backgroundColor = "";
-// }
-
 function allHintsUsedNow() {
   const fiftyFiftyUsedNow = localStorage.getItem("fiftyFiftyUsed");
   const expertUsedNow = localStorage.getItem("expertUsed");
@@ -255,8 +245,9 @@ coinAnsTime.addEventListener("click", () => {
 
     alert("5x pause time activated for this game! 🎉");
     coinsMaxDisplay.classList.remove("displayMax");
-    disableAnsTime();
     playCoinPurchaseSound();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    disableAnsTime();
   } else {
     alert("Not Enough coins to get quiz Pauses, Dear");
     playPurchaseFailSound();
@@ -273,7 +264,7 @@ function playCoinPurchaseSound() {
       coinSound.play().catch((error) => {
         console.error("Error playing coin sound:", error);
       });
-    }, 2000);
+    }, 500);
   }
 }
 function playCoinPurchaseSoundAd() {
@@ -400,13 +391,15 @@ function updateHintModalOptionsState() {
             coinsMaxDisplay.classList.remove("displayMax");
             disableHintModalOpt();
             window.scrollTo({ top: 0, behavior: "smooth" });
-            playCoinPurchaseSound();
+            setTimeout(() => {
+              playCoinPurchaseSound();
+            }, 1000);
             allHintsUsedNow();
             setTimeout(() => {
               getAHintModal.style.display = "none";
             }, 1000);
           } else {
-            alert("Not Enough Coins to get a fifty Percent Hint 💔");
+            alert("Not Enough Coins to get a fifty Percent Hint 💔 ");
             playPurchaseFailSound();
           }
         } else if (hintMode === "ad") {
@@ -416,7 +409,9 @@ function updateHintModalOptionsState() {
           localStorage.setItem("fiftyHintBought", "true");
           window.scrollTo({ top: 0, behavior: "smooth" });
           disableHintModalOpt();
-          playCoinPurchaseSound();
+          setTimeout(() => {
+            playCoinPurchaseSound();
+          }, 1000);
           allHintsUsedNow();
           setTimeout(() => {
             getAHintModal.style.display = "none";
@@ -440,7 +435,9 @@ function updateHintModalOptionsState() {
             coinsMaxDisplay.classList.remove("displayMax");
             window.scrollTo({ top: 0, behavior: "smooth" });
             disableHintModalOpt();
-            playCoinPurchaseSound();
+            setTimeout(() => {
+              playCoinPurchaseSound();
+            }, 1000);
             allHintsUsedNow();
             setTimeout(() => {
               getAHintModal.style.display = "none";
@@ -457,7 +454,9 @@ function updateHintModalOptionsState() {
           window.scrollTo({ top: 0, behavior: "smooth" });
           localStorage.setItem("expertAnsBought", "true");
           disableHintModalOpt();
-          playCoinPurchaseSound();
+          setTimeout(() => {
+            playCoinPurchaseSound();
+          }, 1000);
           allHintsUsedNow();
           setTimeout(() => {
             getAHintModal.style.display = "none";
@@ -480,7 +479,9 @@ function updateHintModalOptionsState() {
             coinsMaxDisplay.classList.remove("displayMax");
             window.scrollTo({ top: 0, behavior: "smooth" });
             disableHintModalOpt();
-            playCoinPurchaseSound();
+            setTimeout(() => {
+              playCoinPurchaseSound();
+            }, 1000);
             allHintsUsedNow();
             setTimeout(() => {
               getAHintModal.style.display = "none";
@@ -497,7 +498,9 @@ function updateHintModalOptionsState() {
           localStorage.setItem("anotherQuestionBought", "true");
           window.scrollTo({ top: 0, behavior: "smooth" });
           disableHintModalOpt();
-          playCoinPurchaseSound();
+          setTimeout(() => {
+            playCoinPurchaseSound();
+          }, 1000);
           allHintsUsedNow();
           setTimeout(() => {
             getAHintModal.style.display = "none";
@@ -527,14 +530,13 @@ coinOptions.forEach((coinOpt) => {
         }
 
         const updatedCoins = currentCoins + 1000;
-
+        window.scrollTo({ top: 0, behavior: "smooth" });
         localStorage.setItem("coinCount", updatedCoins);
         coinNum.textContent = updatedCoins;
         heartNum -= 1;
         heartText.textContent = heartNum;
-        localStorage.setItem("heartNum", heartNum); // Save the
+        localStorage.setItem("heartNum", heartNum);
         disableGetCoins();
-        // disableGetHearts();
 
         heartMaxDisplayer();
         playCoinPurchaseSound();
@@ -543,12 +545,6 @@ coinOptions.forEach((coinOpt) => {
         playPurchaseFailSound();
       }
     } else if (coinOpt.classList.contains("heap")) {
-      // if (infiniteLive) {
-      //   checkInfiniteLife();
-      //   alert("Infinite Life is active. Hearts cannot be used.");
-      //   return;
-      // }
-
       if (heartNum >= 5) {
         if (currentCoins >= 5000) {
           alert("coins at maximum!");
@@ -558,7 +554,7 @@ coinOptions.forEach((coinOpt) => {
         }
         const amountToAdd = 5000;
         addCoins(amountToAdd);
-
+        window.scrollTo({ top: 0, behavior: "smooth" });
         heartNum -= 5;
         heartText.textContent = heartNum;
         localStorage.setItem("heartNum", heartNum);
@@ -609,11 +605,11 @@ function handleAdEnded() {
     alert("Ad ended! Continue to game.");
     adVideo.style.display = "none"; // Hide the video
     cancelAdBtn.style.display = "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
     disableGetCoins();
     if (lastAdBtnId === "few-coinsAdBtn") {
       playCoinPurchaseSoundAd();
     }
-    // Move this to the top-level, outside any event handler:
     function adCoinIncrease(watchAdBtnId) {
       if (watchAdBtnId === "few-coinsAdBtn") {
         let currentCoins = parseInt(coinNum.textContent) || 0;
@@ -633,17 +629,7 @@ function handleAdEnded() {
       }
     }
 
-    // Save the last clicked ad button's id
     let lastAdBtnId = null;
-
-    watchAdBtns.forEach((watchAdBtn) => {
-      watchAdBtn.addEventListener("click", () => {
-        lastAdBtnId = watchAdBtn.id;
-        // ...rest of your code...
-      });
-    });
-
-    // Now in handleAdEnded, call:
     adCoinIncrease(lastAdBtnId);
     getHintAd(lastAdBtnId);
 
@@ -713,41 +699,35 @@ watchAdBtns.forEach((watchAdBtn) => {
         function startAdSequence() {
           totalAdTime = 0;
           cancelButtonShown = false;
-          cancelAdBtn.style.display = "none"; // Hide the cancel button
+          cancelAdBtn.style.display = "none";
           showRandomAd();
         }
-
-        // Format time in MM:SS format
 
         adVideo.addEventListener("loadedmetadata", handleLoadedMetadata);
         adVideo.addEventListener("timeupdate", handleTimeUpdate);
         adVideo.addEventListener("ended", handleAdEnded);
 
-        // Timer to track ad playback time
         const adTimer = setInterval(() => {
           totalAdTime++;
 
-          // Show the cancel button after 40 seconds
           if (totalAdTime >= cancelTime && !cancelButtonShown) {
             cancelAdBtn.style.display = "block";
             cancelButtonShown = true;
             modalFooter.style.display = "block";
           }
 
-          // Stop the timer after 60 seconds
           if (totalAdTime >= maxAdTime) {
             clearInterval(adTimer);
           }
-        }, 1000); // Increment every second
-
-        // Event listener for the cancel button
+        }, 1000);
         cancelAdBtn.addEventListener("click", () => {
           adModal.style.display = "none";
-          adVideo.style.display = "none"; // Hide the video
-          cancelAdBtn.style.display = "none"; // Hide the cancel button
+          adVideo.style.display = "none";
+          cancelAdBtn.style.display = "none";
           adVideo.pause();
           // adVideo.src = "";
           modalFooter.style.display = "none";
+          window.scrollTo({ top: 0, behavior: "smooth" });
           if (savedMusicState === "playing") {
             backgroundMusic.play();
           } else {
@@ -757,18 +737,19 @@ watchAdBtns.forEach((watchAdBtn) => {
           adCoinIncrease(lastAdBtnId);
           getHintAd(lastAdBtnId);
           disableGetCoins();
-          // disableGetHearts();
+
           if (lastAdBtnId === "few-coinsAdBtn") {
             playCoinPurchaseSoundAd();
           }
           clearInterval(adTimer);
         });
+
         modalFooter.addEventListener("click", () => {
           adModal.style.display = "none";
           adVideo.style.display = "none";
           adVideo.pause();
           adVideo.src = "";
-
+          window.scrollTo({ top: 0, behavior: "smooth" });
           if (savedMusicState === "playing") {
             backgroundMusic.play();
           } else {
@@ -778,14 +759,13 @@ watchAdBtns.forEach((watchAdBtn) => {
           adCoinIncrease(lastAdBtnId);
           getHintAd(lastAdBtnId);
           disableGetCoins();
-          // disableGetHearts();
+
           if (lastAdBtnId === "few-coinsAdBtn") {
             playCoinPurchaseSoundAd();
           }
           clearInterval(adTimer);
         });
 
-        // Start the ad sequence
         startAdSequence();
       })
       .catch((error) => console.error("Error loading ads:", error));
@@ -884,6 +864,7 @@ allHintsCoin.addEventListener("click", () => {
       localStorage.setItem("expertUsed", "false");
       localStorage.setItem("anotherQuestionUsed", "false");
       // disableGetHearts();
+      window.scrollTo({ top: 0, behavior: "smooth" });
       disableGetCoins();
       playCoinPurchaseSound();
       disableHints();
@@ -949,6 +930,6 @@ function resetHints() {
   localStorage.removeItem("expertAnsUsed");
 }
 
-// resetCoinCount();
-// resetHeartNum();
-// resetTimer();
+resetCoinCount();
+resetHeartNum();
+resetTimer();

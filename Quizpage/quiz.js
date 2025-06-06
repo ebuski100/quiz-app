@@ -54,6 +54,10 @@ const closeSecondChanceModal = document.querySelector(
 );
 const savedUsername = localStorage.getItem("username") || "Player";
 const quizSetting = document.getElementById("quizSetting");
+// const savedQuestion = localStorage.getItem("currentQuestion");
+// const savedOptions = localStorage.getItem("currentOptions");
+
+const hasAnswered = localStorage.getItem("hasAnswered");
 const priceAmounts = [
   "#0",
   "#500",
@@ -75,6 +79,7 @@ const priceAmounts = [
 
 const failedUsername = document.querySelector(".failedUsername");
 const congratsUsername = document.querySelector(".congratsUsername");
+const timeupBlock = localStorage.getItem("timeupBlock");
 
 let secondChanceCount =
   parseInt(localStorage.getItem("secondChanceCount")) || 0;
@@ -88,6 +93,11 @@ function pickSecondChanceIndexes(totalQuestions, maxSecondChances) {
   return indexes;
 }
 
+if (timeupBlock) {
+  triggerTimeUpModal();
+} else {
+  timeUpModal.style.display = "none";
+}
 function shouldShowSecondChance(currentPrice, currentHeartNum) {
   const allowedPrices = [
     "#500",
@@ -104,6 +114,7 @@ function shouldShowSecondChance(currentPrice, currentHeartNum) {
     "#100,000",
     "#250,000",
   ];
+
   const secondChanceIndexes =
     JSON.parse(localStorage.getItem("secondChanceIndexes")) || [];
   return (
@@ -144,7 +155,7 @@ shareBtn.addEventListener("click", () => {
   } else {
     // Fallback: copy link to clipboard
     navigator.clipboard.writeText(shareData.url).then(() => {
-      alert("Quiz app link copied to clipboard! Share it with your friends.");
+      alert("Quiz app link copied to clipboard!\n Share it with your friends.");
     });
   }
 });
@@ -156,6 +167,7 @@ if (isNaN(pauseTimeCount)) {
 pauseTimeNum.textContent = pauseTimeCount;
 
 quizSetting.addEventListener("click", () => {
+  localStorage.setItem("hasAnswered", "true");
   location.href = base + "SettingsPage/setting.html";
 });
 if (currentHeartNum === null || isNaN(currentHeartNum)) {
@@ -225,7 +237,6 @@ let attempts = 0;
 let timerInterval;
 const expertAnsBtn = document.querySelector(".call-an-expert");
 
-// const selectedCategory = localStorage.getItem("selectedCategory") || "";
 const selectedDifficulty = localStorage.getItem("selectedDifficulty") || "easy";
 
 anotherQuestion.addEventListener("click", () => {
@@ -239,6 +250,7 @@ anotherQuestion.addEventListener("click", () => {
   localStorage.setItem("anotherQuestionUsed", "true");
 });
 userProfile.addEventListener("click", () => {
+  localStorage.setItem("hasAnswered", "true");
   setTimeout(() => {
     location.href = base + "profilePage/user.html";
   }, 200);
@@ -246,13 +258,13 @@ userProfile.addEventListener("click", () => {
 moreTimeOption.addEventListener("click", () => {
   let pauseTimeCount = parseInt(pauseTimeNum.textContent);
 
-  if (currentCoins >= 5000) {
-    const updatedCoins = currentCoins - 5000;
+  if (currentCoins >= 3000) {
+    const updatedCoins = currentCoins - 3000;
     alert("5X pause Timer activated for this game");
     localStorage.setItem("coinCount", updatedCoins);
     coinNum.textContent = updatedCoins;
     timeUpModal.style.display = "none";
-
+    localStorage.removeItem("timeupBlock");
     pauseTimeCount += 5;
     if (pauseTimeCount > 5) pauseTimeCount = 5;
     pauseTimeNum.textContent = pauseTimeCount;
@@ -266,7 +278,9 @@ moreTimeOption.addEventListener("click", () => {
     localStorage.setItem("disableTimer", "true");
     startTimer();
   } else {
-    alert("Not Enough coins to get Unlimited Time ");
+    alert(
+      "Not Enough coins to get Time Pauses... \n go store, use a heart to buy some coins "
+    );
     playPurchaseFailSound();
   }
 });
@@ -315,7 +329,7 @@ expertAnsBtn.addEventListener("click", () => {
   const correctOption = optionLabels[correctIndex];
 
   // Show the alert with the correct answer
-  alert(`The correct answer is option ${correctOption}`);
+  alert(`According to Experts\nThe correct answer is option ${correctOption}`);
 
   // Disable the button and save its state
   expertAnsBtn.style.backgroundColor = "grey";
@@ -458,6 +472,11 @@ function increasePriceOnSuccess() {
   }
 }
 
+if (hasAnswered === "false") {
+  // currentQuestionIndex++;
+  reducePriceOnFailure();
+  // updateQuestionNumColors();
+}
 function updateQuestionNumColors(currentQuestionIndex, isCorrect) {
   let questionStates = JSON.parse(localStorage.getItem("questionStates")) || [];
 
@@ -532,18 +551,23 @@ setTimeout(() => {
   let index = 0;
   const interval = setInterval(() => {
     if (index < currentPrice.length) {
-      priceTag.textContent += currentPrice[index]; // Add one character at a time
+      priceTag.textContent += currentPrice[index];
       index++;
     } else {
-      clearInterval(interval); // Stop the animation when done
+      clearInterval(interval);
     }
-  }, 100); // Adjust the speed (100ms per character)
+  }, 100);
 }, 500);
 
 let url = `https://opentdb.com/api.php?amount=15&type=multiple&difficulty=${selectedDifficulty}`;
-// if (selectedCategory) {
-//   url += `&category=${selectedCategory}`;
-// }
+
+// if (savedQuestion && savedOptions) {
+//   question.textContent = savedQuestion;
+//   options.forEach((option, i) => {
+//     option.textContent = shuffledAnswers[i];
+//     localStorage.setItem("currentOptions", option.textContent);
+//   });
+// } else {
 fetch(url)
   .then((res) => {
     if (!res.ok) {
@@ -560,8 +584,13 @@ fetch(url)
       });
       return;
     }
+    if (currentQuestionIndex > 0) {
+      localStorage.setItem("hasAnswered", "false");
+    }
     question.textContent = decodeHTMLEntities(data.results[0].question);
-    console.log(data.results);
+    console.log(question.textContent);
+
+    // localStorage.setItem("currentQuestion", "true");
     const incorrectAnswers =
       data.results[0].incorrect_answers.map(decodeHTMLEntities);
     correctAnswer = decodeHTMLEntities(data.results[0].correct_answer);
@@ -571,8 +600,13 @@ fetch(url)
 
     options.forEach((option, i) => {
       option.textContent = shuffledAnswers[i];
+      // localStorage.setItem("currentOptions", option.textContent);
+
       option.parentElement.addEventListener("click", () => {
         const isCorrect = shuffledAnswers[i] === correctAnswer;
+        // localStorage.removeItem("currentOptions", option.textContent);
+        // localStorage.removeItem("currentQuestion", question.textContent);
+        localStorage.setItem("hasAnswered", "true");
         if (isCorrect) {
           updateQuestionNumColors(currentQuestionIndex, true);
         } else {
@@ -732,16 +766,14 @@ fetch(url)
       hint.style.pointerEvents = "none";
       hint.style.opacity = "0.5";
     });
-
-    difficulty.style.pointerEvents = "none";
-    difficulty.style.opacity = "0.5";
-    difficulty.style.backgroundColor = "grey";
     disablePauseTimer();
+    localStorage.setItem("hasAnswered", "true");
     question.innerHTML = `<div class="failureMessage">failed to load resource...<br>Refresh Page/ check Network </div>   `;
     console.error(error);
   });
 
 quitBtn.addEventListener("click", () => {
+  localStorage.setItem("hasAnswered", "true");
   setTimeout(() => {
     window.location.href = base + "homepage/home.html";
   }, 200);
@@ -749,6 +781,7 @@ quitBtn.addEventListener("click", () => {
 
 storeBtns.forEach((storeBtn) => {
   storeBtn.addEventListener("click", () => {
+    localStorage.setItem("hasAnswered", "true");
     setTimeout(() => {
       window.location.href = base + "StorePage/store.html";
     }, 200);
@@ -786,6 +819,7 @@ function startTimer() {
 // Function to trigger the timeUpModal
 function triggerTimeUpModal() {
   timeUpModal.style.display = "block";
+  localStorage.setItem("timeupBlock", "true");
 }
 
 let ads = [];
@@ -871,7 +905,12 @@ watchAdBtns.forEach((watchAdBtn) => {
   });
 });
 
+// const navType = performance.getEntriesByType("navigation")[0].type;
+
 adVideo.addEventListener("ended", () => {
+  // if (navType === "reload") {
+  //   alert("finish Ad video to continue game 🙏🏼");
+  // }
   if (totalAdTime < maxAdTime) {
     setTimeout(showRandomAd, 500);
   } else {
@@ -882,6 +921,7 @@ adVideo.addEventListener("ended", () => {
     adModalFooter.style.display = "none";
     if (lastAdBtnId === "timeUpAdbtn") {
       timeUpModal.style.display = "none";
+      localStorage.removeItem("timeupBlock");
     }
     if (lastAdBtnId === "secondChanceAdBtn") {
       secondChanceModal.style.display = "none";
@@ -916,6 +956,7 @@ cancelAdBtn.addEventListener("click", () => {
   else backgroundMusic.pause();
   if (lastAdBtnId === "timeUpAdbtn") {
     timeUpModal.style.display = "none";
+    localStorage.removeItem("timeupBlock");
   }
   if (lastAdBtnId === "secondChanceAdBtn") {
     secondChanceModal.style.display = "none";
@@ -944,6 +985,7 @@ adModalFooter.addEventListener("click", () => {
   else backgroundMusic.pause();
   if (lastAdBtnId === "timeUpAdbtn") {
     timeUpModal.style.display = "none";
+    localStorage.removeItem("timeupBlock");
   }
   if (lastAdBtnId === "secondChanceAdBtn") {
     secondChanceModal.style.display = "none";

@@ -76,6 +76,7 @@ body {
 
   display: flex;
   height: 30%;
+  width: 40%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -144,8 +145,8 @@ body {
 .profile-img {
   background-color: hsla(300, 12%, 94%, 0.856);
   padding: 3px 5px 3px 7px;
-  height: 2rem;
-  max-width: 2rem;
+  height: 2.8rem;
+  max-width: 2.8rem;
 
   border-radius: 0.5rem;
   margin-right: 0.5rem;
@@ -289,6 +290,16 @@ body {
   }
 }
 
+.priceLevelSect {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid yellow; */
+  padding: 1rem;
+  width: 100%;
+}
+
 .pauseTimeNum {
   position: absolute;
   top: -8px;
@@ -391,11 +402,12 @@ body {
   background-color: orange;
   border: 3px solid yellow;
   height: 50px;
-  margin-top: 1rem;
+  margin-right: 1rem;
   width: 300px;
   text-align: center;
   color: #fff;
   border-radius: 1rem;
+  flex-grow: 2;
 }
 
 .options-cont {
@@ -553,7 +565,7 @@ body {
 .secondChanceModalContainer,
 .quitEarlyModalContainer {
   background-color: rgb(73, 69, 75);
-  margin: 15% auto;
+  margin: 5% auto;
   padding: 1rem;
   width: 80%;
   border-radius: 1rem;
