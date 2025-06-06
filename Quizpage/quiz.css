@@ -145,8 +145,8 @@ body {
 .profile-img {
   background-color: hsla(300, 12%, 94%, 0.856);
   padding: 3px 5px 3px 7px;
-  height: 2.8rem;
-  max-width: 2.8rem;
+  height: 2.7rem;
+  width: 3rem;
 
   border-radius: 0.5rem;
   margin-right: 0.5rem;
@@ -694,7 +694,7 @@ body {
 .adClose-modal {
   /* color: red; */
   position: absolute;
-  color: #fff;
+  color: red;
   right: 1rem;
   top: 0.5rem;
   font-size: 28px;
