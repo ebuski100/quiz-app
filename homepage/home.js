@@ -1,10 +1,10 @@
 const dailyFacts = document.querySelector(".facts");
-const key = "bd2DHoYWEBZI3SRst11pdQ==AKpB7FjAFnNsNFiU";
+
 const profileBtn = document.querySelector(".profile");
 
 profileBtn.addEventListener("click", () => {});
 const shareBtn = document.querySelector(".homeInvite");
-const url = `https://api.api-ninjas.com/v1/facts`;
+
 const oldUser = localStorage.getItem("oldUser");
 const userWelcomeMsg = document.querySelector(".userWelcomeMsg");
 const savedUsername = localStorage.getItem("username") || "Player";
@@ -51,12 +51,12 @@ shareBtn.addEventListener("click", (event) => {
   }
 });
 
-const reqOptions = {
-  method: "GET",
-  headers: {
-    "X-Api-Key": key,
-  },
-};
+// const reqOptions = {
+//   method: "GET",
+//   headers: {
+//     "X-Api-Key": key,
+//   },
+// };
 
 fetch(url, reqOptions)
   .then((response) => {
