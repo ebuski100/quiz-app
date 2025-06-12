@@ -10,7 +10,7 @@ const url = `https://api.api-ninjas.com/v1/facts`;
 const reqOptions = {
   method: "GET",
   headers: {
-    "X-Api-Key": key,
+    "X-Api-Key": process.env.API_KEY,
   },
 };
 
@@ -48,4 +48,8 @@ app.get("/api/facts", async (req, res) => {
       console.error("Error:", error);
       // dailyFacts.textContent = "Failed to load facts.";
     });
+});
+
+app.listen(3000, () => {
+  console.log(`server listening on port 3000`);
 });
